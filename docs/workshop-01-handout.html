@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="acmi-work-item" content="sparkhouse-do-greater-workshops-20260720">
+<meta name="acmi-track" content="small-business-ai-acmi">
+<meta name="venue" content="Sparkhouse Charlotte">
+<meta name="ops-contact" content="Amanda">
+<title>Do Greater — Workshop 01 Orientation Handout</title>
+<style>
+  :root {
+    --bg: #f7f9fb;
+    --ink: #1a1f2b;
+    --muted: #4a5568;
+    --accent: #2b6cb0;
+    --mad: #2b6cb0;
+    --easy: #38a169;
+    --acmi: #d69e2e;
+    --integ: #805ad5;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #fff;
+    color: var(--ink);
+    font: 14px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: 28px 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  header {
+    border-left: 6px solid var(--accent);
+    padding: 12px 18px;
+    margin-bottom: 22px;
+  }
+  h1 {
+    font-size: 22px;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  .sub {
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  .meta {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+  }
+  .meta b { color: var(--ink); }
+  h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin: 20px 0 8px;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 4px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .quad {
+    border-radius: 6px;
+    padding: 12px;
+    color: #fff;
+  }
+  .quad.mad   { background: var(--mad); }
+  .quad.easy  { background: var(--easy); }
+  .quad.acmi  { background: var(--acmi); }
+  .quad.integ { background: var(--integ); }
+  .quad h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+    opacity: 0.9;
+  }
+  .quad p {
+    font-size: 12.5px;
+    line-height: 1.45;
+    opacity: 0.95;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  thead {
+    background: var(--bg);
+  }
+  th, td {
+    text-align: left;
+    padding: 7px 9px;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--muted);
+  }
+  .checklist {
+    list-style: none;
+    column-count: 2;
+    column-gap: 22px;
+    font-size: 12.5px;
+  }
+  .checklist li {
+    padding: 4px 0;
+    border-bottom: 1px dashed var(--border);
+    break-inside: avoid;
+  }
+  .checklist li::before {
+    content: "☐ ";
+    color: var(--accent);
+  }
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .week {
+    background: var(--bg);
+    border-radius: 6px;
+    padding: 10px;
+    font-size: 12.5px;
+  }
+  .week h4 {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .example {
+    background: #edf2f7;
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin: 8px 0 14px;
+  }
+  .example b {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 2px;
+  }
+  footer {
+    margin-top: 22px;
+    border-top: 2px solid var(--ink);
+    padding-top: 10px;
+    font-size: 11.5px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .callout {
+    background: #ebf8ff;
+    border-left: 4px solid var(--accent);
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin: 12px 0;
+  }
+  @media print {
+    body { margin: 0; padding: 18px 22px; }
+    .quad, .week, .example { break-inside: avoid; }
+    table { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Do Greater — Workshop 01 Orientation Handout</h1>
+  <div class="sub">Getting Started with AI for Small Business · Sparkhouse Charlotte</div>
+</header>
+
+<div class="meta">
+  <span><b>Duration:</b> 80 minutes</span>
+  <span><b>Format:</b> 4 × 20-min blocks</span>
+  <span><b>Level:</b> Beginner</span>
+  <span><b>Framing:</b> MAD · EASY · ACMI · AI Integration</span>
+</div>
+
+<h2>The Four Quadrants at a Glance</h2>
+<div class="grid">
+  <div class="quad mad">
+    <h3>MAD</h3>
+    <p><b>Manageable Actions &amp; Decisions</b><br/>Break chaotic work into specific steps AI can help execute.</p>
+  </div>
+  <div class="quad easy">
+    <h3>EASY</h3>
+    <p><b>Exploratory AI for Simple Yield</b><br/>Quick, low-stakes tasks with visible results in under 5 minutes.</p>
+  </div>
+  <div class="quad acmi">
+    <h3>ACMI</h3>
+    <p><b>Persistent AI Memory &amp; Context</b><br/>Profiles, signals, and timelines that stop AI from starting from scratch.</p>
+  </div>
+  <div class="quad integ">
+    <h3>AI Integration</h3>
+    <p><b>Autonomous Workflows</b><p>Connected, tracked processes that operate continuously with minimal input.</p>
+  </div>
+</div>
+
+<h2>Five EASY Tasks to Try This Week</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Task</th>
+      <th>Input</th>
+      <th>Output</th>
+      <th>Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Customer reply draft</td>
+      <td>Paste a customer question</td>
+      <td>Professional response</td>
+      <td>5 min</td>
+    </tr>
+    <tr>
+      <td>Social caption batch</td>
+      <td>Product or service description</td>
+      <td>5 captions for IG/LinkedIn</td>
+      <td>5 min</td>
+    </tr>
+    <tr>
+      <td>Meeting notes cleanup</td>
+      <td>Paste rough notes</td>
+      <td>Polished bullet summary</td>
+      <td>5 min</td>
+    </tr>
+    <tr>
+      <td>FAQ generation</td>
+      <td>3 Q&amp;A pairs</td>
+      <td>Formatted FAQ page</td>
+      <td>5 min</td>
+    </tr>
+    <tr>
+      <td>Invoice follow-up</td>
+      <td>Client name + amount</td>
+      <td>Friendly payment reminder</td>
+      <td>5 min</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Your 30-Day Roadmap</h2>
+<div class="timeline">
+  <div class="week">
+    <h4>Week 1</h4>
+    Complete one EASY task daily. Build the muscle.
+  </div>
+  <div class="week">
+    <h4>Week 2</h4>
+    Template your best EASY task so it's reusable.
+  </div>
+  <div class="week">
+    <h4>Week 3</h4>
+    Seed your ACMI profile with at least 5 fields.
+  </div>
+  <div class="week">
+    <h4>Week 4</h4>
+    Connect ACMI to one existing workflow.
+  </div>
+</div>
+
+<div class="example">
+  <b>Sample Prompt — Customer Reply</b>
+  "You are a customer success rep for a small bakery. A customer wrote: 'My birthday cake order is missing the extra sprinkles I paid for.' Write a warm, professional reply that apologizes, offers a fix, and includes a small goodwill gesture like a free cupcake next visit. Keep it under 100 words."
+</div>
+
+<h2>Your Notes</h2>
+<div style="border:1px dashed #cbd5e0; border-radius:6px; height:180px; margin-bottom:16px; padding:10px;"></div>
+
+<h2>Accountability</h2>
+<div class="callout">
+  <b>Your Week 1 commitment:</b> _________________________________________<br/><br/>
+  <b>Accountability partner:</b> _________________________________________
+</div>
+
+<h2>Materials Checklist</h2>
+<ul class="checklist">
+  <li>Workshop handout printed</li>
+  <li>Laptop + charger</li>
+  <li>Free AI tool account ready</li>
+  <li>Shared roadmap template open</li>
+  <li>One recent customer message to practice with</li>
+  <li>Sticky notes + quadrant cards</li>
+  <li>Name badge visible</li>
+</ul>
+
+<footer>
+  <span>Do Greater · Sparkhouse Charlotte · Workshop 01</span>
+  <span>Facilitator: ________________ &nbsp; Date: ____________</span>
+</footer>
+
+</body>
+</html>
