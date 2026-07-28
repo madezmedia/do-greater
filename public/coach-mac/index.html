@@ -190,6 +190,29 @@
   }
   .stat-block p { margin: 0; max-width: 56ch; font-size: 1.02rem; }
 
+  .quickstart {
+    margin: 0 0 2.8rem;
+    padding: 1.6rem 1.7rem 1.8rem;
+    border: 1px dashed var(--accent-2);
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--accent-2) 6%, transparent);
+  }
+  .quickstart .eyebrow { color: var(--accent-2); }
+  .quickstart h3 {
+    margin: 0.3rem 0 1rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+  .quickstart ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .quickstart li { font-size: 0.98rem; color: var(--ink); }
+  .quickstart li em { font-style: italic; color: var(--accent-ink); }
+
   .findings {
     margin: 2.6rem 0;
     display: flex;
@@ -338,62 +361,77 @@
 
 <main class="read" id="panel-read" role="tabpanel" aria-labelledby="tab-read">
   <span class="folder-tab">For Coach Mac · Do Not Duplicate</span>
-  <h1 class="title display">A few things worth a look before Friday.</h1>
+  <h1 class="title display">I've been paying attention to what you're building.</h1>
   <p class="eyebrow dateline">Charlotte, NC · Sparkhouse Uptown · Fri, Jul 31</p>
   <p class="lede">
-    I'm coming through Friday to watch, not to sell anything. But I spend my
-    days in exactly the stack Do Greater is running on, and a few things
-    jumped out fast. Figured you'd rather hear it from someone in the room
-    than find it in six months. <em>No pitch below — just notes.</em>
+    Sparkhouse Uptown, Code the City, Start Upward, Mobile CRTVLab — that's
+    not a small list for one year. I'm coming through Friday to watch, not
+    to sell anything. But a few things jumped out about what's running
+    under the hood, and I didn't want you finding them the hard way.
+    <em>No pitch below — just notes.</em>
   </p>
 
   <div class="stat-block">
-    <p class="eyebrow">Sitting unclaimed, right now</p>
+    <p class="eyebrow">Designathon teaches kids to build with AI. Meanwhile —</p>
     <p class="stat-number display">$120,000<span style="font-size:0.4em;">/yr</span></p>
     <p>
       Google's Ad Grant gives registered 501(c)(3)s $10k a month in free
-      search ads. Do Greater qualifies and hasn't applied. That's a full
-      year of paid reach, at zero media cost, left on the table.
+      search ads. Do Greater qualifies and hasn't applied — the same tech
+      instinct that runs Code the City hasn't been turned on the
+      organization itself yet.
     </p>
+  </div>
+
+  <div class="quickstart">
+    <p class="eyebrow">Already started for you</p>
+    <h3>The Ad Grant, in three real steps</h3>
+    <ol>
+      <li>Sign up for Google for Nonprofits, verify through TechSoup, then apply for the Ad Grant inside that portal.</li>
+      <li>Wire up GA4 + Google Ads conversion tracking <em>before</em> the first campaign goes live — grant accounts get suspended for weak click-through (under 5%).</li>
+      <li>Build campaigns around specific programs — Start Upward enrollment, Designathon registration, Sparkhouse Coffee — not a broad "donate" ad. Specific ad groups are what keep the account healthy.</li>
+    </ol>
   </div>
 
   <div class="findings">
     <div class="finding">
-      <span class="tag">Site</span>
+      <span class="tag">Reach</span>
       <div>
-        <h3>dogreater.org is working against you</h3>
-        <p>WordPress on Divi, shared Bluehost hosting, no CDN or caching — grades out C- on load performance. Slower site, fewer people stick around to read it.</p>
+        <h3>The site works against the mission it's promoting</h3>
+        <p>dogreater.org runs on WordPress + Divi, shared Bluehost hosting — C- on load performance. Every extra second is a parent or a kid bouncing before they see Start Upward or Designathon registration.</p>
       </div>
     </div>
     <div class="finding">
-      <span class="tag">Search</span>
+      <span class="tag">Discovery</span>
       <div>
-        <h3>Invisible to local search</h3>
-        <p>Google Search Console was never set up, and the Google Business Profile is unclaimed. Anyone searching "youth entrepreneurship Charlotte" isn't finding you first.</p>
+        <h3>5,000–10,000 people a year should be finding you first</h3>
+        <p>That's Sparkhouse Uptown's own target, ages 16-24 — but Search Console was never set up and the Google Business Profile is unclaimed. Someone searching "free entrepreneurship program for teens Charlotte" right now might not find Do Greater at all.</p>
       </div>
     </div>
     <div class="finding">
-      <span class="tag">Social</span>
+      <span class="tag">Audience</span>
       <div>
-        <h3>The audience is elsewhere</h3>
-        <p>YouTube's sitting at ~4 subscribers. No TikTok, and that's exactly where the teens you serve already are. No LinkedIn, where the sponsor conversations happen.</p>
+        <h3>The 16-24 crowd isn't on the channels you're posting to</h3>
+        <p>YouTube's sitting at ~4 subscribers. No TikTok — where that exact audience already lives. No LinkedIn, where the corporate-sponsor conversations happen.</p>
       </div>
     </div>
     <div class="finding">
-      <span class="tag">Follow-up</span>
+      <span class="tag">Pipeline</span>
       <div>
-        <h3>No way to stay in touch</h3>
-        <p>No lead capture, no volunteer signup funnel, no QR or text-to-join at events, no follow-up email after. People have a great time at Sparkhouse and then there's no thread to pull on Monday.</p>
+        <h3>Real foot traffic, no way to follow it</h3>
+        <p>20,000 square feet, Sparkhouse Coffee, the showroom floor — people move through that building every day. No signup funnel, no QR, no post-visit email turns a coffee customer into a Start Upward applicant, or a grad into a returning mentor.</p>
       </div>
     </div>
   </div>
 
   <div class="close">
     <p>
-      None of this needs a retainer to start moving — some of it's a form
-      and an afternoon. I just didn't want you finding it on your own,
-      later, the hard way. If you ever want to talk shop, founder to
-      founder, the door's open.
+      None of this needs a grant or a new hire — some of it's a form and an
+      afternoon, some of it's a Tuesday with someone who's done it before.
+      You walked away from a corporate career to build this — Code the
+      City, Start Upward, Sparkhouse Uptown didn't happen by accident. I
+      just didn't want you finding these gaps a year into Uptown being
+      open. If you ever want to talk shop, founder to founder, the door's
+      open.
     </p>
     <p class="sign">
       — Mikey
@@ -406,37 +444,42 @@
 <div class="watch" id="panel-watch" role="tabpanel" aria-labelledby="tab-watch">
   <div class="slide current" data-slide="0">
     <p class="eyebrow">For Coach Mac</p>
-    <p class="big display">A few things worth a look before Friday.</p>
-    <p class="caption">Charlotte, NC · Sparkhouse Uptown · Fri, Jul 31</p>
+    <p class="big display">I've been paying attention to what you're building.</p>
+    <p class="caption">Sparkhouse Uptown · Code the City · Start Upward — Charlotte, Fri Jul 31</p>
   </div>
   <div class="slide" data-slide="1">
-    <p class="eyebrow">Sitting unclaimed, right now</p>
+    <p class="eyebrow">Designathon teaches kids to build with AI. Meanwhile —</p>
     <p class="big display accent-color">$120,000/yr</p>
-    <p class="caption">Google Ad Grants — free search ads for 501(c)(3)s. Do Greater qualifies. No one's applied yet.</p>
+    <p class="caption">Google's Ad Grant — free search ads for 501(c)(3)s. Do Greater qualifies. That instinct hasn't been turned on the org itself yet.</p>
   </div>
   <div class="slide" data-slide="2">
-    <p class="eyebrow">Site</p>
-    <p class="big display">A slow front door.</p>
-    <p class="caption">dogreater.org grades C- on performance — shared hosting, no CDN, no caching.</p>
+    <p class="eyebrow">Already started for you</p>
+    <p class="big display">The Ad Grant, in three steps.</p>
+    <p class="caption">Google for Nonprofits → TechSoup verify → apply. GA4 tracking first. Campaigns per program, not a broad "donate" ad.</p>
   </div>
   <div class="slide" data-slide="3">
-    <p class="eyebrow">Search</p>
-    <p class="big display">Invisible on Google.</p>
-    <p class="caption">No Search Console. Google Business Profile unclaimed. Local search finds someone else first.</p>
+    <p class="eyebrow">Reach</p>
+    <p class="big display">The site works against the mission.</p>
+    <p class="caption">dogreater.org grades C- on performance. Every extra second is a parent bouncing before they see Start Upward.</p>
   </div>
   <div class="slide" data-slide="4">
-    <p class="eyebrow">Social</p>
-    <p class="big display">The audience is elsewhere.</p>
-    <p class="caption">~4 YouTube subscribers. No TikTok, where the teens already are. No LinkedIn, where the sponsors are.</p>
+    <p class="eyebrow">Discovery</p>
+    <p class="big display">5,000–10,000 a year should find you first.</p>
+    <p class="caption">Sparkhouse Uptown's own target, ages 16-24. Search Console never set up. Business Profile unclaimed.</p>
   </div>
   <div class="slide" data-slide="5">
-    <p class="eyebrow">Follow-up</p>
-    <p class="big display">Great visit, then gone.</p>
-    <p class="caption">No signup funnel, no QR, no post-event email. Nothing to pull on Monday.</p>
+    <p class="eyebrow">Audience</p>
+    <p class="big display">The 16-24 crowd isn't where you're posting.</p>
+    <p class="caption">~4 YouTube subscribers. No TikTok, where they already are. No LinkedIn, where the sponsors are.</p>
   </div>
   <div class="slide" data-slide="6">
+    <p class="eyebrow">Pipeline</p>
+    <p class="big display">Real foot traffic, no way to follow it.</p>
+    <p class="caption">20,000 sq ft, Sparkhouse Coffee, the showroom floor. No signup funnel turns a visitor into an applicant.</p>
+  </div>
+  <div class="slide" data-slide="7">
     <p class="eyebrow">No pitch here</p>
-    <p class="big display">Just didn't want you finding this later.</p>
+    <p class="big display">You didn't build this by accident.</p>
     <p class="caption">Talk shop sometime, founder to founder. — Mikey, Madez Media</p>
   </div>
 
