@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Do Greater — MAD, EASY, ACMI + AI Integration Workshops</title>
+  <title>Do Greater × Madez Media</title>
   <style>
     :root {
       --ink: #111827;
@@ -13,65 +13,161 @@
       --accent: #2563eb;
       --accent-light: #eff6ff;
       --surface: #ffffff;
+      --warm: #b45309;
+      --warm-light: #fffbeb;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
+        --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
+        --warm: #f0b862; --warm-light: #241d0f;
+      }
+    }
+    :root[data-theme="dark"] {
+      --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
+      --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
+      --warm: #f0b862; --warm-light: #241d0f;
+    }
+    :root[data-theme="light"] {
+      --ink: #111827; --muted: #4b5563; --line: #d1d5db; --bg: #f9fafb;
+      --accent: #2563eb; --accent-light: #eff6ff; --surface: #ffffff;
+      --warm: #b45309; --warm-light: #fffbeb;
     }
     * { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 0; }
-    header { background: linear-gradient(180deg, rgba(37,99,235,0.08), rgba(37,99,235,0)); padding: 56px 24px 64px; }
-    .container { max-width: 1000px; margin: 0 auto; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 0; line-height: 1.55; }
+    a { color: var(--accent); }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+    header { background: linear-gradient(180deg, rgba(37,99,235,0.08), transparent); padding: 56px 24px 48px; }
     h1 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 14px; line-height: 1.1; letter-spacing: -0.4px; }
-    .lead { font-size: 18px; color: var(--muted); max-width: 720px; line-height: 1.5; }
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 32px; }
-    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
-    .card h3 { margin: 0 0 6px; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); }
-    .card p { margin: 0; font-size: 15px; }
-    .cta { margin-top: 40px; display: inline-flex; gap: 12px; flex-wrap: wrap; }
-    .btn { background: var(--accent); color: #fff; padding: 12px 16px; border-radius: 10px; text-decoration: none; font-weight: 600; }
-    .btn.secondary { background: var(--surface); color: var(--ink); border: 1px solid var(--line); }
-    footer { margin-top: 80px; padding: 24px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--line); }
+    .lead { font-size: 18px; color: var(--muted); max-width: 680px; }
+
+    section.track { padding: 44px 0; border-top: 1px solid var(--line); }
+    .track-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+    .track-head h2 { margin: 0; font-size: 24px; letter-spacing: -0.2px; }
+    .track-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
+    .track-eyebrow.formal { color: var(--accent); }
+    .track-eyebrow.personal { color: var(--warm); }
+    .track-body { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: start; }
+    @media (max-width: 760px) { .track-body { grid-template-columns: 1fr; } }
+    .track-body p { color: var(--muted); font-size: 15px; margin: 0 0 14px; }
+    .track-body p:last-of-type { margin-bottom: 0; }
+
+    .side-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
+    .side-card.warm { background: var(--warm-light); border-color: color-mix(in srgb, var(--warm) 30%, var(--line)); }
+    .side-card h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
+    .side-card ul { margin: 0; padding-left: 18px; font-size: 14px; }
+    .side-card li { margin-bottom: 6px; }
+    .side-card li:last-child { margin-bottom: 0; }
+
+    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .btn.warm { background: var(--warm); }
+    .btn.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+
+    .quote-line {
+      font-size: 15px; font-style: italic; color: var(--ink);
+      border-left: 3px solid var(--warm); padding-left: 14px; margin: 16px 0;
+    }
+
+    footer { margin-top: 20px; padding: 24px; color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <h1>Do Greater: Small Business Systems + AI, Made Simple</h1>
-      <p class="lead">A practical workshop series that combines MAD, EASY, and ACMI habits with real AI integration for small business owners who want systems that stick.</p>
-      <div class="cta">
-        <a class="btn" href="https://github.com/madezmedia/do-greater" target="_blank" rel="noopener">View program assets</a>
-        <a class="btn secondary" href="mailto:suesellscarolinas@gmail.com">Contact organizer</a>
-      </div>
-      <div class="cards">
-        <div class="card">
-          <h3>Track</h3>
-          <p>small-business-ai-acmi</p>
-        </div>
-        <div class="card">
-          <h3>Venue</h3>
-          <p>Sparkhouse Charlotte</p>
-        </div>
-        <div class="card">
-          <h3>Ops</h3>
-          <p>Amanda — Do Greater Charlotte</p>
-        </div>
-        <div class="card">
-          <h3>ACMI</h3>
-          <p>v1.5 · madez namespace</p>
-        </div>
-      </div>
+      <h1>Do Greater × Madez Media</h1>
+      <p class="lead">
+        Two ways we show up at Sparkhouse Charlotte — a workshop series for
+        small business owners, and time given directly to the young people
+        Do Greater actually exists for.
+      </p>
     </div>
   </header>
+
   <div class="container">
-    <section style="padding: 48px 24px;">
-      <h2 style="margin: 0 0 12px; font-size: 22px;">What you get</h2>
-      <ul>
-        <li>Workshop 01 orientation: 80-minute live class with 4 hands-on modules</li>
-        <li>Brand voice + positioning brief for consistent messaging</li>
-        <li>One-page schedule/template for intake, pricing, and facilitator checklist</li>
-        <li>Printable participant handout mapped to the Four Quadrants framework</li>
-      </ul>
+
+    <section class="track">
+      <div class="track-head">
+        <span class="track-eyebrow formal">The Workshop Series</span>
+        <h2>Getting Started with AI for Small Business</h2>
+      </div>
+      <div class="track-body">
+        <div>
+          <p>
+            An 80-minute, hands-on session for Charlotte small-business
+            owners — the MAD, EASY, ACMI, and AI Integration framework,
+            five practical AI tasks done live, and a dated 30-day roadmap
+            everyone leaves with. Hosted at Sparkhouse Charlotte, run by
+            Madez Media, coordinated with Amanda.
+          </p>
+          <p>
+            Workshop 01 is the front door to an ongoing series — each
+            session builds on the last cohort's roadmap.
+          </p>
+          <div class="btn-row">
+            <a class="btn" href="/workshops">View the full workshop program</a>
+            <a class="btn secondary" href="mailto:suesellscarolinas@gmail.com">Contact organizer</a>
+          </div>
+        </div>
+        <div class="side-card">
+          <h3>Program facts</h3>
+          <ul>
+            <li>Track: <code>small-business-ai-acmi</code></li>
+            <li>Venue: Sparkhouse Charlotte</li>
+            <li>Cohort: 12 min · 18 optimal · 25 cap</li>
+            <li>ACMI v1.5 · madez namespace</li>
+          </ul>
+        </div>
+      </div>
     </section>
+
+    <section class="track">
+      <div class="track-head">
+        <span class="track-eyebrow personal">Working with the Youth</span>
+        <h2>Time given directly, not billed</h2>
+      </div>
+      <div class="track-body">
+        <div>
+          <p>
+            Do Greater's own mission is about the kids, not the adults in
+            the workshop room — Start Upward, Designathon ("Code the
+            City"), Design to Dollars, Mobile CRTVLab. That's the part of
+            this relationship I actually want to be closest to. I want to
+            volunteer — genuinely, not as a line item — and put time
+            directly into the programs serving the 16-24 crowd Sparkhouse
+            Uptown was built for.
+          </p>
+          <div class="quote-line">
+            "For every young person with a bright spark of hope and a
+            pathway for his or her future, there is another, not so far
+            away, living day to day without the necessities to light his
+            or her own path." — Do Greater
+          </div>
+          <p>
+            This isn't a separate pitch or a second workshop track — it's
+            an open hand. If there's a Designathon cohort that could use
+            an extra mentor, a Start Upward session that needs a hand, or
+            just time on the Sparkhouse floor, I'd rather be there than
+            just adjacent to it.
+          </p>
+        </div>
+        <div class="side-card warm">
+          <h3>Programs I'd want in on</h3>
+          <ul>
+            <li>Start Upward — 10-week entrepreneurship program</li>
+            <li>Designathon: Code the City — AI + design-thinking</li>
+            <li>Design to Dollars Art Camp</li>
+            <li>Mobile CRTVLab — westside Charlotte</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
   </div>
+
   <footer>
-    <div class="container">Do Greater · Madez Media ops · acmi:madez:work:sparkhouse-do-greater-workshops-20260720</div>
+    <div class="container">Do Greater × Madez Media · Sparkhouse Charlotte · acmi:madez:work:sparkhouse-do-greater-workshops-20260720</div>
   </footer>
 </body>
 </html>

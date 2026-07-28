@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="acmi-work-item" content="sparkhouse-do-greater-workshops-20260720">
+<meta name="acmi-track" content="small-business-ai-acmi">
+<title>Getting Started with AI for Small Business — Do Greater Workshops</title>
+<style>
+  :root {
+    --ink: #111827;
+    --muted: #4b5563;
+    --line: #d1d5db;
+    --bg: #f9fafb;
+    --accent: #2563eb;
+    --accent-light: #eff6ff;
+    --surface: #ffffff;
+    --mad: #2b6cb0;
+    --easy: #38a169;
+    --acmi: #d69e2e;
+    --integ: #805ad5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e5e7eb;
+      --muted: #9ca3af;
+      --line: #2d333d;
+      --bg: #0f1216;
+      --accent: #5b9dff;
+      --accent-light: #17233a;
+      --surface: #161b22;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
+    --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
+  }
+  :root[data-theme="light"] {
+    --ink: #111827; --muted: #4b5563; --line: #d1d5db; --bg: #f9fafb;
+    --accent: #2563eb; --accent-light: #eff6ff; --surface: #ffffff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg); color: var(--ink); margin: 0; padding: 0; line-height: 1.55;
+  }
+  a { color: var(--accent); }
+  a:focus-visible, .quad:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .container { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  nav.crumb {
+    padding: 18px 24px; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--line);
+  }
+  nav.crumb a { color: var(--muted); text-decoration: none; }
+  nav.crumb a:hover { color: var(--accent); }
+  header {
+    background: linear-gradient(180deg, var(--accent-light), transparent);
+    padding: 48px 24px 40px;
+  }
+  .eyebrow {
+    text-transform: uppercase; letter-spacing: 1px; font-size: 12px; font-weight: 700;
+    color: var(--accent); margin: 0 0 10px;
+  }
+  h1 { font-size: clamp(28px, 4.5vw, 40px); margin: 0 0 12px; line-height: 1.12; letter-spacing: -0.4px; }
+  .lead { font-size: 17px; color: var(--muted); max-width: 640px; }
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 22px; font-size: 13px; color: var(--muted);
+  }
+  .meta-row b { color: var(--ink); }
+
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  section:first-of-type { border-top: none; }
+  h2 { font-size: 22px; margin: 0 0 6px; letter-spacing: -0.2px; }
+  .section-sub { color: var(--muted); font-size: 14px; margin: 0 0 24px; }
+
+  .quad-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 720px) { .quad-grid { grid-template-columns: repeat(2, 1fr); } }
+  .quad { border-radius: 10px; padding: 16px 16px 18px; color: #fff; }
+  .quad.mad { background: var(--mad); } .quad.easy { background: var(--easy); }
+  .quad.acmi { background: var(--acmi); } .quad.integ { background: var(--integ); }
+  .quad h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; margin: 0 0 6px; opacity: 0.9; }
+  .quad p { font-size: 13px; margin: 0; opacity: 0.96; }
+
+  .flow { display: flex; flex-direction: column; gap: 0; }
+  .block {
+    display: grid; grid-template-columns: 90px 1fr; gap: 18px; padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .block:last-child { border-bottom: none; }
+  .block .time { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; padding-top: 2px; }
+  .block h3 { margin: 0 0 6px; font-size: 16px; }
+  .block p { margin: 0; color: var(--muted); font-size: 14px; }
+  .block .quote {
+    margin-top: 8px; font-size: 13.5px; font-style: italic; color: var(--ink);
+    border-left: 3px solid var(--accent); padding-left: 12px;
+  }
+
+  .roadmap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  @media (max-width: 720px) { .roadmap { grid-template-columns: repeat(2, 1fr); } }
+  .week { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; }
+  .week h4 { margin: 0 0 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); }
+  .week p { margin: 0; font-size: 13.5px; }
+
+  .series-list { display: flex; flex-direction: column; gap: 10px; }
+  .series-item {
+    display: flex; align-items: baseline; gap: 14px; padding: 12px 16px;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+  }
+  .series-item .num { font-weight: 700; color: var(--accent); font-size: 14px; min-width: 22px; }
+  .series-item .name { font-weight: 600; font-size: 14.5px; }
+  .series-item .tag {
+    margin-left: auto; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;
+    color: var(--muted); background: var(--bg); border: 1px solid var(--line);
+    padding: 3px 8px; border-radius: 999px; white-space: nowrap;
+  }
+  .series-item.current { border-color: var(--accent); }
+
+  .logistics-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 720px) { .logistics-grid { grid-template-columns: 1fr; } }
+  .stat-card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px; }
+  .stat-card .num { font-size: 26px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stat-card .label { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+
+  .cta {
+    margin-top: 8px; padding: 22px 24px; background: var(--accent-light);
+    border-radius: 12px; border: 1px solid var(--line);
+  }
+  .cta p { margin: 0 0 14px; font-size: 14.5px; }
+  .btn {
+    display: inline-block; background: var(--accent); color: #fff; padding: 10px 16px;
+    border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px;
+  }
+  footer { padding: 32px 24px 60px; color: var(--muted); font-size: 12.5px; }
+</style>
+</head>
+<body>
+
+<nav class="crumb"><div class="container"><a href="/">← Do Greater × Madez Media</a></div></nav>
+
+<header>
+  <div class="container">
+    <p class="eyebrow">Small Business AI + ACMI · Workshop Series</p>
+    <h1>Getting Started with AI for Small Business</h1>
+    <p class="lead">
+      An 80-minute, hands-on session that gets Charlotte small-business
+      owners from "I've heard of ChatGPT" to a dated 30-day AI plan for
+      their own business — no developer, no budget, no prior AI experience
+      required.
+    </p>
+    <div class="meta-row">
+      <span><b>Venue</b> Sparkhouse Charlotte</span>
+      <span><b>Ops contact</b> Amanda</span>
+      <span><b>Format</b> 4 × 20-min blocks + buffer</span>
+      <span><b>Cohort</b> 12 min · 18 optimal · 25 cap</span>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>The framework: four quadrants, in order</h2>
+    <p class="section-sub">Every session, every task, every roadmap item gets sorted into one of these — deliberately in this sequence, since that's the order participants actually move through it.</p>
+    <div class="quad-grid">
+      <div class="quad mad">
+        <h3>MAD</h3>
+        <p><b>Manageable Actions &amp; Decisions.</b> Break chaotic work into specific steps AI can help execute.</p>
+      </div>
+      <div class="quad easy">
+        <h3>EASY</h3>
+        <p><b>Exploratory AI for Simple Yield.</b> Quick, low-stakes wins with visible results in under 5 minutes.</p>
+      </div>
+      <div class="quad acmi">
+        <h3>ACMI</h3>
+        <p><b>Persistent AI Memory.</b> Profiles, signals, and timelines so AI stops starting from scratch.</p>
+      </div>
+      <div class="quad integ">
+        <h3>AI Integration</h3>
+        <p><b>Autonomous workflows.</b> Connected, tracked processes that run with minimal input.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Inside an 80-minute session</h2>
+    <p class="section-sub">Workshop 01 — the entry point every new cohort starts with.</p>
+    <div class="flow">
+      <div class="block">
+        <div class="time">0:00–0:20</div>
+        <div>
+          <h3>Welcome &amp; the four quadrants</h3>
+          <p>Orient the room to MAD / EASY / ACMI / AI Integration. Each owner writes one real, repetitive task from their own business on a sticky note and places it on the board.</p>
+          <div class="quote">"Notice how most sticky notes land in MAD or EASY first. That's normal — ACMI and AI Integration are where we move things over time, not week one."</div>
+        </div>
+      </div>
+      <div class="block">
+        <div class="time">0:20–0:40</div>
+        <div>
+          <h3>EASY in action — your first five wins</h3>
+          <p>Live, on their own laptop: a customer reply draft, a batch of social captions, meeting-notes cleanup, an FAQ, or an invoice follow-up — each under 5 minutes, done for real before they leave the room.</p>
+        </div>
+      </div>
+      <div class="block">
+        <div class="time">0:40–1:00</div>
+        <div>
+          <h3>ACMI — giving AI a memory</h3>
+          <p>Most AI interactions are amnesic — brand voice, customer list, pricing, all forgotten every session. Owners draft the first section of their own persistent business profile: name, audience, voice, top services, "never say" rules.</p>
+        </div>
+      </div>
+      <div class="block">
+        <div class="time">1:00–1:20</div>
+        <div>
+          <h3>30-day roadmap &amp; closing commitment</h3>
+          <p>Every owner leaves with a dated, four-week plan and one accountability partner picked from the room — not a stack of theory, a specific Monday-morning task.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What they leave with</h2>
+    <p class="section-sub">The roadmap structure every participant fills in before they walk out.</p>
+    <div class="roadmap">
+      <div class="week"><h4>Week 1</h4><p>One EASY task daily — build the muscle.</p></div>
+      <div class="week"><h4>Week 2</h4><p>Template the best EASY task so it's reusable.</p></div>
+      <div class="week"><h4>Week 3</h4><p>Seed an ACMI profile — at least 5 fields.</p></div>
+      <div class="week"><h4>Week 4</h4><p>Connect ACMI to one existing workflow.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Part of a series, not a one-off</h2>
+    <p class="section-sub">Workshop 01 is the front door. Each session builds on the last cohort's roadmap.</p>
+    <div class="series-list">
+      <div class="series-item current"><span class="num">01</span><span class="name">Getting Started with AI for Small Business</span><span class="tag">This page</span></div>
+      <div class="series-item"><span class="num">02</span><span class="name">MAD — Mapping Your Workflows</span><span class="tag">Next up</span></div>
+      <div class="series-item"><span class="num">03</span><span class="name">Prompt Craft for EASY Tasks</span><span class="tag">Planned</span></div>
+      <div class="series-item"><span class="num">04</span><span class="name">Data Hygiene &amp; Customer Trust</span><span class="tag">Planned</span></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Program logistics</h2>
+    <div class="logistics-grid">
+      <div class="stat-card"><div class="num">12–25</div><div class="label">Cohort size (min–cap)</div></div>
+      <div class="stat-card"><div class="num">80 min</div><div class="label">Per session, 4 blocks</div></div>
+      <div class="stat-card"><div class="num">v1.5</div><div class="label">ACMI protocol, madez namespace</div></div>
+    </div>
+    <div class="cta" style="margin-top: 18px;">
+      <p>Run by Madez Media, hosted at Sparkhouse Charlotte. Amanda coordinates room setup, A/V, and sign-in — reach out to her to slot a business owner into the next cohort.</p>
+      <a class="btn" href="mailto:suesellscarolinas@gmail.com">Ask about the next session</a>
+    </div>
+  </section>
+
+</div>
+
+<footer><div class="container">Do Greater × Madez Media · Small Business AI + ACMI Workshop Series · Sparkhouse Charlotte</div></footer>
+
+</body>
+</html>
