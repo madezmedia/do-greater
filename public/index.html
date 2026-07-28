@@ -71,6 +71,10 @@
     }
 
     footer { margin-top: 20px; padding: 24px; color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); }
+    .internal-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 10px; }
+    .internal-links a { color: var(--muted); text-decoration: none; }
+    .internal-links a:hover { color: var(--accent); text-decoration: underline; }
+    .internal-links .sep { color: var(--line); }
   </style>
 </head>
 <body>
@@ -159,7 +163,18 @@
   </div>
 
   <footer>
-    <div class="container">Do Greater × Madez Media · Sparkhouse Charlotte · acmi:madez:work:sparkhouse-do-greater-workshops-20260720</div>
+    <div class="container">
+      <div class="internal-links">
+        <a href="/workshops">Workshop program</a>
+        <span class="sep">·</span>
+        <a href="/coach-mac">Coach Mac founder brief</a>
+        <span class="sep">·</span>
+        <a href="/tech-audit">Tech / AEO / GEO / sentiment audit</a>
+        <span class="sep">·</span>
+        <a href="/infra-grants">Infra + grants brief</a>
+      </div>
+      <div>Do Greater × Madez Media · Sparkhouse Charlotte · acmi:madez:work:sparkhouse-do-greater-workshops-20260720</div>
+    </div>
   </footer>
 </body>
 </html>
