@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Field Notes — For Coach Mac</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8B%3C/text%3E%3C/svg%3E" />
+<style>
+  :root {
+    --paper: #eeece2;
+    --ink: #1c2430;
+    --ink-soft: #454e40;
+    --accent: #b9812a;
+    --accent-ink: #4a3210;
+    --accent-2: #3c5a73;
+    --line: rgba(28, 36, 48, 0.16);
+    --tag-bg: rgba(60, 90, 115, 0.1);
+    --card: #f7f5ec;
+    --shadow: rgba(28, 24, 12, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #14181c;
+      --ink: #e9e6da;
+      --ink-soft: #b9c2b2;
+      --accent: #d9a03c;
+      --accent-ink: #2a1c08;
+      --accent-2: #7fa0b6;
+      --line: rgba(233, 230, 218, 0.16);
+      --tag-bg: rgba(127, 160, 182, 0.14);
+      --card: #1b2024;
+      --shadow: rgba(0, 0, 0, 0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #14181c;
+    --ink: #e9e6da;
+    --ink-soft: #b9c2b2;
+    --accent: #d9a03c;
+    --accent-ink: #2a1c08;
+    --accent-2: #7fa0b6;
+    --line: rgba(233, 230, 218, 0.16);
+    --tag-bg: rgba(127, 160, 182, 0.14);
+    --card: #1b2024;
+    --shadow: rgba(0, 0, 0, 0.4);
+  }
+  :root[data-theme="light"] {
+    --paper: #eeece2;
+    --ink: #1c2430;
+    --ink-soft: #454e40;
+    --accent: #b9812a;
+    --accent-ink: #4a3210;
+    --accent-2: #3c5a73;
+    --line: rgba(28, 36, 48, 0.16);
+    --tag-bg: rgba(60, 90, 115, 0.1);
+    --card: #f7f5ec;
+    --shadow: rgba(28, 24, 12, 0.14);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Charter, "Iowan Old Style", "Palatino Linotype", "Georgia", serif;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .display {
+    font-family: "Arial Narrow", "Helvetica Neue Condensed", "Helvetica Neue", Arial, sans-serif;
+    font-stretch: condensed;
+  }
+
+  .eyebrow {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+  }
+
+  a { color: var(--accent-ink); }
+  a:focus-visible, button:focus-visible, .tab:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 3px;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1.25rem;
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .mark {
+    font-family: "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    font-size: 1rem;
+  }
+  .tabs {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 0.2rem;
+  }
+  .tab {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border: none;
+    background: transparent;
+    color: var(--ink-soft);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .tab[aria-selected="true"] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+
+  main.read {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2.75rem 1.5rem 5rem;
+  }
+  .folder-tab {
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: var(--tag-bg);
+    border: 1px solid var(--line);
+    padding: 0.3rem 0.7rem;
+    border-radius: 3px;
+    transform: rotate(-1deg);
+    margin-bottom: 1.4rem;
+  }
+  h1.title {
+    font-size: clamp(2.2rem, 6vw, 3.1rem);
+    line-height: 1.02;
+    margin: 0 0 0.5rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .dateline { margin: 0 0 2.1rem; }
+  .lede {
+    font-size: 1.14rem;
+    max-width: 62ch;
+    color: var(--ink);
+  }
+  .lede em { font-style: italic; color: var(--ink-soft); }
+
+  .stat-block {
+    margin: 2.6rem 0 2.8rem;
+    padding: 1.9rem 1.7rem;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    box-shadow: 0 8px 24px -16px var(--shadow);
+  }
+  .stat-block .eyebrow { color: var(--accent-ink); }
+  .stat-number {
+    font-family: "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.6rem, 9vw, 4.2rem);
+    color: var(--accent);
+    line-height: 1;
+    margin: 0.35rem 0 0.6rem;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+  .stat-block p { margin: 0; max-width: 56ch; font-size: 1.02rem; }
+
+  .findings {
+    margin: 2.6rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .finding {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 1.1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+  }
+  .finding:first-child { border-top: none; padding-top: 0; }
+  .finding .tag {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent-2);
+    padding-top: 0.2rem;
+  }
+  .finding h3 { margin: 0 0 0.3rem; font-size: 1.15rem; font-weight: 700; }
+  .finding p { margin: 0; color: var(--ink-soft); font-size: 0.98rem; }
+
+  .close {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+  }
+  .close p { font-size: 1.05rem; max-width: 58ch; }
+  .sign {
+    margin-top: 1.6rem;
+    font-family: "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .sign small {
+    display: block;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-weight: 500;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 0.2rem;
+  }
+
+  .pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    background: var(--card);
+    padding: 0.55rem 1rem;
+    border-radius: 999px;
+  }
+  .pdf-link:hover { border-color: var(--accent-2); }
+
+  @media (max-width: 520px) {
+    .finding { grid-template-columns: 1fr; gap: 0.3rem; }
+    .finding .tag { padding-top: 0; }
+  }
+
+  .watch {
+    display: none;
+    position: relative;
+    height: calc(100vh - 58px);
+    overflow: hidden;
+  }
+  .watch.active { display: block; }
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+    pointer-events: none;
+  }
+  .slide.current { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .slide .eyebrow { margin-bottom: 0.8rem; }
+  .slide .big {
+    font-family: "Arial Narrow", "Helvetica Neue Condensed", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.1rem, 8vw, 5rem);
+    line-height: 1.03;
+    max-width: 18ch;
+    text-wrap: balance;
+  }
+  .slide .big.accent-color { color: var(--accent); }
+  .slide .caption { margin-top: 1.4rem; max-width: 46ch; font-size: 1.15rem; color: var(--ink-soft); }
+  .watch-controls {
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem 1.5rem 1.4rem;
+    background: linear-gradient(to top, var(--paper) 40%, transparent);
+  }
+  .progress-track { display: flex; gap: 0.35rem; }
+  .progress-seg { height: 3px; flex: 1; background: var(--line); border-radius: 2px; overflow: hidden; }
+  .progress-seg > span { display: block; height: 100%; width: 0%; background: var(--accent); }
+  .progress-seg.done > span { width: 100%; }
+  .watch-row { display: flex; align-items: center; justify-content: center; gap: 0.9rem; }
+  .watch-row button {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  .watch-row button:hover { border-color: var(--accent-2); }
+
+  @media (prefers-reduced-motion: reduce) {
+    .slide { transition: opacity 0.2s linear, transform 0.2s linear; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="mark display">FIELD NOTES</span>
+  <div class="tabs" role="tablist" aria-label="View mode">
+    <button class="tab" role="tab" id="tab-read" aria-selected="true" aria-controls="panel-read">Read</button>
+    <button class="tab" role="tab" id="tab-watch" aria-selected="false" aria-controls="panel-watch">Watch</button>
+  </div>
+</div>
+
+<main class="read" id="panel-read" role="tabpanel" aria-labelledby="tab-read">
+  <span class="folder-tab">For Coach Mac · Do Not Duplicate</span>
+  <h1 class="title display">A few things worth a look before Friday.</h1>
+  <p class="eyebrow dateline">Charlotte, NC · Sparkhouse Uptown · Fri, Jul 31</p>
+  <p class="lede">
+    I'm coming through Friday to watch, not to sell anything. But I spend my
+    days in exactly the stack Do Greater is running on, and a few things
+    jumped out fast. Figured you'd rather hear it from someone in the room
+    than find it in six months. <em>No pitch below — just notes.</em>
+  </p>
+
+  <div class="stat-block">
+    <p class="eyebrow">Sitting unclaimed, right now</p>
+    <p class="stat-number display">$120,000<span style="font-size:0.4em;">/yr</span></p>
+    <p>
+      Google's Ad Grant gives registered 501(c)(3)s $10k a month in free
+      search ads. Do Greater qualifies and hasn't applied. That's a full
+      year of paid reach, at zero media cost, left on the table.
+    </p>
+  </div>
+
+  <div class="findings">
+    <div class="finding">
+      <span class="tag">Site</span>
+      <div>
+        <h3>dogreater.org is working against you</h3>
+        <p>WordPress on Divi, shared Bluehost hosting, no CDN or caching — grades out C- on load performance. Slower site, fewer people stick around to read it.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <span class="tag">Search</span>
+      <div>
+        <h3>Invisible to local search</h3>
+        <p>Google Search Console was never set up, and the Google Business Profile is unclaimed. Anyone searching "youth entrepreneurship Charlotte" isn't finding you first.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <span class="tag">Social</span>
+      <div>
+        <h3>The audience is elsewhere</h3>
+        <p>YouTube's sitting at ~4 subscribers. No TikTok, and that's exactly where the teens you serve already are. No LinkedIn, where the sponsor conversations happen.</p>
+      </div>
+    </div>
+    <div class="finding">
+      <span class="tag">Follow-up</span>
+      <div>
+        <h3>No way to stay in touch</h3>
+        <p>No lead capture, no volunteer signup funnel, no QR or text-to-join at events, no follow-up email after. People have a great time at Sparkhouse and then there's no thread to pull on Monday.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="close">
+    <p>
+      None of this needs a retainer to start moving — some of it's a form
+      and an afternoon. I just didn't want you finding it on your own,
+      later, the hard way. If you ever want to talk shop, founder to
+      founder, the door's open.
+    </p>
+    <p class="sign">
+      — Mikey
+      <small>Madez Media</small>
+    </p>
+    <a class="pdf-link" href="/coach-mac/field-notes.pdf" target="_blank" rel="noopener">↓ Download the one-page print version</a>
+  </div>
+</main>
+
+<div class="watch" id="panel-watch" role="tabpanel" aria-labelledby="tab-watch">
+  <div class="slide current" data-slide="0">
+    <p class="eyebrow">For Coach Mac</p>
+    <p class="big display">A few things worth a look before Friday.</p>
+    <p class="caption">Charlotte, NC · Sparkhouse Uptown · Fri, Jul 31</p>
+  </div>
+  <div class="slide" data-slide="1">
+    <p class="eyebrow">Sitting unclaimed, right now</p>
+    <p class="big display accent-color">$120,000/yr</p>
+    <p class="caption">Google Ad Grants — free search ads for 501(c)(3)s. Do Greater qualifies. No one's applied yet.</p>
+  </div>
+  <div class="slide" data-slide="2">
+    <p class="eyebrow">Site</p>
+    <p class="big display">A slow front door.</p>
+    <p class="caption">dogreater.org grades C- on performance — shared hosting, no CDN, no caching.</p>
+  </div>
+  <div class="slide" data-slide="3">
+    <p class="eyebrow">Search</p>
+    <p class="big display">Invisible on Google.</p>
+    <p class="caption">No Search Console. Google Business Profile unclaimed. Local search finds someone else first.</p>
+  </div>
+  <div class="slide" data-slide="4">
+    <p class="eyebrow">Social</p>
+    <p class="big display">The audience is elsewhere.</p>
+    <p class="caption">~4 YouTube subscribers. No TikTok, where the teens already are. No LinkedIn, where the sponsors are.</p>
+  </div>
+  <div class="slide" data-slide="5">
+    <p class="eyebrow">Follow-up</p>
+    <p class="big display">Great visit, then gone.</p>
+    <p class="caption">No signup funnel, no QR, no post-event email. Nothing to pull on Monday.</p>
+  </div>
+  <div class="slide" data-slide="6">
+    <p class="eyebrow">No pitch here</p>
+    <p class="big display">Just didn't want you finding this later.</p>
+    <p class="caption">Talk shop sometime, founder to founder. — Mikey, Madez Media</p>
+  </div>
+
+  <div class="watch-controls">
+    <div class="progress-track" id="progressTrack"></div>
+    <div class="watch-row">
+      <button id="prevBtn" type="button" aria-label="Previous">‹ Back</button>
+      <button id="playBtn" type="button" aria-label="Play or pause">Pause</button>
+      <button id="nextBtn" type="button" aria-label="Next">Next ›</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var tabRead = document.getElementById('tab-read');
+    var tabWatch = document.getElementById('tab-watch');
+    var panelRead = document.getElementById('panel-read');
+    var panelWatch = document.getElementById('panel-watch');
+    var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+    var progressTrack = document.getElementById('progressTrack');
+    var playBtn = document.getElementById('playBtn');
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = 0;
+    var playing = !reduceMotion;
+    var SLIDE_MS = 4200;
+    var timer = null;
+
+    slides.forEach(function () {
+      var seg = document.createElement('div');
+      seg.className = 'progress-seg';
+      seg.innerHTML = '<span></span>';
+      progressTrack.appendChild(seg);
+    });
+    var segs = Array.prototype.slice.call(progressTrack.children);
+
+    function renderSegs() {
+      segs.forEach(function (seg, i) {
+        var bar = seg.querySelector('span');
+        seg.classList.toggle('done', i < current);
+        if (i < current) { bar.style.width = '100%'; }
+        else if (i > current) { bar.style.width = '0%'; }
+      });
+    }
+
+    function goTo(i) {
+      current = (i + slides.length) % slides.length;
+      slides.forEach(function (s, j) { s.classList.toggle('current', j === current); });
+      renderSegs();
+      if (playing) startTimer();
+    }
+
+    function startTimer() {
+      clearTimeout(timer);
+      var bar = segs[current].querySelector('span');
+      bar.style.transition = 'none';
+      bar.style.width = '0%';
+      requestAnimationFrame(function () {
+        bar.style.transition = 'width ' + SLIDE_MS + 'ms linear';
+        bar.style.width = '100%';
+      });
+      timer = setTimeout(function () {
+        if (current === slides.length - 1) { setPlaying(false); return; }
+        goTo(current + 1);
+      }, SLIDE_MS);
+    }
+
+    function setPlaying(v) {
+      playing = v;
+      playBtn.textContent = playing ? 'Pause' : 'Play';
+      if (playing) startTimer(); else clearTimeout(timer);
+    }
+
+    playBtn.addEventListener('click', function () { setPlaying(!playing); });
+    nextBtn.addEventListener('click', function () { setPlaying(false); goTo(current + 1); });
+    prevBtn.addEventListener('click', function () { setPlaying(false); goTo(current - 1); });
+
+    function activateWatch() {
+      panelRead.style.display = 'none';
+      panelWatch.classList.add('active');
+      tabRead.setAttribute('aria-selected', 'false');
+      tabWatch.setAttribute('aria-selected', 'true');
+      goTo(0);
+      setPlaying(!reduceMotion);
+    }
+    function activateRead() {
+      panelWatch.classList.remove('active');
+      panelRead.style.display = 'block';
+      tabRead.setAttribute('aria-selected', 'true');
+      tabWatch.setAttribute('aria-selected', 'false');
+      clearTimeout(timer);
+    }
+
+    tabWatch.addEventListener('click', activateWatch);
+    tabRead.addEventListener('click', activateRead);
+    renderSegs();
+  })();
+</script>
+</body>
+</html>
