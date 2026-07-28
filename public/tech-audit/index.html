@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Tech, AEO, GEO &amp; Sentiment Audit — Do Greater</title>
+<style>
+  :root {
+    --ink: #111827; --muted: #4b5563; --line: #d1d5db; --bg: #f9fafb;
+    --accent: #2563eb; --accent-light: #eff6ff; --surface: #ffffff;
+    --good: #15803d; --good-bg: #ecfdf3;
+    --warn: #b45309; --warn-bg: #fffbeb;
+    --bad: #b91c1c; --bad-bg: #fef2f2;
+    --unk: #6b7280; --unk-bg: #f3f4f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
+      --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
+      --good: #4ade80; --good-bg: #0f2418;
+      --warn: #f0b862; --warn-bg: #241d0f;
+      --bad: #f87171; --bad-bg: #2a1414;
+      --unk: #9ca3af; --unk-bg: #1c2027;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
+    --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
+    --good: #4ade80; --good-bg: #0f2418; --warn: #f0b862; --warn-bg: #241d0f;
+    --bad: #f87171; --bad-bg: #2a1414; --unk: #9ca3af; --unk-bg: #1c2027;
+  }
+  :root[data-theme="light"] {
+    --ink: #111827; --muted: #4b5563; --line: #d1d5db; --bg: #f9fafb;
+    --accent: #2563eb; --accent-light: #eff6ff; --surface: #ffffff;
+    --good: #15803d; --good-bg: #ecfdf3; --warn: #b45309; --warn-bg: #fffbeb;
+    --bad: #b91c1c; --bad-bg: #fef2f2; --unk: #6b7280; --unk-bg: #f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--ink); margin: 0; line-height: 1.5; }
+  a { color: var(--accent); }
+  .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  nav.crumb { padding: 16px 24px; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--line); }
+  nav.crumb a { color: var(--muted); text-decoration: none; }
+  header { padding: 40px 24px 24px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 1px; font-size: 11px; font-weight: 700; color: var(--accent); margin: 0 0 8px; }
+  h1 { font-size: clamp(24px, 3.6vw, 32px); margin: 0 0 10px; letter-spacing: -0.3px; }
+  .lead { color: var(--muted); font-size: 15px; max-width: 700px; margin: 0; }
+
+  .headline-card {
+    margin: 20px 0 0; padding: 18px 20px; border-radius: 12px;
+    background: var(--bad-bg); border: 1px solid var(--line);
+  }
+  .headline-card .eyebrow { color: var(--bad); }
+  .headline-card p { margin: 6px 0 0; font-size: 14.5px; }
+
+  section { padding: 30px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 19px; margin: 0 0 4px; }
+  .section-sub { color: var(--muted); font-size: 13.5px; margin: 0 0 16px; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700;
+    padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+  }
+  .pill.good { color: var(--good); background: var(--good-bg); }
+  .pill.warn { color: var(--warn); background: var(--warn-bg); }
+  .pill.bad { color: var(--bad); background: var(--bad-bg); }
+  .pill.unk { color: var(--unk); background: var(--unk-bg); }
+
+  .finding-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px; margin-bottom: 12px;
+  }
+  .finding-card .head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .finding-card h3 { margin: 0; font-size: 14.5px; }
+  .finding-card p { margin: 0 0 8px; font-size: 13.5px; color: var(--muted); }
+  .finding-card p:last-child { margin-bottom: 0; }
+  .finding-card code { background: var(--unk-bg); padding: 1px 6px; border-radius: 4px; font-size: 12.5px; }
+
+  .rank-list { display: flex; flex-direction: column; gap: 6px; margin-top: 4px; }
+  .rank-row { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); font-size: 13.5px; }
+  .rank-row .num { font-weight: 700; color: var(--muted); min-width: 18px; }
+  .rank-row.missing { background: var(--bad-bg); border-color: transparent; }
+  .rank-row.missing .num { color: var(--bad); }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); padding: 8px 10px; border-bottom: 2px solid var(--line); }
+  td { padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .tbl-wrap { overflow-x: auto; }
+
+  footer { padding: 24px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<nav class="crumb"><div class="container"><a href="/">← Do Greater × Madez Media</a> · Internal working brief, not for public sharing</div></nav>
+
+<header>
+  <div class="container">
+    <p class="eyebrow">Tech · AEO · GEO · Sentiment</p>
+    <h1>Where Do Greater actually stands, verified directly</h1>
+    <p class="lead">Every finding below was pulled live — HTTP headers, page source, PageSpeed, and real search queries — not repeated from an earlier claim. Dated 2026-07-28.</p>
+    <div class="headline-card">
+      <p class="eyebrow">Sharpest finding</p>
+      <p>Searched <code>"best youth entrepreneurship programs Charlotte NC teens"</code> — the exact query a parent or an AI assistant would use. Do Greater doesn't appear at all, despite a $4.6M building and Ally/Novant backing. Six smaller programs do.</p>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>Technical foundation</h2>
+    <p class="section-sub">Confirmed live via HTTP headers, SSL, and page source — not assumed.</p>
+
+    <div class="finding-card">
+      <div class="head"><h3>Hosting &amp; caching</h3><span class="pill warn">Confirmed, refine earlier claim</span></div>
+      <p>Response headers confirm shared Bluehost hosting (<code>host-header</code> decodes to <code>shared.bluehost.com</code>) with WordPress + Apache. There <i>is</i> a basic host-level cache active (<code>x-endurance-cache-level: 2</code>) — so it's not <i>uncached</i>, just shared-host-tier caching, not a real CDN like Cloudflare. Worth the correction: the earlier "no caching" line was slightly overstated.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="head"><h3>Google Analytics is confirmed OFF, not just unverified</h3><span class="pill bad">Confirmed</span></div>
+      <p>The page source itself says so: <i>"Note: MonsterInsights is not currently configured on this site. The site owner needs to authenticate with Google Analytics in the MonsterInsights settings panel."</i> — that's the plugin's own HTML comment. There is currently zero analytics data being collected at all, not just an unverified GA4 config.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="head"><h3>Security headers</h3><span class="pill warn">Weak</span></div>
+      <p>No HSTS, no Content-Security-Policy, no X-Frame-Options in the response headers. Low urgency for a marketing site with no login-gated user data, but a 15-minute fix via the host's security plugin or Cloudflare (see the infra-grants brief — up to $250K in Cloudflare credits available).</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="head"><h3>SSL certificate is issued under a personal domain</h3><span class="pill warn">Worth a look</span></div>
+      <p>The cert's subject is <code>CN=www.dogreater-org.wmcneely.com</code> — a shared-hosting fallback naming pattern, not necessarily alarming on its own, but worth confirming the domain/hosting account itself is owned by the organization and not tied to a personal account. A continuity question, not a security one.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="head"><h3>Lighthouse/PageSpeed score</h3><span class="pill unk">Not verified today</span></div>
+      <p>Google's PageSpeed Insights API hit a shared daily quota limit on this check — didn't want to report a number without actually seeing it. The C- grade cited earlier was from a prior pass, not this one; treat it as directionally likely (shared hosting + Divi are a known slow combination) but not confirmed today. A 30-second manual check at <a href="https://pagespeed.web.dev/analysis?url=https://dogreater.org" target="_blank" rel="noopener">pagespeed.web.dev</a> would settle it for real.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>AEO — Answer Engine Optimization</h2>
+    <p class="section-sub">Whether Google's AI Overviews, featured snippets, and voice assistants have anything to parse.</p>
+
+    <div class="finding-card">
+      <div class="head"><h3>Zero structured data anywhere on the site</h3><span class="pill bad">Confirmed</span></div>
+      <p>Checked the homepage and the About page directly for <code>application/ld+json</code> schema.org markup — none on either. No Organization schema, no Event schema for Designathon/camps, no FAQPage schema. Answer engines have nothing machine-readable to lift a fact from; they're working entirely off unstructured page text.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="head"><h3>No events schema despite a real event calendar</h3><span class="pill warn">Gap</span></div>
+      <p>Do Greater runs named, dated public programs (Designathon, camps, Showroom Sessions) — exactly the content Event schema is built for, and exactly what would let something like Google's AI Overview surface "when's the next Designathon" directly.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>GEO — Generative Engine Optimization</h2>
+    <p class="section-sub">Whether ChatGPT, Perplexity, Gemini, and Google's AI answers would ever surface Do Greater when someone asks a relevant question.</p>
+
+    <div class="finding-card">
+      <div class="head"><h3>No Wikipedia presence</h3><span class="pill warn">Gap</span></div>
+      <p>Searched directly — no Wikipedia page exists. Wikipedia is one of the most heavily-weighted sources in how LLMs learn about organizations; its absence is a real, structural GEO gap, not a stylistic one.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="head"><h3>Invisible for the exact query they should own</h3><span class="pill bad">Confirmed, the headline finding</span></div>
+      <p>Ran the query a parent — or an AI assistant answering on a parent's behalf — would actually type: <code>"best youth entrepreneurship programs Charlotte NC teens."</code> Result:</p>
+      <div class="rank-list">
+        <div class="rank-row"><span class="num">1</span> Young Entrepreneurs Academy (YEA!)</div>
+        <div class="rank-row"><span class="num">2</span> Enriched Culture</div>
+        <div class="rank-row"><span class="num">3</span> Kids Markets</div>
+        <div class="rank-row"><span class="num">4</span> MSW Youth Entrepreneurs</div>
+        <div class="rank-row"><span class="num">5</span> Young Entrepreneurs Camps™ of Charlotte</div>
+        <div class="rank-row"><span class="num">6</span> NCCU Business Summer Camps</div>
+        <div class="rank-row missing"><span class="num">—</span> Do Greater Charlotte: not present</div>
+      </div>
+      <p style="margin-top:10px;">This is despite a $4.6M building, Ally Charitable Foundation + Novant Health backing, and a former mayor at the ribbon-cutting. The org with the most funding and press in the category is the one an AI assistant currently wouldn't recommend.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Sentiment</h2>
+    <p class="section-sub">Real signal was thinner than expected here — worth knowing going in, not treating as a finished picture.</p>
+
+    <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Source</th><th>Signal</th><th>Read</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Facebook</td>
+          <td>0 reviews ("Not yet rated")</td>
+          <td><span class="pill unk">No data yet</span> — not negative, just unmeasured. An easy ask: request reviews from program grads/parents.</td>
+        </tr>
+        <tr>
+          <td>Google</td>
+          <td>No public rating surfaced</td>
+          <td><span class="pill unk">No data yet</span></td>
+        </tr>
+        <tr>
+          <td>Press (WFAE/NPR, QCityMetro, WCCB)</td>
+          <td>Consistently positive, grand-opening/investment framing</td>
+          <td><span class="pill good">Strong</span> — no negative coverage found anywhere in the search.</td>
+        </tr>
+        <tr>
+          <td>Institutional backing</td>
+          <td>Ally Charitable Foundation, Novant Health, Gambrell Foundation Q&amp;A feature, former Mayor Harvey Gantt at the ribbon-cutting</td>
+          <td><span class="pill good">Strong</span> — funders and civic leaders are clearly bought in.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:13.5px;color:var(--muted);margin-top:12px;">
+      Net: sentiment among funders and press is genuinely excellent. Sentiment among everyday reviewers simply doesn't exist yet as data — that's a gap to fill, not a warning sign. It also compounds the GEO problem above: review volume and citations are exactly what would help an AI assistant surface them with confidence.
+    </p>
+  </section>
+
+</div>
+
+<footer><div class="container">Compiled for Mikey — Madez Media's side of the Do Greater relationship. Not linked from the public hub.</div></footer>
+
+</body>
+</html>
