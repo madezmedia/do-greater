@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Infra + Grants Working Brief — Do Greater</title>
+<style>
+  :root {
+    --ink: #111827; --muted: #4b5563; --line: #d1d5db; --bg: #f9fafb;
+    --accent: #2563eb; --accent-light: #eff6ff; --surface: #ffffff;
+    --good: #15803d; --good-bg: #ecfdf3;
+    --warn: #b45309; --warn-bg: #fffbeb;
+    --unk: #6b7280; --unk-bg: #f3f4f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
+      --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
+      --good: #4ade80; --good-bg: #0f2418;
+      --warn: #f0b862; --warn-bg: #241d0f;
+      --unk: #9ca3af; --unk-bg: #1c2027;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
+    --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
+    --good: #4ade80; --good-bg: #0f2418; --warn: #f0b862; --warn-bg: #241d0f;
+    --unk: #9ca3af; --unk-bg: #1c2027;
+  }
+  :root[data-theme="light"] {
+    --ink: #111827; --muted: #4b5563; --line: #d1d5db; --bg: #f9fafb;
+    --accent: #2563eb; --accent-light: #eff6ff; --surface: #ffffff;
+    --good: #15803d; --good-bg: #ecfdf3; --warn: #b45309; --warn-bg: #fffbeb;
+    --unk: #6b7280; --unk-bg: #f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg); color: var(--ink); margin: 0; line-height: 1.5;
+  }
+  a { color: var(--accent); }
+  .container { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+  nav.crumb { padding: 16px 24px; font-size: 13px; color: var(--muted); border-bottom: 1px solid var(--line); }
+  nav.crumb a { color: var(--muted); text-decoration: none; }
+  header { padding: 40px 24px 28px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 1px; font-size: 11px; font-weight: 700; color: var(--accent); margin: 0 0 8px; }
+  h1 { font-size: clamp(24px, 3.6vw, 32px); margin: 0 0 10px; letter-spacing: -0.3px; }
+  .lead { color: var(--muted); font-size: 15px; max-width: 680px; margin: 0; }
+
+  section { padding: 32px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 19px; margin: 0 0 4px; }
+  .section-sub { color: var(--muted); font-size: 13.5px; margin: 0 0 18px; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 5px; font-size: 11.5px; font-weight: 700;
+    padding: 3px 9px; border-radius: 999px; white-space: nowrap;
+  }
+  .pill.good { color: var(--good); background: var(--good-bg); }
+  .pill.warn { color: var(--warn); background: var(--warn-bg); }
+  .pill.unk { color: var(--unk); background: var(--unk-bg); }
+
+  .finding-card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 10px;
+    padding: 16px 18px; margin-bottom: 12px;
+  }
+  .finding-card .head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+  .finding-card h3 { margin: 0; font-size: 14.5px; }
+  .finding-card p { margin: 0 0 8px; font-size: 13.5px; color: var(--muted); }
+  .finding-card p:last-child { margin-bottom: 0; }
+  .finding-card .stat { font-size: 22px; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { text-align: left; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); padding: 8px 10px; border-bottom: 2px solid var(--line); }
+  td { padding: 10px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .prog-name { font-weight: 600; }
+  .prog-value { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .tbl-wrap { overflow-x: auto; }
+
+  .stack-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .stack-chip {
+    font-size: 12.5px; font-weight: 600; padding: 5px 11px; border-radius: 8px;
+    background: var(--accent-light); color: var(--accent); border: 1px solid var(--line);
+  }
+  .stack-chip.core { background: var(--accent); color: #fff; border-color: transparent; }
+
+  footer { padding: 24px; color: var(--muted); font-size: 12px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<nav class="crumb"><div class="container"><a href="/">← Do Greater × Madez Media</a> · Internal working brief, not for public sharing</div></nav>
+
+<header>
+  <div class="container">
+    <p class="eyebrow">Infrastructure + Funding · Owned by Mikey</p>
+    <h1>What the 25 donated Mac Studios can become, and what else is on the table</h1>
+    <p class="lead">Triggered by Brianna's mention of the Mac Studio donation. Three things below: what to actually deploy on that hardware, verification that the Google Ad Grant really is still unclaimed, and a wider net of grants/credits worth chasing beyond it.</p>
+  </div>
+</header>
+
+<div class="container">
+
+  <section>
+    <h2>The Mac Studio fleet</h2>
+    <p class="section-sub">25 donated Mac Studios is real, substantial Apple Silicon compute sitting idle. This is not generic homelab advice — it's the one project that's a direct match for both the hardware and Do Greater's own "Code the City" AI curriculum.</p>
+
+    <div class="finding-card">
+      <div class="head"><h3>exo — cluster the Studios into one inference pool</h3><span class="pill good">Best fit</span></div>
+      <p>Open-source (<a href="https://exolabs.net" target="_blank" rel="noopener">exolabs.net</a> / <a href="https://github.com/exo-explore" target="_blank" rel="noopener">exo-explore</a>) — pools multiple Apple Silicon Macs into a single distributed AI inference cluster. Devices auto-discover each other on the network; models get sharded across all 25 machines. On macOS 26.2 it supports RDMA over Thunderbolt 5, cutting inter-device latency ~99% — real reported numbers: 1.8x speedup on 2 devices, 3.2x on 4. A cluster this size could run frontier-scale open models (DeepSeek V3.1 671B, Kimi K2) entirely in-house, zero cloud bill. Exposes OpenAI/Claude/Ollama-compatible APIs, so anything already built against those SDKs works against it unchanged.</p>
+      <p><b>The story write-itself angle:</b> Designathon already teaches kids to build with AI. A self-hosted cluster the org fully owns — that the same kids could tour, or even help operate — is a stronger asset than any cloud subscription.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="head"><h3>Supporting self-hosted stack</h3></div>
+      <p>Everything below is 2026-current, actively maintained, and Docker Compose-deployable — the standard "homelab AI stack" pattern right now:</p>
+      <div class="stack-row">
+        <span class="stack-chip core">exo</span>
+        <span class="stack-chip">Ollama</span>
+        <span class="stack-chip">Open WebUI</span>
+        <span class="stack-chip">n8n</span>
+        <span class="stack-chip">Portainer</span>
+        <span class="stack-chip">Coolify</span>
+        <span class="stack-chip">Qdrant (RAG)</span>
+        <span class="stack-chip">SearxNG (private search)</span>
+        <span class="stack-chip">ComfyUI (image gen)</span>
+      </div>
+      <p style="margin-top:12px;">Portainer or Coolify for fleet/container management across the 25 machines · Open WebUI as the actual chat interface staff and students use · n8n for the automation pipelines (the same follow-up/lead-capture gap flagged in the Coach Mac brief could run on this, at zero marginal cost) · Qdrant if any program wants retrieval over Do Greater's own documents/curriculum.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="head"><h3>Networking note</h3><span class="pill unk">Worth deciding early</span></div>
+      <p>25 machines clustering well needs either physical Thunderbolt daisy-chaining (best performance, only practical for machines in the same room) or a flat, fast local network plus something like Tailscale if any Studios end up split across Sparkhouse Uptown and Sparkhouse West. Worth settling this before buying any switches/cabling.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Due diligence: do they really not have the Google Ad Grant?</h2>
+    <p class="section-sub">Verified two independent ways rather than repeating the earlier claim as-is.</p>
+
+    <div class="finding-card">
+      <div class="head"><h3>501(c)(3) status — confirmed, real, in good standing</h3><span class="pill good">Verified</span></div>
+      <p>EIN <b>82-3722201</b>, "Do Greater Foundation Inc," formed 2017, 8 employees. FY2024 (filed 2025-07-25): total revenue $1,444,483 (up 64.9% from $875,780 in 2023), $1,199,340 of that from grants/contributions, total assets $1,958,254. Source: <a href="https://www.causeiq.com/organizations/do-greater-foundation,823722201/" target="_blank" rel="noopener">CauseIQ</a>. This confirms the baseline eligibility requirement for every program below — registered, active, filing on time.</p>
+    </div>
+
+    <div class="finding-card">
+      <div class="head"><h3>No Google Ads footprint found on the live site</h3><span class="pill warn">Strong signal, not 100% conclusive</span></div>
+      <p>Checked dogreater.org directly for a Google Ads conversion tag (gtag.js with an AW- ID) or any Google Ad Grants/Google.org mention. Found none — what <i>is</i> there is Mailchimp, Google Forms for registration/donations, PayPal donations, and an Instagram link. No press, org-directory, or nonprofit-database mention of them holding an Ad Grant either.</p>
+      <p><b>Caveat:</b> this was a rendered/converted read of the page, which can miss script tags that don't surface in a text extraction. If you want it airtight before building a pitch on it, two quick options: check <a href="https://adstransparency.google.com" target="_blank" rel="noopener">Google's Ads Transparency Center</a> for "Do Greater" / dogreater.org directly, or just ask Amanda/Brianna outright — fastest and most certain either way.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Wider grant &amp; credit landscape</h2>
+    <p class="section-sub">Beyond the $120K/yr Google Ad Grant already flagged. Sorted roughly by size of opportunity.</p>
+    <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Program</th><th>Value</th><th>Fit</th><th>Note</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="prog-name">Google.org grants</td>
+          <td class="prog-value">$1M–$5M, multi-year</td>
+          <td><span class="pill good">Strong</span></td>
+          <td>Focused on AI/ML for social good — a self-hosted AI education cluster feeding Designathon is a genuinely credible pitch, not a stretch.</td>
+        </tr>
+        <tr>
+          <td class="prog-name">Cloudflare for Nonprofits</td>
+          <td class="prog-value">Up to $250,000 in credits</td>
+          <td><span class="pill good">Strong</span></td>
+          <td>Compute, storage, AI, security — could front Cloudflare Tunnel to expose the Mac Studio cluster safely without a separate VPS.</td>
+        </tr>
+        <tr>
+          <td class="prog-name">Microsoft Philanthropies — AI for Good</td>
+          <td class="prog-value">$50,000–$500,000</td>
+          <td><span class="pill good">Strong</span></td>
+          <td>Grants for nonprofits building AI-for-good projects — same Designathon/cluster angle as Google.org.</td>
+        </tr>
+        <tr>
+          <td class="prog-name">AWS Imagine Grant</td>
+          <td class="prog-value">Up to $150,000 + AWS credits</td>
+          <td><span class="pill good">Good</span></td>
+          <td>"Go Further, Faster" award tier. Useful if anything needs to live off-Studio in the cloud (backups, public-facing services).</td>
+        </tr>
+        <tr>
+          <td class="prog-name">Meta Social Impact ad credits</td>
+          <td class="prog-value">Up to $10,000/mo</td>
+          <td><span class="pill good">Good</span></td>
+          <td>Direct parallel to the Google Ad Grant — Facebook/Instagram reach, same "unclaimed" logic likely applies.</td>
+        </tr>
+        <tr>
+          <td class="prog-name">Microsoft for Nonprofits</td>
+          <td class="prog-value">$3,500/yr Azure + donated M365</td>
+          <td><span class="pill good">Good</span></td>
+          <td>Smaller, but the M365 donation alone likely covers most office/email needs outright.</td>
+        </tr>
+        <tr>
+          <td class="prog-name">GitHub for Nonprofits</td>
+          <td class="prog-value">Free/discounted dev tools + cloud credits</td>
+          <td><span class="pill good">Good</span></td>
+          <td>Worth it the moment any curriculum or code (Designathon projects, the cluster config itself) gets version-controlled.</td>
+        </tr>
+        <tr>
+          <td class="prog-name">Canva for Nonprofits</td>
+          <td class="prog-value">Free, up to 50 seats</td>
+          <td><span class="pill good">Easy win</span></td>
+          <td>100% free Canva Pro for registered 501(c)(3)s — near-zero effort to claim, immediate use for social/print assets.</td>
+        </tr>
+        <tr>
+          <td class="prog-name">TechSoup marketplace</td>
+          <td class="prog-value">Discounted software</td>
+          <td><span class="pill good">Easy win</span></td>
+          <td>Adobe, QuickBooks, security tools at steep nonprofit discounts — also the required verification path for the Google Ad Grant itself.</td>
+        </tr>
+        <tr>
+          <td class="prog-name">Anthropic (Claude) research credits</td>
+          <td class="prog-value">$500–$25,000+</td>
+          <td><span class="pill warn">Apply and see</span></td>
+          <td>Framed for academic/research use, not general nonprofit ops — but an AI-literacy curriculum like Designathon is a plausible angle. Claude Science's 2026 window already closed (deadline was Jul 15); watch for the next cycle.</td>
+        </tr>
+        <tr>
+          <td class="prog-name">NVIDIA Inception</td>
+          <td class="prog-value">Up to $100K AWS + $100K DGX + $150K Nebius</td>
+          <td><span class="pill warn">Likely ineligible</span></td>
+          <td>Explicitly excludes consulting/services orgs and wants an "AI product company." Only worth pursuing if Do Greater frames a specific AI product/tool it's building, not the org generally.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+</div>
+
+<footer><div class="container">Compiled for Mikey — Madez Media's side of the Do Greater relationship. Not linked from the public hub.</div></footer>
+
+</body>
+</html>
