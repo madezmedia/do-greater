@@ -3,21 +3,39 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SparkHouse Sales + Marketing — DO Greater Charlotte</title>
+  <meta name="description" content="SparkHouse Charlotte sales and marketing page with membership pricing, buyer routing, campaign angles, sponsor opportunities, and AEO-ready answers.">
+  <title>SparkHouse Sales + Marketing — Offers, Campaigns, Buyer Routes</title>
   <link rel="stylesheet" href="do-greater-system.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "name": "SparkHouse Charlotte Membership and Space Offers",
+    "itemListElement": [
+      {"@type": "Offer", "name": "Day Pass", "price": "20", "priceCurrency": "USD", "description": "Workspace, Wi-Fi, house drip, 8am-5pm, no commitment."},
+      {"@type": "Offer", "name": "Creator Club", "price": "129", "priceCurrency": "USD", "description": "Coworking membership with cafe access, studio access, meeting room pricing, specialty drink, and weekly donut perk."},
+      {"@type": "Offer", "name": "Founding 100", "price": "99", "priceCurrency": "USD", "description": "Limited Creator Club founding rate locked for one year."},
+      {"@type": "Offer", "name": "Dedicated Desk", "price": "299", "priceCurrency": "USD", "description": "Reserved desk, 24/7 access, house drip, espresso discount, studio access, and meeting room pricing."},
+      {"@type": "Offer", "name": "Studio+", "price": "199", "priceCurrency": "USD", "description": "Creator Club plus production access, studio hours, meeting room hours, and priority booking."},
+      {"@type": "Offer", "name": "Solo Private Office", "price": "550", "priceCurrency": "USD", "description": "Micro office for one person with locking office, 24/7 access, mail service, studio and meeting hours."},
+      {"@type": "Offer", "name": "Duo Private Office", "price": "900", "priceCurrency": "USD", "description": "Micro office for two people with locking office, 24/7 access, mail service, studio and meeting hours."}
+    ]
+  }
+  </script>
 </head>
 <body>
   <div class="eco-bar">
     <div>SPARKHOUSE CHARLOTTE · SALES + MARKETING</div>
     <div class="eco-links">
       <a href="sparkhouse-charlotte.html">Entrance</a>
-      <a href="sparkhouse-information.html">Information page</a>
+      <a href="sparkhouse-information.html">Information</a>
+      <a href="contact.html">Tour</a>
     </div>
   </div>
 
   <div class="nav">
     <div class="logo-container">
-      <a href="index.html"><img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2026/05/DoGreater_Sparkhouse_blue-scaled.png?resize=1080%2C347&ssl=1" alt="Do Greater Charlotte and SparkHouse Charlotte logo"></a>
+      <a href="index.html"><img src="assets/sparkhouse-logo-blue.png" alt="DO Greater Charlotte and SparkHouse Charlotte logo"></a>
     </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
@@ -31,119 +49,197 @@
   </div>
 
   <main>
-    <section class="spark-hero sales" data-od-id="sparkhouse-sales-hero">
-      <div class="container spark-hero-grid">
-        <div class="spark-hero-copy">
+    <section class="web4-hero sales-mode" data-od-id="sales-chat-hero">
+      <div class="container web4-hero-grid">
+        <div class="web4-copy">
           <span class="badge">Sales narrative</span>
-          <h1>Sell the place, then sell the path.</h1>
-          <p class="lead">SparkHouse is not only coworking. It is the physical on-ramp into DO Greater's creator, entrepreneur, youth, and community programs.</p>
+          <h1>Sell the path, not just the desk.</h1>
+          <p class="lead">SparkHouse gives prospects a tangible next step: come in for a day, join the creator community, book production time, reserve a desk, or package a sponsorship around the space.</p>
           <div class="actions">
-            <a href="#offers" class="btn-cyan">View Offers</a>
+            <a href="#offers" class="btn-cyan">Offer Matrix</a>
             <a href="#campaigns" class="btn-cyan">Campaign Angles</a>
-            <a href="contact.html" class="btn-cyan">Start Outreach ↗</a>
+            <a href="#router" class="btn-cyan">Buyer Router</a>
           </div>
         </div>
-        <figure class="spark-photo-card">
-          <img src="assets/sparkhouse-charlotte-02.jpg" alt="SparkHouse Charlotte membership flyer with pricing and community options">
-          <figcaption>Membership source flyer. Prices are introductory and subject to change.</figcaption>
-        </figure>
+        <aside class="deal-desk" aria-label="SparkHouse quick sales brief">
+          <img src="assets/sparkhouse-crest.png" alt="SparkHouse crest">
+          <h2>Fast answer</h2>
+          <p>“SparkHouse is the place to work, learn, create, and connect. Start with a $20 day pass, move into Creator Club or Studio+, and route sponsors toward a program or facility package.”</p>
+          <dl>
+            <div><dt>Lowest ask</dt><dd class="num">$20 day pass</dd></div>
+            <div><dt>Primary monthly</dt><dd class="num">$129 Creator Club</dd></div>
+            <div><dt>Urgency hook</dt><dd class="num">$99 Founding 100</dd></div>
+          </dl>
+        </aside>
       </div>
     </section>
 
-    <section class="container section" id="offers" data-od-id="sparkhouse-offers">
-      <span class="badge">Offer ladder</span>
-      <h2>Start small. Move serious creators into deeper support.</h2>
-      <div class="pricing-grid">
-        <article class="price-card">
-          <span>Day Pass</span>
-          <strong class="num">$20/day</strong>
-          <p>Workspace, Wi-Fi, house drip, no commitment. Best for first visit, event follow-up, and low-friction trials.</p>
-        </article>
-        <article class="price-card featured">
-          <span>Creator Club</span>
-          <strong class="num">$129/mo</strong>
-          <p>Coworking membership with all-day workspace, cafe access, studio hours, meeting-room access, and a weekly donut perk.</p>
-        </article>
-        <article class="price-card">
-          <span>Founding 100</span>
-          <strong class="num">$99/mo</strong>
-          <p>Limited founding Creator Club rate locked for one year. Use as urgency when spots are still available.</p>
-        </article>
-        <article class="price-card">
-          <span>Dedicated Desk</span>
-          <strong class="num">$299/mo</strong>
-          <p>Permanent reserved desk, 24/7 access, house drip, espresso discount, studio access, and meeting room pricing.</p>
-        </article>
-        <article class="price-card">
-          <span>Studio+</span>
-          <strong class="num">$199/mo</strong>
-          <p>Creator Club plus production access, studio hours, meeting-room hours, and priority booking.</p>
-        </article>
-        <article class="price-card">
-          <span>Private Office</span>
-          <strong class="num">From $550</strong>
-          <p>Solo offices from $550 and duo offices from $900. Best for operators who need a real address and consistent access.</p>
-        </article>
+    <section class="container section" id="offers" data-od-id="sales-offer-matrix">
+      <span class="badge">Flyer-extracted offer matrix</span>
+      <h2>Memberships, studios, desks, offices.</h2>
+      <div class="offer-table-wrap">
+        <table class="offer-table">
+          <thead>
+            <tr>
+              <th>Offer</th>
+              <th>Price</th>
+              <th>Best for</th>
+              <th>Included / useful sales notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Day Pass</b></td>
+              <td class="num">$20/day</td>
+              <td>First visit, event follow-up, low-friction trial</td>
+              <td>Workspace, Wi-Fi, house drip, 8am-5pm, no commitment.</td>
+            </tr>
+            <tr>
+              <td><b>Creator Club</b></td>
+              <td class="num">$129/mo</td>
+              <td>Creators who need a recurring third place</td>
+              <td>All-day workspace, coworking + cafe, bottomless house drip, 10% off espresso bar, 1 specialty drink, studio access at $30/hr, meeting rooms at $10/hr, 1 Beyond Amazing Donut/week.</td>
+            </tr>
+            <tr>
+              <td><b>Founding 100</b></td>
+              <td class="num">$99/mo</td>
+              <td>Urgency offer for early Creator Club members</td>
+              <td>Limited to 100 Creator Club members. Flyer states savings of $360/year at the founding rate, locked for one year.</td>
+            </tr>
+            <tr>
+              <td><b>Dedicated Desk</b></td>
+              <td class="num">$299/mo</td>
+              <td>Operators who need a permanent spot</td>
+              <td>Reserved desk, limited quantity, 24/7 access, bottomless house drip, espresso bar discount, specialty drink, donut/week, studios at $30/hr, meeting rooms at $10/hr.</td>
+            </tr>
+            <tr>
+              <td><b>Studio+</b></td>
+              <td class="num">$199/mo</td>
+              <td>Creators who need production access</td>
+              <td>Everything in Creator Club plus production access, 4 studio hours, 4 meeting room hours each month, and priority booking. Flyer marks $280 value.</td>
+            </tr>
+            <tr>
+              <td><b>Solo Office</b></td>
+              <td class="num">From $550</td>
+              <td>One-person micro office</td>
+              <td>Private locking office, 24/7 access, mail service, studio and meeting hours, and all Flex & Open Desk amenities. Minimum 6-month term.</td>
+            </tr>
+            <tr>
+              <td><b>Duo Office</b></td>
+              <td class="num">From $900</td>
+              <td>Two-person micro office</td>
+              <td>Two-person private locking office, 24/7 access, mail service, studio and meeting hours, and all Flex & Open Desk amenities. Minimum 6-month term.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+      <p class="source-note">All prices are extracted from the supplied SparkHouse flyer and marked there as introductory and subject to change.</p>
     </section>
 
-    <section class="section alt" id="campaigns" data-od-id="sparkhouse-campaigns">
+    <section class="section alt" id="campaigns" data-od-id="sales-campaigns">
       <div class="container">
-        <span class="badge">Campaign map</span>
-        <h2>Low-friction campaigns to run first.</h2>
-        <div class="campaign-board">
+        <span class="badge">Low-hanging campaigns</span>
+        <h2>Campaigns to launch before more deck work.</h2>
+        <div class="campaign-board rich">
           <article>
-            <b>Creator trial week</b>
-            <p>Push day pass visits into Creator Club follow-up within 48 hours. Ask: "Want this as your weekly workspace?"</p>
-            <span>Audience: founders, freelancers, creators</span>
+            <small>Creator acquisition</small>
+            <b>Day Pass → Creator Club</b>
+            <p>Run “work from SparkHouse this week” posts, partner invites, and event follow-up. The conversion path is day pass, then Creator Club within 48 hours.</p>
+            <span>CTA: Book a day pass</span>
           </article>
           <article>
-            <b>Studio access bundle</b>
-            <p>Lead with podcast, production, and screenprinting needs. Move serious creators toward Studio+ or dedicated desk.</p>
-            <span>Audience: content teams, artists, nonprofits</span>
+            <small>Production</small>
+            <b>Podcast + Studio+</b>
+            <p>Lead with creators who need a content day, podcast recording, or launch content. Sell Studio+ as the packaged next step.</p>
+            <span>CTA: Reserve production time</span>
           </article>
           <article>
-            <b>Corporate community day</b>
-            <p>Sell event space plus youth/entrepreneurship impact. Convert into sponsor conversations and proposal desk.</p>
-            <span>Audience: banks, agencies, employers</span>
+            <small>Teams</small>
+            <b>Permanent desk / office</b>
+            <p>Route founders, solo operators, and two-person teams into Dedicated Desk, Solo Office, or Duo Office. Lead with 24/7 access and mail service.</p>
+            <span>CTA: Tour Uptown</span>
           </article>
           <article>
-            <b>West Charlotte access story</b>
-            <p>Use SparkHouse West as the access and community equity story, then route funders into infrastructure asks.</p>
-            <span>Audience: funders, civic partners</span>
+            <small>Partners</small>
+            <b>Community day package</b>
+            <p>Invite employers, banks, agencies, and civic partners to sponsor a community workday, showroom session, or founder support activation.</p>
+            <span>CTA: Package sponsorship</span>
+          </article>
+          <article>
+            <small>Funder</small>
+            <b>Infrastructure proof</b>
+            <p>Use 20,000 sq ft, the 1921 showroom, youth-powered coffee, and production access as evidence that the work is tangible infrastructure.</p>
+            <span>CTA: Open grants brief</span>
+          </article>
+          <article>
+            <small>AEO/GEO</small>
+            <b>Answer-engine capture</b>
+            <p>Publish plain answers for “SparkHouse Charlotte pricing,” “SparkHouse Uptown address,” and “creative coworking for entrepreneurs in Charlotte.”</p>
+            <span>CTA: Strengthen FAQ/schema</span>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="container section" data-od-id="sparkhouse-sales-tools">
-      <span class="badge">Sales tools</span>
-      <h2>Pick the buyer type and send the right next step.</h2>
-      <div class="spark-tool" data-tool="sparkhouse-router">
+    <section class="container section" id="router" data-od-id="buyer-router">
+      <span class="badge">Interactive routing</span>
+      <h2>Choose the prospect. Send the right page.</h2>
+      <div class="spark-tool web4-router" data-tool="sparkhouse-router">
         <div class="spark-tabs" role="tablist" aria-label="SparkHouse buyer type">
           <button class="active" type="button" data-persona="creator">Creator</button>
+          <button type="button" data-persona="founder">Founder</button>
           <button type="button" data-persona="sponsor">Sponsor</button>
           <button type="button" data-persona="funder">Funder</button>
-          <button type="button" data-persona="team">Small team</button>
+          <button type="button" data-persona="team">Team</button>
         </div>
         <div class="spark-tool-output" aria-live="polite">
           <h3>Creator</h3>
-          <p>Lead with Day Pass, Creator Club, and Studio+. Use the source photo as proof that the offer is tangible, not abstract.</p>
-          <a href="contact.html" class="btn-cyan">Start Creator Follow-up ↗</a>
+          <p>Lead with Day Pass, Creator Club, and Studio+. Ask what they need to make this month: workspace, podcast, content day, meeting room, or production access.</p>
+          <a href="contact.html" class="btn-cyan">Start Creator Follow-up</a>
         </div>
       </div>
     </section>
 
-    <section class="container section" data-od-id="sparkhouse-sales-cta">
-      <div class="spark-cta-panel">
+    <section class="container section" data-od-id="sales-assets">
+      <span class="badge">Assets to use</span>
+      <h2>Web-native proof beats flyer screenshots.</h2>
+      <div class="asset-grid">
+        <figure><img src="assets/sparkhouse-dpr-space.webp" alt="SparkHouse Charlotte partners outside the Uptown entrance"><figcaption>Use for launch proof and civic partner energy.</figcaption></figure>
+        <figure><img src="assets/sparkhouse-dpr-studio.webp" alt="SparkHouse interior buildout and project team"><figcaption>Use for infrastructure, buildout, and facility credibility.</figcaption></figure>
+        <figure><img src="assets/sparkhouse-west-commons.jpg" alt="DO Greater creative workspace with computers and community tables"><figcaption>Use for West Charlotte workspace and program context.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="container section" data-od-id="sales-aeo">
+      <span class="badge">Answer-engine copy</span>
+      <h2>Copy blocks for ads, AI results, and local search.</h2>
+      <div class="answer-bank">
+        <article>
+          <h3>Short answer</h3>
+          <p>SparkHouse Charlotte is a DO Greater creative opportunity hub with coworking, coffee, studios, events, and programs for creators, entrepreneurs, youth, and community partners.</p>
+        </article>
+        <article>
+          <h3>Pricing answer</h3>
+          <p>Introductory offers include a $20 day pass, $129/month Creator Club, $99/month Founding 100, $199/month Studio+, $299/month Dedicated Desk, Solo Offices from $550, and Duo Offices from $900.</p>
+        </article>
+        <article>
+          <h3>Location answer</h3>
+          <p>SparkHouse Uptown is located at 500 N. Tryon Street in Uptown Charlotte. SparkHouse West is located at 2400 Greenland Avenue in West Charlotte.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container section" data-od-id="sales-cta">
+      <div class="spark-cta-panel web4-cta">
         <div>
-          <span class="badge">Package it</span>
-          <h2>Turn a SparkHouse conversation into a proposal.</h2>
-          <p class="lead">Once the lane is clear, use the proposal desk to define the offer, partner ask, and supporting collateral.</p>
+          <span class="badge">Close the loop</span>
+          <h2>Every conversation needs a next click.</h2>
+          <p class="lead">Use this page to sell the offer, then route the person to a tour, sponsorship package, or proposal lane.</p>
         </div>
         <div class="actions">
-          <a href="proposals.html" class="btn-cyan">Open Proposal Desk ↗</a>
-          <a href="collaterals.html" class="btn-cyan">Collateral Library ↗</a>
+          <a href="contact.html" class="btn-cyan">Schedule Tour</a>
+          <a href="proposals.html" class="btn-cyan">Build Sponsor Proposal</a>
+          <a href="infra-grants-brief.html" class="btn-cyan">Open Grants Brief</a>
         </div>
       </div>
     </section>
@@ -151,30 +247,40 @@
 
   <footer>
     <div>© 2026 Do Greater Charlotte.</div>
-    <div>All prices from provided SparkHouse flyer; confirm before external publication.</div>
+    <div>Pricing and offers extracted from the supplied SparkHouse membership flyer.</div>
   </footer>
 
   <script>
     const sparkPersonas = {
       creator: {
         title: "Creator",
-        body: "Lead with Day Pass, Creator Club, and Studio+. Use the source photo as proof that the offer is tangible, not abstract.",
-        cta: "Start Creator Follow-up"
+        body: "Lead with Day Pass, Creator Club, and Studio+. Ask what they need to make this month: workspace, podcast, content day, meeting room, or production access.",
+        cta: "Start Creator Follow-up",
+        href: "contact.html"
+      },
+      founder: {
+        title: "Founder",
+        body: "Lead with Dedicated Desk, Solo Office, Duo Office, 24/7 access, mail service, and a visible Uptown base. Ask whether they need consistency, privacy, or production.",
+        cta: "Route Founder Tour",
+        href: "contact.html"
       },
       sponsor: {
         title: "Sponsor",
-        body: "Lead with community programs, event space, and visible facility support. Move the conversation into a sponsor package or campaign-specific proposal.",
-        cta: "Build Sponsor Ask"
+        body: "Lead with community programs, the City Showroom, SparkHouse Coffee, and the visible public-private coalition. Move quickly into a sponsor package.",
+        cta: "Build Sponsor Ask",
+        href: "proposals.html"
       },
       funder: {
         title: "Funder",
-        body: "Lead with the access story: since 2017, DO Greater has built pathways for people who do not always see themselves in the room.",
-        cta: "Open Grant Brief"
+        body: "Lead with infrastructure: 20,000 square feet, a historic 1921 showroom, creative tools, entrepreneurship support, and access for underestimated talent.",
+        cta: "Open Grant Brief",
+        href: "infra-grants-brief.html"
       },
       team: {
         title: "Small team",
-        body: "Lead with dedicated desks, private offices, meeting rooms, 24/7 access, and a real Uptown address for consistent work.",
-        cta: "Route Team Tour"
+        body: "Lead with Dedicated Desk, Solo Office, Duo Office, meeting rooms, 24/7 access, mail service, and a recurring place to work without a full lease.",
+        cta: "Schedule Team Tour",
+        href: "contact.html"
       }
     };
 
@@ -183,8 +289,7 @@
         const tool = button.closest("[data-tool]");
         const data = sparkPersonas[button.dataset.persona];
         tool.querySelectorAll("button").forEach((item) => item.classList.toggle("active", item === button));
-        const target = button.dataset.persona === "funder" ? "infra-grants-brief.html" : "contact.html";
-        tool.querySelector(".spark-tool-output").innerHTML = `<h3>${data.title}</h3><p>${data.body}</p><a href='${target}' class='btn-cyan'>${data.cta} ↗</a>`;
+        tool.querySelector(".spark-tool-output").innerHTML = "<h3>" + data.title + "</h3><p>" + data.body + "</p><a href=\"" + data.href + "\" class=\"btn-cyan\">" + data.cta + "</a>";
       });
     });
   </script>
