@@ -1118,6 +1118,281 @@ footer a:hover {
   text-decoration: underline;
 }
 
+.spark-hero {
+  padding: clamp(42px, 7vw, 82px) 0;
+  background:
+    linear-gradient(180deg, rgba(0, 137, 150, 0.08), rgba(255, 255, 255, 0)),
+    var(--dg-canvas);
+  border-bottom: 1px solid var(--dg-soft-line);
+}
+
+.spark-hero.sales {
+  background:
+    linear-gradient(180deg, rgba(197, 147, 44, 0.16), rgba(255, 255, 255, 0)),
+    var(--dg-canvas);
+}
+
+.spark-hero.info {
+  background:
+    linear-gradient(180deg, rgba(240, 85, 35, 0.1), rgba(255, 255, 255, 0)),
+    var(--dg-canvas);
+}
+
+.spark-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.72fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: center;
+}
+
+.spark-hero-copy {
+  max-width: 760px;
+}
+
+.spark-photo-card {
+  margin: 0;
+  overflow: hidden;
+  background: var(--dg-paper);
+  border: 1px solid var(--dg-line);
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+}
+
+.spark-photo-card img {
+  width: 100%;
+  height: min(68vh, 720px);
+  object-fit: cover;
+  object-position: center;
+}
+
+.spark-photo-card.compact img {
+  height: min(56vh, 560px);
+}
+
+.spark-photo-card figcaption {
+  padding: 12px 16px 14px;
+  color: var(--dg-muted);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.spark-route-grid,
+.spark-stat-grid,
+.pricing-grid,
+.campaign-board,
+.amenity-grid,
+.location-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.spark-route,
+.spark-stat,
+.price-card,
+.campaign-board article,
+.amenity-grid article,
+.location-card,
+.spark-tool,
+.spark-cta-panel {
+  background: var(--dg-paper);
+  border: 1px solid var(--dg-line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.spark-route,
+.spark-stat,
+.price-card,
+.campaign-board article,
+.amenity-grid article,
+.location-card {
+  padding: clamp(18px, 2.4vw, 28px);
+}
+
+.spark-route > span,
+.price-card > span,
+.campaign-board span,
+.amenity-grid span,
+.location-card > span {
+  color: var(--dg-teal-dark);
+  font-family: "Abel", "Open Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.spark-route p,
+.price-card p,
+.campaign-board p,
+.location-card p {
+  color: var(--dg-muted);
+  font-size: 15px;
+  line-height: 1.62;
+}
+
+.spark-route .btn-cyan,
+.spark-cta-panel .btn-cyan {
+  width: fit-content;
+}
+
+.spark-stat strong {
+  display: block;
+  color: var(--dg-orange-dark);
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  font-size: clamp(52px, 8vw, 86px);
+  line-height: 0.95;
+}
+
+.spark-stat span {
+  display: block;
+  max-width: 22ch;
+  color: var(--dg-muted);
+  font-weight: 800;
+}
+
+.spark-cta-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  padding: clamp(22px, 4vw, 40px);
+  border-color: color-mix(in srgb, var(--dg-orange) 32%, white);
+}
+
+.price-card {
+  position: relative;
+  min-height: 238px;
+}
+
+.price-card.featured {
+  border-color: var(--dg-orange-dark);
+  box-shadow: var(--shadow-md);
+}
+
+.price-card strong {
+  display: block;
+  margin: 14px 0 12px;
+  color: var(--dg-ink);
+  font-family: "Oswald", Helvetica, Arial, sans-serif;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 0.95;
+}
+
+.campaign-board article {
+  min-height: 220px;
+}
+
+.campaign-board b,
+.amenity-grid b,
+.location-card h3 {
+  display: block;
+  color: var(--dg-ink);
+  font-size: 19px;
+  line-height: 1.25;
+}
+
+.campaign-board span {
+  display: block;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--dg-soft-line);
+}
+
+.spark-tool {
+  margin-top: 28px;
+  padding: clamp(18px, 3vw, 30px);
+}
+
+.spark-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.spark-tabs button {
+  min-height: 42px;
+  padding: 10px 14px;
+  color: var(--dg-ink);
+  background: var(--dg-surface);
+  border: 1px solid var(--dg-line);
+  border-radius: 999px;
+  font: 800 14px/1 "Open Sans", Arial, sans-serif;
+}
+
+.spark-tabs button.active {
+  color: #fff;
+  background: var(--dg-ink);
+  border-color: var(--dg-ink);
+}
+
+.spark-tool-output {
+  display: grid;
+  gap: 12px;
+  max-width: 720px;
+}
+
+.spark-tool-output p {
+  color: var(--dg-muted);
+}
+
+.amenity-grid article {
+  min-height: 124px;
+}
+
+.amenity-grid span {
+  display: block;
+  margin-top: 12px;
+}
+
+.location-card {
+  min-height: 220px;
+}
+
+.routing-table {
+  margin-top: 28px;
+  overflow: hidden;
+  background: var(--dg-paper);
+  border: 1px solid var(--dg-line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+.routing-table [role="row"] {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.34fr) minmax(220px, 1fr) auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--dg-soft-line);
+}
+
+.routing-table [role="row"]:last-child {
+  border-bottom: 0;
+}
+
+.routing-table b {
+  color: var(--dg-ink);
+}
+
+.routing-table span {
+  color: var(--dg-muted);
+}
+
+.routing-table a {
+  color: var(--dg-orange-dark);
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.routing-table a:hover {
+  color: var(--dg-ink);
+  text-decoration: underline;
+}
+
 @media (max-width: 920px) {
   .eco-bar,
   .nav,
@@ -1131,8 +1406,16 @@ footer a:hover {
   }
 
   .split,
-  .hero-grid {
+  .hero-grid,
+  .spark-hero-grid,
+  .spark-cta-panel,
+  .routing-table [role="row"] {
     grid-template-columns: 1fr;
+  }
+
+  .spark-photo-card img,
+  .spark-photo-card.compact img {
+    height: auto;
   }
 }
 
