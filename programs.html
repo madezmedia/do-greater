@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRTV Lab Programs — Do Greater Charlotte</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #0D131F;
@@ -15,7 +15,7 @@
       --accent-yellow: #FCDC00;
       --text-white: #FFFFFF;
       --text-muted: #A0AEC0;
-      --border: rgba(255, 255, 255, 0.12);
+      --border: rgba(0, 185, 241, 0.2);
     }
     * { box-sizing: border-box; }
     body {
@@ -23,18 +23,27 @@
       background: var(--bg-dark);
       font-family: 'Poppins', sans-serif;
       color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
     }
-    .top-bar {
-      background: #070B12;
+
+    .eco-bar {
+      background: #060910;
       padding: 10px 32px;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
-      color: var(--text-muted);
+      color: var(--accent-cyan);
       display: flex;
       justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid var(--border);
     }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .eco-links a:hover { color: #FFF; }
+
     .nav {
-      background: var(--bg-dark);
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
       padding: 16px 40px;
       display: flex;
       justify-content: space-between;
@@ -44,121 +53,128 @@
       z-index: 100;
       border-bottom: 1px solid var(--border);
     }
-    .logo-container img { height: 44px; width: auto; }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-links a { color: #FFF; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .logo-container img { height: 46px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: #FFF; text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.2s; }
     .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
-    .btn-donate { background: var(--accent-cyan); color: #FFF; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px; }
-
-    .header-hero {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 32px;
-      text-align: center;
+    .btn-cyan {
+      background: var(--accent-cyan);
+      color: #FFF;
+      padding: 12px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 6px 20px rgba(0, 185, 241, 0.35);
+      transition: all 0.2s ease;
     }
-    h1 { font-size: 44px; font-weight: 900; margin-bottom: 16px; }
+
+    .container { max-width: 1300px; margin: 0 auto; padding: 40px 32px; }
+    .header-hero { text-align: center; margin-bottom: 60px; }
+    h1 { font-size: 48px; font-weight: 900; margin-bottom: 16px; }
     h1 span { color: var(--accent-cyan); }
 
     .programs-grid {
-      max-width: 1200px;
-      margin: 0 auto 60px;
-      padding: 0 32px;
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
+      gap: 36px;
+      margin-bottom: 60px;
     }
     .prog-card {
       background: var(--card-dark);
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
       border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
     }
-    .prog-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-    }
-    .prog-body {
-      padding: 28px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .prog-title { font-size: 22px; font-weight: 700; color: #FFF; margin-bottom: 8px; }
-    .prog-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 20px; }
+    .prog-card img { width: 100%; height: 260px; object-fit: cover; }
+    .prog-body { padding: 32px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .prog-title { font-size: 24px; font-weight: 800; color: #FFF; margin-bottom: 12px; }
+    .prog-desc { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 24px; }
     .badge {
       display: inline-block;
       background: rgba(0, 185, 241, 0.15);
       color: var(--accent-cyan);
-      padding: 6px 14px;
+      padding: 6px 16px;
       border-radius: 20px;
       font-size: 12px;
       font-weight: 700;
-      width: fit-content;
     }
 
-    footer { max-width: 1200px; margin: 40px auto; padding: 32px; display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <div>DO GREATER CHARLOTTE — CRTV LAB PROGRAMS</div>
-    <div>CREATIVE TECH, DESIGN & ENTREPRENEURSHIP</div>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · CRTV LAB PROGRAMS</div>
+    <div class="eco-links">
+      <a href="http://localhost:3001/projects/do-greater-charlotte-org" target="_blank">🎨 OpenDesign Canvas ↗</a>
+      <a href="https://do-greater.vercel.app/programs.html" target="_blank">⚡ Live Vercel ↗</a>
+      <a href="index.html">🏠 Home Page</a>
+    </div>
   </div>
 
   <div class="nav">
     <div class="logo-container">
-      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Logo"></a>
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
     </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
-      <a href="programs.html" class="active">Programs</a>
+      <a href="programs.html" class="active">CRTV Lab</a>
       <a href="get-involved.html">Get Involved</a>
       <a href="contact.html">Contact</a>
-      <a href="get-involved.html" class="btn-donate">Donate ↗</a>
+      <a href="get-involved.html" class="btn-cyan">Donate ↗</a>
     </div>
   </div>
 
-  <div class="header-hero">
-    <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Curriculum & Incubator</span>
-    <h1>Our <span>CRTV Lab</span> Programs</h1>
-    <p style="color: var(--text-muted); font-size: 17px; max-width: 750px; margin: 0 auto 40px;">Providing hands-on access to industry-standard tools, design thinking frameworks, and professional mentorship.</p>
-  </div>
+  <div class="container">
+    <div class="header-hero">
+      <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Incubator & STEAM Curriculum</span>
+      <h1>Our <span>CRTV Lab</span> Programs</h1>
+      <p style="color: var(--text-muted); font-size: 18px; max-width: 750px; margin: 0 auto;">Hands-on access to industry-standard tools, design thinking frameworks, and professional mentorship.</p>
+    </div>
 
-  <div class="programs-grid">
-    <div class="prog-card">
-      <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2023/04/keyboard.jpg?w=1080&ssl=1" alt="Music & Audio Production">
-      <div class="prog-body">
-        <div>
-          <span class="badge">AUDIO & MEDIA</span>
-          <div class="prog-title" style="margin-top: 12px;">Music & Digital Production Lab</div>
-          <div class="prog-desc">Students master beatmaking, podcasting, vocal tracking, and audio engineering using Logic Pro and Ableton.</div>
+    <div class="programs-grid">
+      <div class="prog-card">
+        <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2023/04/keyboard.jpg?w=1080&ssl=1" alt="Music Production Lab">
+        <div class="prog-body">
+          <div>
+            <span class="badge">AUDIO & MEDIA</span>
+            <div class="prog-title" style="margin-top: 14px;">Music & Digital Audio Production</div>
+            <div class="prog-desc">Students master beatmaking, podcasting, vocal tracking, and audio engineering using Logic Pro and Ableton Live.</div>
+          </div>
+          <a href="get-involved.html" class="btn-cyan" style="text-align: center; text-decoration: none;">Enroll / Support Program ↗</a>
         </div>
-        <a href="get-involved.html" class="btn-donate" style="text-align: center; text-decoration: none;">Enroll / Support Program ↗</a>
+      </div>
+
+      <div class="prog-card">
+        <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2023/04/designathon.jpg?w=1080&ssl=1" alt="Youth Designathon">
+        <div class="prog-body">
+          <div>
+            <span class="badge" style="background: rgba(229, 0, 125, 0.15); color: var(--accent-magenta);">DESIGN & UI</span>
+            <div class="prog-title" style="margin-top: 14px;">Annual Youth Designathon</div>
+            <div class="prog-desc">A 48-hour hackathon-style competition where student teams build real apps, brand identities, and tech solutions for local non-profits.</div>
+          </div>
+          <a href="get-involved.html" class="btn-cyan" style="text-align: center; text-decoration: none; background: var(--accent-magenta);">Enroll / Support Program ↗</a>
+        </div>
       </div>
     </div>
-
-    <div class="prog-card">
-      <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2023/04/designathon.jpg?w=1080&ssl=1" alt="Annual Designathon">
-      <div class="prog-body">
-        <div>
-          <span class="badge" style="background: rgba(229, 0, 125, 0.15); color: var(--accent-magenta);">DESIGN & UI</span>
-          <div class="prog-title" style="margin-top: 12px;">Annual Youth Designathon</div>
-          <div class="prog-desc">A 48-hour hackathon-style competition where student teams build real apps, brand identities, and tech solutions for local non-profits.</div>
-        </div>
-        <a href="get-involved.html" class="btn-donate" style="text-align: center; text-decoration: none; background: var(--accent-magenta);">Enroll / Support Program ↗</a>
-      </div>
-    </div>
   </div>
 
-  footer { max-width: 1200px; margin: 40px auto; padding: 32px; display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
   <footer>
     <div>© 2026 Do Greater Charlotte. All rights reserved.</div>
-    <div>Scraped & Ecosystem Linked from <code>https://dogreater.org/</code></div>
+    <div>OpenDesign Project: <code>do-greater-charlotte-org</code> · Target: <code>https://dogreater.org/</code></div>
   </footer>
 </body>
 </html>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us — Do Greater Charlotte</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #0D131F;
@@ -15,7 +15,7 @@
       --accent-yellow: #FCDC00;
       --text-white: #FFFFFF;
       --text-muted: #A0AEC0;
-      --border: rgba(255, 255, 255, 0.12);
+      --border: rgba(0, 185, 241, 0.2);
     }
     * { box-sizing: border-box; }
     body {
@@ -23,18 +23,27 @@
       background: var(--bg-dark);
       font-family: 'Poppins', sans-serif;
       color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
     }
-    .top-bar {
-      background: #070B12;
+
+    .eco-bar {
+      background: #060910;
       padding: 10px 32px;
+      font-family: 'JetBrains Mono', monospace;
       font-size: 12px;
-      color: var(--text-muted);
+      color: var(--accent-cyan);
       display: flex;
       justify-content: space-between;
+      align-items: center;
       border-bottom: 1px solid var(--border);
     }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .eco-links a:hover { color: #FFF; }
+
     .nav {
-      background: var(--bg-dark);
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
       padding: 16px 40px;
       display: flex;
       justify-content: space-between;
@@ -44,56 +53,62 @@
       z-index: 100;
       border-bottom: 1px solid var(--border);
     }
-    .logo-container img { height: 44px; width: auto; }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-links a { color: #FFF; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .logo-container img { height: 46px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: #FFF; text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.2s; }
     .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
-    .btn-donate { background: var(--accent-cyan); color: #FFF; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px; }
-
-    .header-hero {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 32px;
-      text-align: center;
+    .btn-cyan {
+      background: var(--accent-cyan);
+      color: #FFF;
+      padding: 12px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 6px 20px rgba(0, 185, 241, 0.35);
+      transition: all 0.2s ease;
     }
-    h1 { font-size: 44px; font-weight: 900; margin-bottom: 16px; }
+    .btn-cyan:hover { background: var(--accent-magenta); transform: translateY(-2px); }
+
+    .container { max-width: 1300px; margin: 0 auto; padding: 40px 32px; }
+
+    .header-hero { text-align: center; margin-bottom: 60px; }
+    h1 { font-size: 48px; font-weight: 900; margin-bottom: 16px; }
     h1 span { color: var(--accent-cyan); }
-    p.lead { font-size: 18px; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; }
+    p.lead { font-size: 18px; color: var(--text-muted); max-width: 800px; margin: 0 auto 40px; line-height: 1.6; }
 
     .story-grid {
-      max-width: 1200px;
-      margin: 0 auto 60px;
-      padding: 0 32px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 40px;
+      gap: 48px;
       align-items: center;
+      margin-bottom: 60px;
     }
     .story-card {
       background: var(--card-dark);
-      border-radius: 16px;
-      padding: 32px;
+      border-radius: 20px;
+      padding: 40px;
       border: 1px solid var(--border);
     }
-    .story-card h2 { font-size: 26px; color: var(--accent-cyan); margin-top: 0; }
-    .story-card p { color: var(--text-muted); line-height: 1.6; }
+    .story-card h2 { font-size: 28px; color: var(--accent-cyan); margin-top: 0; }
+    .story-card p { color: var(--text-muted); line-height: 1.7; font-size: 15px; }
 
     .team-section {
       background: var(--card-dark);
-      padding: 60px 32px;
-      border-top: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 50px 40px;
+      border: 1px solid var(--border);
+      margin-bottom: 60px;
     }
     .team-grid {
-      max-width: 1200px;
-      margin: 0 auto;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
     }
     .team-card {
       background: var(--bg-dark);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: 18px;
+      padding: 32px 24px;
       text-align: center;
       border: 1px solid var(--border);
     }
@@ -102,88 +117,107 @@
       height: 90px;
       border-radius: 50%;
       background: var(--accent-cyan);
-      margin: 0 auto 16px;
+      color: #FFF;
+      margin: 0 auto 20px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 32px;
-      font-weight: 700;
+      font-weight: 800;
+      box-shadow: 0 8px 24px rgba(0, 185, 241, 0.3);
     }
-    .team-name { font-size: 18px; font-weight: 700; color: #FFF; margin-bottom: 4px; }
-    .team-role { font-size: 13px; color: var(--accent-cyan); font-weight: 600; margin-bottom: 12px; }
-    .team-bio { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    .team-name { font-size: 20px; font-weight: 700; color: #FFF; margin-bottom: 6px; }
+    .team-role { font-size: 13px; color: var(--accent-cyan); font-weight: 600; margin-bottom: 14px; }
+    .team-bio { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
 
-    footer { max-width: 1200px; margin: 40px auto; padding: 32px; display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <div>DO GREATER CHARLOTTE — OUR STORY & CRTV LAB</div>
-    <div>CHARLOTTE, NC CREATIVE TECH HUB</div>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · OUR STORY & CRTV LAB</div>
+    <div class="eco-links">
+      <a href="http://localhost:3001/projects/do-greater-charlotte-org" target="_blank">🎨 OpenDesign Canvas ↗</a>
+      <a href="https://do-greater.vercel.app/about.html" target="_blank">⚡ Live Vercel ↗</a>
+      <a href="index.html">🏠 Home Page</a>
+    </div>
   </div>
 
   <div class="nav">
     <div class="logo-container">
-      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Logo"></a>
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
     </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About Us</a>
-      <a href="programs.html">Programs</a>
+      <a href="programs.html">CRTV Lab</a>
       <a href="get-involved.html">Get Involved</a>
       <a href="contact.html">Contact</a>
-      <a href="get-involved.html" class="btn-donate">Donate ↗</a>
+      <a href="get-involved.html" class="btn-cyan">Donate ↗</a>
     </div>
   </div>
 
-  <div class="header-hero">
-    <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Our Mission & History</span>
-    <h1>Building Creative Confidence in <span>Charlotte's Youth</span></h1>
-    <p class="lead">Do Greater Charlotte was founded with a singular vision: to dismantle systemic barriers to creative technology and entrepreneurship for underserved youth.</p>
-  </div>
-
-  <div class="story-grid">
-    <div class="story-card">
-      <h2>The CRTV Lab Vision</h2>
-      <p>Located in the heart of Charlotte, NC, the CRTV Lab (Creative Technology Lab) is a 3,000+ sq ft space equipped with state-of-the-art Apple workstations, music recording equipment, 3D printers, and collaborative design studios.</p>
-      <p>Here, middle and high school students transition from technology consumers to digital creators and tech leaders.</p>
-    </div>
-    <div>
-      <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2023/04/COMMONS1-2.jpg?w=1080&ssl=1" alt="CRTV Lab Commons" style="width: 100%; border-radius: 16px; border: 1px solid var(--border);">
-    </div>
-  </div>
-
-  <div class="team-section">
-    <div style="max-width: 1200px; margin: 0 auto 32px; text-align: center;">
-      <h2 style="font-size: 32px; margin: 0;">Leadership & Community Board</h2>
-      <p style="color: var(--text-muted);">Dedicated leaders guiding Charlotte's next generation of creative entrepreneurs.</p>
+  <div class="container">
+    <div class="header-hero">
+      <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Our History & Mission</span>
+      <h1>Unlocking Creative Confidence in <span>Charlotte's Youth</span></h1>
+      <p class="lead">Do Greater Charlotte was founded to dismantle systemic barriers to creative technology, design, and entrepreneurship for underserved youth.</p>
     </div>
 
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-avatar">WS</div>
-        <div class="team-name">William Sparks</div>
-        <div class="team-role">Founder & Executive Director</div>
-        <div class="team-bio">Passionate community builder driving creative tech access across Charlotte schools.</div>
+    <div class="story-grid">
+      <div class="story-card">
+        <h2>The CRTV Lab Facility</h2>
+        <p>Located in Charlotte, NC, the CRTV Lab (Creative Technology Lab) is a 3,000+ sq ft hub equipped with Apple Mac workstations, digital audio recording booths, 3D printers, and collaborative studios.</p>
+        <p>Students transition from technology consumers into digital creators, brand builders, and future tech entrepreneurs.</p>
       </div>
-      <div class="team-card">
-        <div class="team-avatar" style="background: var(--accent-magenta);">TJ</div>
-        <div class="team-name">Tasha Jackson</div>
-        <div class="team-role">Head of Curriculum & Programs</div>
-        <div class="team-bio">Leading STEAM & design thinking workshops for hundreds of Charlotte students annually.</div>
+      <div>
+        <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2023/04/COMMONS1-2.jpg?w=1080&ssl=1" alt="CRTV Lab Commons Space" style="width: 100%; border-radius: 20px; border: 1px solid var(--border); box-shadow: 0 16px 40px rgba(0,0,0,0.5);">
       </div>
-      <div class="team-card">
-        <div class="team-avatar" style="background: var(--accent-yellow); color: #000;">MR</div>
-        <div class="team-name">Marcus Robinson</div>
-        <div class="team-role">Community Partnerships Director</div>
-        <div class="team-bio">Connecting local corporate leaders and mentors with CRTV Lab student cohorts.</div>
+    </div>
+
+    <div class="team-section">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <h2 style="font-size: 32px; font-weight: 800; margin: 0 0 12px;">Executive Leadership & Board</h2>
+        <p style="color: var(--text-muted); font-size: 15px;">Guiding Charlotte's next generation of creative tech innovators.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">WS</div>
+          <div class="team-name">William Sparks</div>
+          <div class="team-role">Founder & Executive Director</div>
+          <div class="team-bio">Pioneering community leader creating access to creative technology across Charlotte schools.</div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar" style="background: var(--accent-magenta);">TJ</div>
+          <div class="team-name">Tasha Jackson</div>
+          <div class="team-role">Head of Curriculum & STEAM Labs</div>
+          <div class="team-bio">Directing hands-on design thinking and digital production cohorts for hundreds of students.</div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar" style="background: var(--accent-yellow); color: #000;">MR</div>
+          <div class="team-name">Marcus Robinson</div>
+          <div class="team-role">Director of Community & Corporate Partnerships</div>
+          <div class="team-bio">Bridging Charlotte tech corporations and industry mentors with CRTV Lab student teams.</div>
+        </div>
       </div>
     </div>
   </div>
 
   <footer>
     <div>© 2026 Do Greater Charlotte. All rights reserved.</div>
-    <div>Scraped & Ecosystem Linked from <code>https://dogreater.org/</code></div>
+    <div>OpenDesign Project: <code>do-greater-charlotte-org</code> · Target: <code>https://dogreater.org/</code></div>
   </footer>
 </body>
 </html>

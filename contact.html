@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact Us — Do Greater Charlotte</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg-dark: #0D131F;
@@ -14,70 +14,128 @@
       --accent-magenta: #E5007D;
       --text-white: #FFFFFF;
       --text-muted: #A0AEC0;
-      --border: rgba(255, 255, 255, 0.12);
+      --border: rgba(0, 185, 241, 0.2);
     }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg-dark); font-family: 'Poppins', sans-serif; color: var(--text-white); }
-    .top-bar { background: #070B12; padding: 10px 32px; font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); }
-    .nav { background: var(--bg-dark); padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
-    .logo-container img { height: 44px; width: auto; }
-    .nav-links { display: flex; gap: 24px; align-items: center; }
-    .nav-links a { color: #FFF; text-decoration: none; font-weight: 600; font-size: 14px; }
+    body {
+      margin: 0;
+      background: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .eco-bar {
+      background: #060910;
+      padding: 10px 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .eco-links a:hover { color: #FFF; }
+
+    .nav {
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container img { height: 46px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links a { color: #FFF; text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.2s; }
     .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
-    .btn-donate { background: var(--accent-cyan); color: #FFF; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px; }
+    .btn-cyan {
+      background: var(--accent-cyan);
+      color: #FFF;
+      padding: 12px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 6px 20px rgba(0, 185, 241, 0.35);
+      transition: all 0.2s ease;
+    }
 
-    .contact-grid { max-width: 1200px; margin: 60px auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-    .contact-card { background: var(--card-dark); border-radius: 16px; padding: 36px; border: 1px solid var(--border); }
-    input, textarea { width: 100%; padding: 12px 16px; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 8px; color: #FFF; font-family: inherit; margin-bottom: 16px; }
+    .container { max-width: 1300px; margin: 0 auto; padding: 40px 32px; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 60px; }
+    .contact-card { background: var(--card-dark); border-radius: 20px; padding: 40px; border: 1px solid var(--border); }
+    input, textarea { width: 100%; padding: 14px 18px; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 10px; color: #FFF; font-family: inherit; margin-bottom: 20px; }
 
-    footer { max-width: 1200px; margin: 40px auto; padding: 32px; display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
   </style>
 </head>
 <body>
-  <div class="top-bar">
-    <div>DO GREATER CHARLOTTE — CONTACT & LOCATION</div>
-    <div>CRTV LAB HUB · CHARLOTTE, NC</div>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · CONTACT & LOCATION</div>
+    <div class="eco-links">
+      <a href="http://localhost:3001/projects/do-greater-charlotte-org" target="_blank">🎨 OpenDesign Canvas ↗</a>
+      <a href="https://do-greater.vercel.app/contact.html" target="_blank">⚡ Live Vercel ↗</a>
+      <a href="index.html">🏠 Home Page</a>
+    </div>
   </div>
 
   <div class="nav">
     <div class="logo-container">
-      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Logo"></a>
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
     </div>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About Us</a>
-      <a href="programs.html">Programs</a>
+      <a href="programs.html">CRTV Lab</a>
       <a href="get-involved.html">Get Involved</a>
       <a href="contact.html" class="active">Contact</a>
-      <a href="get-involved.html" class="btn-donate">Donate ↗</a>
+      <a href="get-involved.html" class="btn-cyan">Donate ↗</a>
     </div>
   </div>
 
-  <div class="contact-grid">
-    <div>
-      <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Get In Touch</span>
-      <h1 style="font-size: 40px; margin: 12px 0 20px;">Connect with <span>CRTV Lab</span></h1>
-      <p style="color: var(--text-muted); line-height: 1.6;">Have questions about student enrollment, corporate volunteering, or facility tours?</p>
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;">Get In Touch</span>
+        <h1 style="font-size: 42px; margin: 12px 0 24px;">Connect with <span>CRTV Lab</span></h1>
+        <p style="color: var(--text-muted); line-height: 1.7; font-size: 16px;">Have questions about student enrollment, corporate volunteering, or facility tours?</p>
 
-      <div style="margin-top: 32px; background: var(--card-dark); padding: 24px; border-radius: 12px; border: 1px solid var(--border);">
-        <h4 style="margin: 0 0 8px; color: var(--accent-cyan);">CRTV Lab Location</h4>
-        <p style="margin: 0; color: var(--text-muted); font-size: 14px;">2400 Beatties Ford Rd, Charlotte, NC 28216</p>
-        <p style="margin-top: 8px; color: var(--text-muted); font-size: 14px;">Email: info@dogreater.org</p>
+        <div style="margin-top: 40px; background: var(--card-dark); padding: 28px; border-radius: 16px; border: 1px solid var(--border);">
+          <h4 style="margin: 0 0 10px; color: var(--accent-cyan); font-size: 18px;">CRTV Lab Location</h4>
+          <p style="margin: 0; color: var(--text-muted); font-size: 15px;">2400 Beatties Ford Rd, Charlotte, NC 28216</p>
+          <p style="margin-top: 10px; color: var(--text-muted); font-size: 15px;">Email: info@dogreater.org</p>
+        </div>
       </div>
-    </div>
 
-    <div class="contact-card">
-      <h3 style="margin-top: 0; font-size: 22px;">Send Us a Message</h3>
-      <input type="text" placeholder="Your Full Name">
-      <input type="email" placeholder="Your Email Address">
-      <textarea rows="5" placeholder="How can we collaborate or help you?"></textarea>
-      <button onclick="alert('Thank you for contacting Do Greater Charlotte! We will respond within 24 hours.')" class="btn-donate" style="width: 100%; border: 0; cursor: pointer; padding: 14px;">Send Message ↗</button>
+      <div class="contact-card">
+        <h3 style="margin-top: 0; font-size: 24px;">Send Us a Message</h3>
+        <input type="text" placeholder="Your Full Name">
+        <input type="email" placeholder="Your Email Address">
+        <textarea rows="5" placeholder="How can we collaborate or help you?"></textarea>
+        <button onclick="alert('Thank you for contacting Do Greater Charlotte! We will respond within 24 hours.')" class="btn-cyan" style="width: 100%; border: 0; cursor: pointer; padding: 16px;">Send Message ↗</button>
+      </div>
     </div>
   </div>
 
   <footer>
     <div>© 2026 Do Greater Charlotte. All rights reserved.</div>
-    <div>Scraped & Ecosystem Linked from <code>https://dogreater.org/</code></div>
+    <div>OpenDesign Project: <code>do-greater-charlotte-org</code> · Target: <code>https://dogreater.org/</code></div>
   </footer>
 </body>
 </html>
