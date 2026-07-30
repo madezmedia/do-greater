@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Do Greater Charlotte — Creative Tech & Youth Empowerment Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0D131F;
+      --card-dark: #162032;
+      --accent-cyan: #00B9F1;
+      --accent-magenta: #E5007D;
+      --accent-yellow: #FCDC00;
+      --text-white: var(--text-white)FFF;
+      --text-muted: #A0AEC0;
+      --border: rgba(0, 185, 241, 0.2);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Top Ecosystem Access Bar */
+    .eco-bar {
+      background: #060910;
+      padding: 10px 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .eco-links a:hover { color: var(--text-white); }
+
+    /* Sticky Navigation */
+    .nav {
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container img { height: 46px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 18px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .nav-links a { color: var(--text-white); text-decoration: none; font-weight: 600; font-size: 14px; transition: color 0.2s; }
+    .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
+    .btn-cyan {
+      background: var(--accent-cyan);
+      color: var(--text-white);
+      padding: 12px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 6px 20px rgba(0, 185, 241, 0.35);
+      transition: all 0.2s ease;
+    }
+    .btn-cyan:hover { background: var(--accent-magenta); transform: translateY(-2px); }
+
+    /* Main Container */
+    .container { max-width: 1300px; margin: 0 auto; padding: 40px 32px; }
+
+    /* Hero Banner Graphic */
+    .hero-banner {
+      width: 100%;
+      border-radius: 20px;
+      margin-bottom: 40px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+      display: block;
+    }
+
+    /* Hero Grid */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0, 185, 241, 0.12);
+      color: var(--accent-cyan);
+      padding: 8px 18px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(0, 185, 241, 0.3);
+    }
+    h1 {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.12;
+      margin: 0 0 24px;
+      letter-spacing: -0.02em;
+    }
+    h1 span {
+      background: linear-gradient(120deg, var(--accent-cyan), var(--accent-magenta));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-p { font-size: 18px; line-height: 1.6; color: var(--text-muted); margin-bottom: 36px; }
+
+    /* Video Frame Container */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 20px;
+      border: 2px solid var(--border);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.7);
+    }
+    .video-wrapper iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
+    }
+
+    /* Interactive Component Systems */
+    .interactive-hub {
+      background: var(--card-dark);
+      border-radius: 24px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      margin-bottom: 60px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .section-title { font-size: 32px; font-weight: 800; margin-bottom: 32px; text-align: center; }
+
+    .hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .hub-card {
+      background: var(--bg-dark);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .hub-card:hover { transform: translateY(-4px); border-color: var(--accent-cyan); }
+    .hub-icon { font-size: 36px; margin-bottom: 12px; }
+    .hub-name { font-size: 16px; font-weight: 700; color: var(--text-white); margin-bottom: 6px; }
+    .hub-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; margin-bottom: 16px; }
+
+    /* Real Photography Gallery */
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 60px; }
+    .gallery-card {
+      background: var(--card-dark);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .gallery-card img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+    .gallery-card:hover img { transform: scale(1.05); }
+    .gallery-body { padding: 24px; }
+    .gallery-title { font-size: 18px; font-weight: 700; color: var(--text-white); margin-bottom: 6px; }
+    .gallery-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 32px;
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Ecosystem Access Bar -->
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · REFERENCE TEMPLATE</div>
+    <div class="eco-links">
+      <a href="index.html">Launchpad</a>
+      <a href="proposals.html">Proposal desk</a>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">CRTV Lab</a>
+      <a href="get-involved.html">Outreach</a>
+      <a href="contact.html">Contact</a>
+      <a href="get-involved.html" class="btn-cyan">Donate ↗</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Real Scraped 2026 Web Header Banner Graphic -->
+    <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2026/07/2026-web-header-1080-x-350-px.png?w=1080&ssl=1" alt="Do Greater 2026 Web Header Graphic" class="hero-banner">
+
+    <!-- Hero Section -->
+    <div class="hero-grid">
+      <div>
+        <span class="hero-badge">Charlotte Creative Tech Hub</span>
+        <h1>We Power <span>Potential.</span></h1>
+        <p class="hero-p">Do Greater Charlotte equips underserved youth with creative confidence, design technology, and entrepreneurial mentorship to build brighter futures in Charlotte, NC.</p>
+        <div style="display: flex; gap: 16px;">
+          <a href="get-involved.html" class="btn-cyan" style="font-size: 16px; padding: 14px 32px;">Sponsor a Creative Student ↗</a>
+          <a href="programs.html" class="btn-cyan" style="background: rgba(255,255,255,0.08); border: 1px solid var(--border); box-shadow: none;">Explore Programs ↗</a>
+        </div>
+      </div>
+
+      <!-- Real Embedded YouTube Video -->
+      <div class="video-wrapper">
+        <iframe src="https://www.youtube.com/embed/DnHDl80a_Fg?feature=oembed" title="Do Greater Charlotte - We Power Potential" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Quick Access Interactive Component System Hub -->
+    <div class="interactive-hub">
+      <h2 class="section-title">Full Ecosystem & Pages Access Hub</h2>
+      <div class="hub-grid">
+        <div class="hub-card">
+          <div class="hub-icon">🏛️</div>
+          <div class="hub-name">About Us & Vision</div>
+          <div class="hub-desc">Our story, CRTV Lab facility, and executive leadership team.</div>
+          <a href="about.html" class="btn-cyan" style="display: block; font-size: 12px; padding: 8px;">Explore About ↗</a>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-icon">💻</div>
+          <div class="hub-name">CRTV Lab Programs</div>
+          <div class="hub-desc">Music production lab, digital arts, & annual Designathon.</div>
+          <a href="programs.html" class="btn-cyan" style="display: block; font-size: 12px; padding: 8px;">View Programs ↗</a>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-icon">🎁</div>
+          <div class="hub-name">Outreach / Donate</div>
+          <div class="hub-desc">Student sponsorship tiers ($25/mo, $100/mo, $500/yr).</div>
+          <a href="get-involved.html" class="btn-cyan" style="display: block; font-size: 12px; padding: 8px; background: var(--accent-magenta);">Donate Tiers ↗</a>
+        </div>
+
+        <div class="hub-card">
+          <div class="hub-icon">📍</div>
+          <div class="hub-name">Contact & Location</div>
+          <div class="hub-desc">2400 Beatties Ford Rd, Charlotte NC contact hub.</div>
+          <a href="contact.html" class="btn-cyan" style="display: block; font-size: 12px; padding: 8px;">Contact Hub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Real Scraped Photography Gallery -->
+    <h2 class="section-title">CRTV Lab & Youth Programs in Action</h2>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2023/04/keyboard.jpg?w=1080&ssl=1" alt="Music Production Lab">
+        <div class="gallery-body">
+          <div class="gallery-title">Music & Digital Audio Production</div>
+          <div class="gallery-desc">Youth building beats and mastering digital audio workstations in Logic Pro & Ableton.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2023/04/COMMONS1-2.jpg?w=1080&ssl=1" alt="CRTV Lab Commons">
+        <div class="gallery-body">
+          <div class="gallery-title">CRTV Lab Commons Facility</div>
+          <div class="gallery-card-desc">State-of-the-art creative collaboration facility in Charlotte, NC.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card">
+        <img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2023/04/designathon.jpg?w=1080&ssl=1" alt="Annual Designathon">
+        <div class="gallery-body">
+          <div class="gallery-title">Annual Youth Designathon Challenge</div>
+          <div class="gallery-desc">Hackathon-style design thinking competition for local non-profit solutions.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div>© 2026 Do Greater Charlotte. All rights reserved.</div>
+    <div>OpenDesign Registered: <code>do-greater-charlotte-org</code> · Target: <code>https://dogreater.org/</code></div>
+  </footer>
+</body>
+</html>

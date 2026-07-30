@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programs — DO Greater Charlotte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0D131F;
+      --card-dark: #162032;
+      --accent-cyan: #00B9F1;
+      --accent-magenta: #E5007D;
+      --accent-yellow: #FCDC00;
+      --text-white: var(--text-white)FFF;
+      --text-muted: #A0AEC0;
+      --border: rgba(0, 185, 241, 0.2);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    .eco-bar {
+      background: color-mix(in srgb, var(--bg-dark) 82%, black);
+      padding: 12px 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; }
+    .eco-links a:hover { color: var(--text-white); }
+
+    .nav {
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container img { height: 44px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 18px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-white); text-decoration: none; font-weight: 600; font-size: 14px; }
+    .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
+    .btn-cyan {
+      background: var(--accent-cyan); color: var(--bg-dark); padding: 10px 20px; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 13px; box-shadow: 0 8px 24px rgba(0, 185, 241, 0.22); transition: all 0.2s ease;
+    }
+    .btn-cyan:hover { background: var(--accent-magenta); transform: translateY(-2px); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+    h1 { font-size: 46px; font-weight: 900; line-height: 1.1; margin: 0 0 16px; }
+    h1 span { background: linear-gradient(120deg, var(--accent-cyan), var(--accent-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: 30px; font-weight: 800; margin: 0 0 12px; }
+    h3 { font-size: 20px; font-weight: 700; margin: 0 0 8px; color: var(--text-white); }
+    p.lead { font-size: 18px; color: var(--text-muted); max-width: 820px; margin: 0 auto; line-height: 1.7; }
+
+    .hero { text-align: center; padding: 52px 0 20px; }
+    .section { padding: 32px 0; }
+    .section.alt { background: linear-gradient(180deg, rgba(0,185,241,0.05), transparent), var(--bg-dark); }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 185, 241, 0.15);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      border: 1px solid rgba(0, 185, 241, 0.35);
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 26px; }
+    .card {
+      background: var(--card-dark); border-radius: 20px; padding: 24px; border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 10px; transition: transform 0.2s ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: var(--accent-cyan); }
+    .card h3 { margin: 0; color: var(--text-white); font-size: 19px; }
+    .card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0; }
+    .pill {
+      display: inline-flex; padding: 6px 12px; border-radius: 16px; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+    .pill-primary { background: rgba(0,185,241,0.12); color: var(--accent-cyan); border: 1px solid rgba(0,185,241,0.25); }
+    .pill-muted { background: rgba(160,174,192,0.12); color: var(--text-muted); border: 1px solid rgba(160,174,192,0.25); }
+    .pill-magenta { background: rgba(229,0,125,0.12); color: var(--accent-magenta); border: 1px solid rgba(229,0,125,0.25); }
+    .pill-yellow { background: rgba(252,220,0,0.12); color: #000; border: 1px solid rgba(252,220,0,0.25); }
+    .card-row { display: flex; justify-content: space-between; align-items: start; gap: 10px; }
+
+    .idea-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-top: 26px; }
+    .idea {
+      background: var(--card-dark); border-radius: 18px; padding: 22px; border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .idea h3 { margin: 0; color: var(--text-white); font-size: 18px; }
+    .idea p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0; }
+
+    .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--text-muted);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--text-white); }
+
+    @media (max-width: 760px) {
+      .nav { flex-wrap: wrap; gap: 10px; }
+      h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · PROGRAMS + BRIEFS</div>
+    <div class="eco-links">
+      <a href="index.html">Launchpad</a>
+      <a href="proposals.html">Proposal desk</a>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="programs.html" class="active">Programs</a>
+      <a href="programs.html#briefs">Briefs</a>
+      <a href="get-involved.html">Outreach</a>
+      <a href="proposals.html">Proposals</a>
+      <a href="collaterals.html">Collaterals</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero section" data-od-id="section-1">
+      <span class="badge">Lanes, curriculum, and experiments</span>
+      <h1>Programs that move students from <span>consumers</span> to <span>creators</span>.</h1>
+      <p class="lead">Use this page to route partners into program sponsorships, test new ideas, or build opps with real curriculum facts.</p>
+      <div class="actions">
+        <a href="proposals.html" class="btn-cyan">Use Program in a Proposal ↗</a>
+        <a href="get-involved.html" class="btn-cyan">Sponsor a Program ↗</a>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-2">
+      <h2>Program facts</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-row"><h3>Start Upward</h3><span class="pill pill-primary">10-week</span></div>
+          <p>Entrepreneurship pipeline: idea validation, brand identity, customer research, and pitching.</p>
+          <p>Best fit: corporate sponsor or small-business cohort exposure.</p>
+        </div>
+        <div class="card">
+          <div class="card-row"><h3>Designathon: Code the City</h3><span class="pill pill-magenta">48-hour sprint</span></div>
+          <p>AI + design-thinking hackathon where student teams build apps and tech solutions for local nonprofits.</p>
+          <p>Best fit: named sponsor, mentor slots, challenge brief, logo placement.</p>
+        </div>
+        <div class="card">
+          <div class="card-row"><h3>Music & Digital Audio</h3><span class="pill pill-muted">Cohort / Lab</span></div>
+          <p>Beatmaking, podcasting, vocal tracking, and audio engineering using Logic Pro and Ableton Live.</p>
+          <p>Best fit: software licenses, hardware donations, studio mentor hours.</p>
+        </div>
+        <div class="card">
+          <div class="card-row"><h3>Design to Dollars Art Camp</h3><span class="pill pill-yellow">Seasonal</span></div>
+          <p>Creative production-to-profit camp: visual design, merch/print, client workflow, and sales basics.</p>
+          <p>Best fit: seasonal sponsor, materials donor, sales mentorship.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-3">
+      <h2>Ideas in progress</h2>
+      <p class="lead">Testable concepts ready to turn into proposals, briefs, or experiments.</p>
+      <div class="idea-grid">
+        <div class="idea">
+          <h3>Mobile CRTVLab — westside Charlotte</h3>
+          <p>Pop-up creative tech sessions at partner spaces. Low overhead; high community optics.</p>
+          <a href="proposals.html" class="btn-cyan">Draft Proposal ↗</a>
+        </div>
+        <div class="idea">
+          <h3>AI Integration track</h3>
+          <p>Add practical AI workflows to an existing program cohort: 30-day roadmap plus hands-on exercises.</p>
+          <a href="collaterals.html" class="btn-cyan">Collateral Template ↗</a>
+        </div>
+        <div class="idea">
+          <h3>Corporate mentorship days</h3>
+          <p>Focused half-day immersion at CRTV Lab for partner teams mentoring students.</p>
+          <a href="contact.html" class="btn-cyan">Plan With Us ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="briefs" data-od-id="briefs">
+      <h2>Brief library</h2>
+      <p class="lead">Four deeper pages carry the exact material used for partner calls and proposal assembly.</p>
+      <div class="idea-grid">
+        <div class="idea">
+          <h3>Workshop Program</h3>
+          <p>MAD, EASY, ACMI, and AI Integration in a repeatable Sparkhouse session.</p>
+          <a href="workshop-program.html" class="btn-cyan">Open Brief ↗</a>
+        </div>
+        <div class="idea">
+          <h3>Coach Mac Founder Brief</h3>
+          <p>The relationship context and support model behind the engagement.</p>
+          <a href="coach-mac-founder-brief.html" class="btn-cyan">Open Brief ↗</a>
+        </div>
+        <div class="idea">
+          <h3>Tech / AEO / GEO Audit</h3>
+          <p>The visibility, search, answer-engine, and sentiment workstream.</p>
+          <a href="tech-audit.html" class="btn-cyan">Open Audit ↗</a>
+        </div>
+        <div class="idea">
+          <h3>Infra + Grants</h3>
+          <p>The facility, operations, and funder-readiness story.</p>
+          <a href="infra-grants-brief.html" class="btn-cyan">Open Brief ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-4">
+      <h2>Program one-pager facts</h2>
+      <div class="split prose">
+        <div>
+          <p>Use this for quick partner introductions: CRTV Lab supports youth from ideation to finished portfolio. Programs are cohort-based, mentor-led, and tied to measurable outcomes—project completions, software certifications, internship placements, and client-ready deliverables.</p>
+          <p>Sponsorship moves fastest when you lead with a program lane and a defined cohort size, not a general donation ask.</p>
+        </div>
+        <div class="splash">Use as talking points in outreach emails.</div>
+      </div>
+      <div class="actions">
+        <a href="collaterals.html" class="btn-cyan">Download Program Assets ↗</a>
+        <a href="proposals.html" class="btn-cyan">Build a Sponsorship Proposal ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 Do Greater Charlotte. All rights reserved.</div>
+    <div>Project page: <code>do-greater-charlotte-org</code> · Target: <code>https://dogreater.org/</code></div>
+  </footer>
+</body>
+</html>

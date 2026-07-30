@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop Program — Do Greater Charlotte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0D131F;
+      --card-dark: #162032;
+      --accent-cyan: #00B9F1;
+      --accent-magenta: #E5007D;
+      --accent-yellow: #FCDC00;
+      --text-white: var(--text-white)FFF;
+      --text-muted: #A0AEC0;
+      --border: rgba(0, 185, 241, 0.2);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    .eco-bar {
+      background: color-mix(in srgb, var(--bg-dark) 82%, black);
+      padding: 12px 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; }
+    .eco-links a:hover { color: var(--text-white); }
+
+    .nav {
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container img { height: 44px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 18px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-white); text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
+    .btn-cyan {
+      background: var(--accent-cyan); color: var(--bg-dark); padding: 10px 20px; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 13px; box-shadow: 0 8px 24px rgba(0, 185, 241, 0.22); transition: all 0.2s ease;
+    }
+    .btn-cyan:hover { background: var(--accent-magenta); transform: translateY(-2px); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+
+    h1 { font-size: 46px; font-weight: 900; line-height: 1.1; margin: 0 0 16px; }
+    h1 span { background: linear-gradient(120deg, var(--accent-cyan), var(--accent-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: 30px; font-weight: 800; margin: 0 0 12px; }
+    h3 { font-size: 20px; font-weight: 700; margin: 0 0 8px; color: var(--text-white); }
+    p.lead { font-size: 18px; color: var(--text-muted); max-width: 820px; margin: 0 auto; line-height: 1.7; }
+
+    .hero { text-align: center; padding: 52px 0 20px; }
+    .section { padding: 32px 0; }
+    .section.alt { background: linear-gradient(180deg, rgba(0,185,241,0.05), transparent), var(--bg-dark); }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 185, 241, 0.15);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      border: 1px solid rgba(0, 185, 241, 0.35);
+    }
+    .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 26px; }
+    .card {
+      background: var(--card-dark); border-radius: 18px; padding: 24px; border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .card h3 { margin: 0; color: var(--text-white); font-size: 18px; }
+    .card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0; }
+    .card .fact { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-cyan); }
+
+    .timeline { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 26px; }
+    .timeline-item {
+      background: var(--card-dark); border-radius: 18px; padding: 24px; border: 1px solid var(--border);
+    }
+    .timeline-item .time { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-magenta); margin-bottom: 8px; display: block; }
+    .timeline-item h3 { margin: 0 0 6px; }
+    .timeline-item p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--text-muted);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--text-white); }
+
+    @media (max-width: 860px) {
+      .nav { flex-wrap: wrap; gap: 12px; }
+      h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · WORKSHOP BRIEF</div>
+    <div class="eco-links">
+      <a href="index.html">Launchpad</a>
+      <a href="proposals.html">Proposal desk</a>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="programs.html#briefs" class="active">Briefs</a>
+      <a href="get-involved.html">Outreach</a>
+      <a href="proposals.html">Proposals</a>
+      <a href="collaterals.html">Collaterals</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero section" data-od-id="section-1">
+      <span class="badge">Program/01 — Workshop Series</span>
+      <h1>Getting Started with <span>AI for Small Business</span></h1>
+      <p class="lead">80 minutes, live on their own laptop — MAD, EASY, ACMI, and AI Integration, with five practical tasks executed before they leave the room. Hosted at Sparkhouse Charlotte, coordinated with Amanda, and prepared as a repeatable front door to the full series.</p>
+      <div class="actions">
+        <a href="get-involved.html" class="btn-cyan">Sponsor a Session ↗</a>
+        <a href="proposals.html" class="btn-cyan">Use in a Proposal ↗</a>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-2">
+      <h2>Framework: four quadrants, in order</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>MAD</h3>
+          <p>Map the manual work and the cost of doing it without assistance.</p>
+          <div class="fact">Diagnostic first</div>
+        </div>
+        <div class="card">
+          <h3>EASY</h3>
+          <p>Five quick, repeatable tasks owners can run themselves on day one.</p>
+          <div class="fact">Live execution</div>
+        </div>
+        <div class="card">
+          <h3>ACMI</h3>
+          <p>Persistent business memory: brand voice, audience, constraints, file history.</p>
+          <div class="fact">Repeatable asset</div>
+        </div>
+        <div class="card">
+          <h3>AI INTEGRATION</h3>
+          <p>Move from isolated tasks to workflows and a working 30–60–90 day roadmap.</p>
+          <div class="fact">Compound over time</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-3">
+      <h2>Inside an 80-minute session</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="time">0:00–0:20</span>
+          <h3>Welcome + four quadrants</h3>
+          <p>Business owners do not need platform theory first; we place the majority in MAD or EASY first and reframe ACMI and Integration as repeatable systems, not week-one goals.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time">0:20–0:40</span>
+          <h3>EASY in action — first five wins</h3>
+          <p>Customer reply draft, social captions batch, meeting-notes cleanup, FAQ, invoice follow-up — each under five minutes, done live before they leave the table.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time">0:40–1:00</span>
+          <h3>ACMI — giving AI a memory</h3>
+          <p>Owners draft the first persistent business profile: name, audience, voice, top services, “never say” rules, file examples, and customer context.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time">1:00–1:20</span>
+          <h3>30-day roadmap + closing commitment</h3>
+          <p>Personalized execution plan with weekly outcomes, owner accountability check-ins, and a curated Handoff pack for next steps.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time">1:20–1:40</span>
+          <h3>Implementation pairing</h3>
+          <p>Pair the roadmap with actual automation targets: follow-ups, content, review cycles, customer messaging, and measurement.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time">1:40–1:50</span>
+          <h3>Q&A + specific asks</h3>
+          <p>Owner-led question queue, with follow-up mapped to the next contact point.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="time">1:50–2:00</span>
+          <h3>Closing action cards</h3>
+          <p>Each attendee leaves with a dated 30-day roadmap and a Handoff card for the next conversation.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-4">
+      <h2>What they leave with</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Week 1</h3>
+          <p>Five executable AI tasks completed live + a first-pass ACMI profile draft.</p>
+          <div class="fact">Immediate confidence</div>
+        </div>
+        <div class="card">
+          <h3>Week 2</h3>
+          <p>Three-to-five recurring automations running with owner approval and guard rails.</p>
+          <div class="fact">Operational adoption</div>
+        </div>
+        <div class="card">
+          <h3>Week 3</h3>
+          <p>Single source of truth for AI-facing inputs: voice file, brand file, customer file, offer file.</p>
+          <div class="fact">Repeatable brand memory</div>
+        </div>
+        <div class="card">
+          <h3>Week 4</h3>
+          <p>Reviewed 30-day plan, updated campaign assets, next cohort or private follow-up scheduled.</p>
+          <div class="fact">Program continuity</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-5">
+      <h2>Program facts</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Session type</h3>
+          <p>80-minute live workshop with 12-min ticket, 18 optimal attendance, 25 hard cap.</p>
+          <div class="fact">Cohort model</div>
+        </div>
+        <div class="card">
+          <h3>Venue</h3>
+          <p>Sparkhouse Charlotte, 2400 Beatties Ford Rd, Charlotte, NC 28216.</p>
+          <div class="fact">Tours available</div>
+        </div>
+        <div class="card">
+          <h3>Series design</h3>
+          <p>Not a one-off — each session builds on the prior cohort roadmap.</p>
+          <div class="fact">Repeatable flywheel</div>
+        </div>
+        <div class="card">
+          <h3>Coordinator</h3>
+          <p>Amanda as primary liaison; coaching, location, and materials run through Madez Media operational support.</p>
+          <div class="fact">Single point of contact</div>
+        </div>
+      </div>
+      <div class="actions">
+        <a href="contact.html" class="btn-cyan">Ask about the next session ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Do Greater Charlotte · Internal brief</div>
+    <div class="eco-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="proposals.html">Proposals</a>
+      <a href="collaterals.html">Collaterals</a>
+    </div>
+  </footer>
+</body>
+</html>

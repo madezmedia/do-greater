@@ -3,178 +3,293 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Do Greater × Madez Media</title>
+  <title>DO Greater Charlotte — Madez + DO Greater Launchpad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #111827;
-      --muted: #4b5563;
-      --line: #d1d5db;
-      --bg: #f9fafb;
-      --accent: #2563eb;
-      --accent-light: #eff6ff;
-      --surface: #ffffff;
-      --warm: #b45309;
-      --warm-light: #fffbeb;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
-        --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
-        --warm: #f0b862; --warm-light: #241d0f;
-      }
-    }
-    :root[data-theme="dark"] {
-      --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
-      --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
-      --warm: #f0b862; --warm-light: #241d0f;
-    }
-    :root[data-theme="light"] {
-      --ink: #111827; --muted: #4b5563; --line: #d1d5db; --bg: #f9fafb;
-      --accent: #2563eb; --accent-light: #eff6ff; --surface: #ffffff;
-      --warm: #b45309; --warm-light: #fffbeb;
+      --bg-dark: #0D131F;
+      --card-dark: #162032;
+      --accent-cyan: #00B9F1;
+      --accent-magenta: #E5007D;
+      --accent-yellow: #FCDC00;
+      --text-white: var(--text-white)FFF;
+      --text-muted: #A0AEC0;
+      --border: rgba(0, 185, 241, 0.2);
     }
     * { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 0; line-height: 1.55; }
-    a { color: var(--accent); }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-    header { background: linear-gradient(180deg, rgba(37,99,235,0.08), transparent); padding: 56px 24px 48px; }
-    h1 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 14px; line-height: 1.1; letter-spacing: -0.4px; }
-    .lead { font-size: 18px; color: var(--muted); max-width: 680px; }
-
-    section.track { padding: 44px 0; border-top: 1px solid var(--line); }
-    .track-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
-    .track-head h2 { margin: 0; font-size: 24px; letter-spacing: -0.2px; }
-    .track-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
-    .track-eyebrow.formal { color: var(--accent); }
-    .track-eyebrow.personal { color: var(--warm); }
-    .track-body { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: start; }
-    @media (max-width: 760px) { .track-body { grid-template-columns: 1fr; } }
-    .track-body p { color: var(--muted); font-size: 15px; margin: 0 0 14px; }
-    .track-body p:last-of-type { margin-bottom: 0; }
-
-    .side-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
-    .side-card.warm { background: var(--warm-light); border-color: color-mix(in srgb, var(--warm) 30%, var(--line)); }
-    .side-card h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
-    .side-card ul { margin: 0; padding-left: 18px; font-size: 14px; }
-    .side-card li { margin-bottom: 6px; }
-    .side-card li:last-child { margin-bottom: 0; }
-
-    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
-    .btn.warm { background: var(--warm); }
-    .btn.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-
-    .quote-line {
-      font-size: 15px; font-style: italic; color: var(--ink);
-      border-left: 3px solid var(--warm); padding-left: 14px; margin: 16px 0;
+    body {
+      margin: 0;
+      background: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
 
-    footer { margin-top: 20px; padding: 24px; color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); }
-    .internal-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 10px; }
-    .internal-links a { color: var(--muted); text-decoration: none; }
-    .internal-links a:hover { color: var(--accent); text-decoration: underline; }
-    .internal-links .sep { color: var(--line); }
+    .eco-bar {
+      background: color-mix(in srgb, var(--bg-dark) 82%, black);
+      padding: 12px 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; }
+    .eco-links a:hover { color: var(--text-white); }
+
+    .nav {
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container img { height: 44px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 18px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-white); text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
+    .btn-cyan {
+      background: var(--accent-cyan); color: var(--bg-dark); padding: 10px 20px; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 13px; box-shadow: 0 8px 24px rgba(0, 185, 241, 0.22); transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .btn-cyan:hover { background: var(--accent-magenta); transform: translateY(-2px); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+
+    .lead {
+      font-size: 18px; color: var(--text-muted); max-width: 780px; margin: 0 auto;
+      line-height: 1.7; text-align: center;
+    }
+    h1 { font-size: 50px; font-weight: 900; line-height: 1.1; margin: 0 0 18px; letter-spacing: -0.02em; }
+    h1 span { background: linear-gradient(120deg, var(--accent-cyan), var(--accent-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: 34px; font-weight: 800; margin: 0 0 14px; }
+    h3 { font-size: 22px; font-weight: 700; margin: 0 0 10px; }
+
+    .hero { text-align: center; padding: 56px 0 24px; }
+    .section { padding: 36px 0; }
+    .section.alt { background: linear-gradient(180deg, rgba(0,185,241,0.05), transparent), var(--bg-dark); }
+
+    .badge {
+      display: inline-block;
+      background: rgba(0, 185, 241, 0.15);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      border: 1px solid rgba(0, 185, 241, 0.35);
+    }
+    .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 22px; }
+    .actions .btn-cyan { padding: 12px 22px; }
+
+    .hub-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-top: 32px;
+    }
+    .hub {
+      background: var(--card-dark); border-radius: 18px; padding: 28px; border: 1px solid var(--border);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .hub:hover { transform: translateY(-4px); border-color: var(--accent-cyan); }
+    .hub-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; color: var(--text-white); }
+    .hub-copy { font-size: 14px; color: var(--text-muted); line-height: 1.6; margin-bottom: 18px; }
+    .hub .btn-cyan { padding: 10px 14px; font-size: 13px; border-radius: 10px; }
+
+    .split {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin-top: 32px;
+    }
+    .split.prose p { color: var(--text-muted); font-size: 15px; line-height: 1.7; }
+    .splash {
+      width: 100%; border-radius: 18px; border: 1px solid var(--border);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.4); background: var(--card-dark);
+      aspect-ratio: 16/9;
+      display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px;
+    }
+
+    .list { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .list-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px; border-radius: 12px; background: var(--card-dark); border: 1px solid var(--border); }
+    .list-item strong { display: block; color: var(--text-white); font-size: 15px; }
+    .list-item span { color: var(--text-muted); font-size: 14px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 36px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--text-muted);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--text-white); }
+
+    @media (max-width: 860px) {
+      .nav { flex-wrap: wrap; gap: 12px; }
+      .split { grid-template-columns: 1fr; }
+      h1 { font-size: 40px; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Do Greater × Madez Media</h1>
-      <p class="lead">
-        Two ways we show up at Sparkhouse Charlotte — a workshop series for
-        small business owners, and time given directly to the young people
-        Do Greater actually exists for.
-      </p>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · INTERNAL LAUNCHPAD</div>
+    <div class="eco-links">
+      <a href="index.html">Launchpad</a>
+      <a href="proposals.html">Proposal desk</a>
     </div>
-  </header>
-
-  <div class="container">
-
-    <section class="track">
-      <div class="track-head">
-        <span class="track-eyebrow formal">The Workshop Series</span>
-        <h2>Getting Started with AI for Small Business</h2>
-      </div>
-      <div class="track-body">
-        <div>
-          <p>
-            An 80-minute, hands-on session for Charlotte small-business
-            owners — the MAD, EASY, ACMI, and AI Integration framework,
-            five practical AI tasks done live, and a dated 30-day roadmap
-            everyone leaves with. Hosted at Sparkhouse Charlotte, run by
-            Madez Media, coordinated with Amanda.
-          </p>
-          <p>
-            Workshop 01 is the front door to an ongoing series — each
-            session builds on the last cohort's roadmap.
-          </p>
-          <div class="btn-row">
-            <a class="btn" href="/workshops">View the full workshop program</a>
-            <a class="btn secondary" href="mailto:suesellscarolinas@gmail.com">Contact organizer</a>
-          </div>
-        </div>
-        <div class="side-card">
-          <h3>Program facts</h3>
-          <ul>
-            <li>Track: <code>small-business-ai-acmi</code></li>
-            <li>Venue: Sparkhouse Charlotte</li>
-            <li>Cohort: 12 min · 18 optimal · 25 cap</li>
-            <li>ACMI v1.5 · madez namespace</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="track">
-      <div class="track-head">
-        <span class="track-eyebrow personal">Working with the Youth</span>
-        <h2>Time given directly, not billed</h2>
-      </div>
-      <div class="track-body">
-        <div>
-          <p>
-            I love what Do Greater is doing, and I want to help — not as a
-            vendor, just because I believe in it. The workshop series
-            above is the formal, billed part of this relationship. This
-            part isn't that. I know systems and AI well enough to be
-            useful beyond a workshop room, and I'd rather put that time
-            directly into the programs built for the kids — Start Upward,
-            Designathon, wherever there's an actual gap.
-          </p>
-          <p>
-            This isn't a pitch. It's an open hand: if there's a cohort
-            that could use an extra mentor, or just time on the Sparkhouse
-            floor, I'd rather be there than adjacent to it.
-          </p>
-        </div>
-        <div class="side-card warm">
-          <h3>Programs I'd want in on</h3>
-          <ul>
-            <li>Start Upward — 10-week entrepreneurship program</li>
-            <li>Designathon: Code the City — AI + design-thinking</li>
-            <li>Design to Dollars Art Camp</li>
-            <li>Mobile CRTVLab — westside Charlotte</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="internal-links">
-        <a href="/workshops">Workshop program</a>
-        <span class="sep">·</span>
-        <a href="/coach-mac">Coach Mac founder brief</a>
-        <span class="sep">·</span>
-        <a href="/tech-audit">Tech / AEO / GEO / sentiment audit</a>
-        <span class="sep">·</span>
-        <a href="/infra-grants">Infra + grants brief</a>
-      </div>
-      <div>Do Greater × Madez Media · Sparkhouse Charlotte · acmi:madez:work:sparkhouse-do-greater-workshops-20260720</div>
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
     </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="programs.html#briefs">Briefs</a>
+      <a href="get-involved.html">Outreach</a>
+      <a href="proposals.html">Proposals</a>
+      <a href="collaterals.html">Collaterals</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero section" data-od-id="section-1">
+      <span class="badge">Internal Launchpad</span>
+      <h1>One entrance for <span>sales</span>, <span>briefs</span>, and <span>deliverables.</span></h1>
+      <p class="lead">A clean internal launchpad for Madez + DO Greater work: prospecting, program proof, proposal assembly, and collateral delivery without searching through scattered threads.</p>
+      <div class="actions">
+        <a href="proposals.html" class="btn-cyan">Open Proposal Desk ↗</a>
+        <a href="collaterals.html" class="btn-cyan">Browse Collateral Library ↗</a>
+        <a href="get-involved.html" class="btn-cyan">Route Outreach ↗</a>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-2">
+      <h2>What this launchpad does</h2>
+      <div class="split prose">
+        <div>
+          <p>This is the front door for the operating work around DO Greater: sales conversations, partner research, proposal outlines, program briefs, and finished collateral. The goal is fewer pages to remember and clearer next moves.</p>
+          <p>Use it to decide the lane, collect the proof, and move the work into a proposal or deliverable without re-explaining the whole project.</p>
+        </div>
+        <div class="splash">Logo-first launchpad / operating board</div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-3">
+      <h2>Primary on-ramps</h2>
+      <div class="hub-grid">
+        <div class="hub">
+          <div class="hub-title">Outreach</div>
+          <div class="hub-copy">Qualify partners, sponsors, funders, and local project leads before writing anything.</div>
+          <a href="get-involved.html" class="btn-cyan">Route Outreach ↗</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">Proposal Desk</div>
+          <div class="hub-copy">Turn a conversation into a defined offer, ask, scope, and next review step.</div>
+          <a href="proposals.html" class="btn-cyan">Open Desk ↗</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">Collateral Library</div>
+          <div class="hub-copy">Find the deck, brief, one-pager, naming rule, and send-ready asset for the moment.</div>
+          <a href="collaterals.html" class="btn-cyan">Open Library ↗</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">Programs + Briefs</div>
+          <div class="hub-copy">Use program facts and special briefs as proof before building the proposal.</div>
+          <a href="programs.html" class="btn-cyan">Open Briefs ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="briefs" data-od-id="brief-library">
+      <h2>Brief library</h2>
+      <p class="lead">Use these as the source material for proposals, partner calls, and deliverable requests.</p>
+      <div class="hub-grid">
+        <div class="hub">
+          <div class="hub-title">Workshop Program</div>
+          <div class="hub-copy">80-minute AI-for-small-business session, quadrants, roadmap, and cohort handoff.</div>
+          <a href="workshop-program.html" class="btn-cyan">Open Brief ↗</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">Coach Mac Founder Brief</div>
+          <div class="hub-copy">Relationship context, support model, and why the Madez role extends beyond billable hours.</div>
+          <a href="coach-mac-founder-brief.html" class="btn-cyan">Open Brief ↗</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">Tech / AEO / GEO Audit</div>
+          <div class="hub-copy">Visibility, answer-engine readiness, search hygiene, and sentiment proof points.</div>
+          <a href="tech-audit.html" class="btn-cyan">Open Audit ↗</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">Infra + Grants</div>
+          <div class="hub-copy">Operational assurance, funder proof, facility readiness, and grant narrative support.</div>
+          <a href="infra-grants-brief.html" class="btn-cyan">Open Brief ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-4">
+      <h2>Current focus</h2>
+      <div class="list">
+        <div class="list-item">
+          <div>
+            <strong>Small-business workshop series</strong>
+            <span>Front-door offer for Madez + DO Greater, with 30-day roadmap and cohort tracking.</span>
+          </div>
+        </div>
+        <div class="list-item">
+          <div>
+            <strong>Start Upward: 10-week entrepreneurship cohort</strong>
+            <span>Primary youth program lane; sales collateral and sponsorship asks live in Collaterals.</span>
+          </div>
+        </div>
+        <div class="list-item">
+          <div>
+            <strong>Designathon: Code the City</strong>
+            <span>AI + design-thinking sprint; bring partners into sponsor slots or mentor slots.</span>
+          </div>
+        </div>
+        <div class="list-item">
+          <div>
+            <strong>Unbilled program support</strong>
+            <span>Mentor hours, CRTV Lab floor time, and direct support into existing DO Greater programs.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-5">
+      <h2>Clean workflow</h2>
+      <div class="split prose">
+        <div>
+          <h3 style="margin-top:0">Find what you need</h3>
+          <p>Start with Outreach if the opportunity is vague, Programs + Briefs if you need proof, Proposals if there is a real ask, and Collaterals when it is ready to send.</p>
+        </div>
+        <div class="splash">Workflow: idea → proposal → deliverable → archive</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 Do Greater Charlotte. All rights reserved.</div>
+    <div>Internal project: <code>do-greater-charlotte-org</code> · Branded on-ramp for sales, proposals, and collaterals.</div>
   </footer>
 </body>
 </html>

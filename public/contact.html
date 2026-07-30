@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — DO Greater Charlotte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0D131F;
+      --card-dark: #162032;
+      --accent-cyan: #00B9F1;
+      --accent-magenta: #E5007D;
+      --accent-yellow: #FCDC00;
+      --text-white: var(--text-white)FFF;
+      --text-muted: #A0AEC0;
+      --border: rgba(0, 185, 241, 0.2);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    .eco-bar {
+      background: color-mix(in srgb, var(--bg-dark) 82%, black);
+      padding: 12px 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; }
+    .eco-links a:hover { color: var(--text-white); }
+
+    .nav {
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container img { height: 44px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 18px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-white); text-decoration: none; font-weight: 600; font-size: 14px; }
+    .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
+    .btn-cyan {
+      background: var(--accent-cyan); color: var(--bg-dark); padding: 10px 20px; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 13px; box-shadow: 0 8px 24px rgba(0, 185, 241, 0.22); transition: all 0.2s ease; display: inline-block;
+    }
+    .btn-cyan:hover { background: var(--accent-magenta); transform: translateY(-2px); }
+
+    .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
+    h1 { font-size: 44px; font-weight: 900; line-height: 1.1; margin: 0 0 16px; }
+    h1 span { background: linear-gradient(120deg, var(--accent-cyan), var(--accent-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: 28px; font-weight: 800; margin: 0 0 12px; }
+    h3 { font-size: 20px; font-weight: 700; margin: 0 0 8px; color: var(--text-white); }
+    p.lead { font-size: 18px; color: var(--text-muted); max-width: 760px; margin: 0 auto; line-height: 1.7; }
+
+    .hero { text-align: center; padding: 52px 0 20px; }
+    .section { padding: 32px 0; }
+    .section.alt { background: linear-gradient(180deg, rgba(0,185,241,0.05), transparent), var(--bg-dark); }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 185, 241, 0.15);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      border: 1px solid rgba(0, 185, 241, 0.35);
+    }
+
+    .split { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .card {
+      background: var(--card-dark); border-radius: 18px; padding: 24px; border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .card h3 { margin: 0; color: var(--text-white); font-size: 18px; }
+    .card p { color: var(--text-muted); font-size: 15px; line-height: 1.7; margin: 0; }
+    .card a { text-decoration: none; }
+
+    input, textarea {
+      width: 100%; padding: 13px 16px; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 10px;
+      color: var(--text-white); font-family: inherit; margin-bottom: 14px; font-size: 14px;
+    }
+    textarea { resize: vertical; }
+    select {
+      width: 100%; padding: 13px 16px; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 10px;
+      color: var(--text-white); font-family: inherit; margin-bottom: 14px; font-size: 14px;
+    }
+    .submit { background: var(--accent-cyan); color: var(--bg-dark); padding: 12px 22px; border-radius: 8px; border: 0; cursor: pointer; font-weight: 700; font-size: 13px; box-shadow: 0 8px 24px rgba(0, 185, 241, 0.22); }
+
+    .actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 18px; }
+
+    .routing { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-top: 22px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--text-muted);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--text-white); }
+
+    @media (max-width: 760px) {
+      .nav { flex-wrap: wrap; gap: 10px; }
+      .split { grid-template-columns: 1fr; }
+      h1 { font-size: 34px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · CONTACT ROUTING</div>
+    <div class="eco-links">
+      <a href="index.html">Launchpad</a>
+      <a href="proposals.html">Proposal desk</a>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="programs.html#briefs">Briefs</a>
+      <a href="get-involved.html">Outreach</a>
+      <a href="proposals.html">Proposals</a>
+      <a href="collaterals.html">Collaterals</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero section" data-od-id="section-1">
+      <span class="badge">Partner routing / delivery</span>
+      <h1>Start the right conversation with the right context.</h1>
+      <p class="lead">Filter by intent, then route to proposals, a calendar booking, or a direct intro. Every contact field is designed to land in a CRM queue without rework.</p>
+      <div class="actions">
+        <a href="proposals.html" class="btn-cyan">Open a Proposal ↗</a>
+        <a href="get-involved.html" class="btn-cyan">Sponsorship ↗</a>
+        <a href="collaterals.html" class="btn-cyan">Browse Collaterals ↗</a>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-2">
+      <h2>Routing map</h2>
+      <div class="routing">
+        <div class="card">
+          <h3>Sponsorship</h3>
+          <p>Sponsor a student, program, or Designathon. Direct to Outreach for tiers.</p>
+          <a href="get-involved.html" class="btn-cyan">Go to Sponsorship ↗</a>
+        </div>
+        <div class="card">
+          <h3>Corporate workshop</h3>
+          <p>Host a cohort at Sparkhouse. Use the workshop brief template.</p>
+          <a href="proposals.html" class="btn-cyan">Open Workshop Proposal ↗</a>
+        </div>
+        <div class="card">
+          <h3>Media / brand / content</h3>
+          <p>Documentary, event coverage, or brand storytelling.</p>
+          <a href="collaterals.html" class="btn-cyan">Assets ↗</a>
+        </div>
+        <div class="card">
+          <h3>Software / hardware</h3>
+          <p>Licenses, gear, or equipment donation for the CRTV Lab.</p>
+          <a href="about.html" class="btn-cyan">Program Facts ↗</a>
+        </div>
+        <div class="card">
+          <h3>General contact</h3>
+          <p>Other partnership or intro requests that don’t fit a fixed lane.</p>
+          <a href="contact.html" class="btn-cyan">Send Message ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-3">
+      <h2>Contact form</h2>
+      <div class="split">
+        <div>
+          <form onsubmit="event.preventDefault(); alert('Routing note saved. Use the message below to follow up internally or attach to CRM.');">
+            <select required>
+              <option value="" disabled selected>What is this about?</option>
+              <option>Sponsorship / donation</option>
+              <option>Corporate workshop series</option>
+              <option>Mentorship / speaker</option>
+              <option>Software/hardware donation</option>
+              <option>Media / content</option>
+              <option>Other partnership</option>
+            </select>
+            <input type="text" placeholder="Your Name" required>
+            <input type="text" placeholder="Organization">
+            <input type="email" placeholder="Email Address" required>
+            <input type="text" placeholder="Phone or preferred contact">
+            <textarea rows="5" placeholder="What is the next action? Include any dates, cohort size, or deliverable mentioned." required></textarea>
+            <button type="submit" class="submit">Send Routing Note ↗</button>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Contact</h3>
+          <p>Use this page as a lightweight routing form or pass a prospect directly to the right page above.</p>
+          <p>Email: <strong>info@dogreater.org</strong><br>
+          Location: <strong>2400 Beatties Ford Rd, Charlotte, NC 28216</strong><br>
+          Facility venue: <strong>Sparkhouse Charlotte</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-4">
+      <h2>Internal notes</h2>
+      <div class="card">
+        <p>This page is intended as the first internal handoff point when someone reaches out. Aim for a same-day response and route to the matching proposal lane in 24 hours when sponsorship or workshop interest is signaled.</p>
+      </div>
+      <div class="actions">
+        <a href="proposals.html" class="btn-cyan">Open Proposals ↗</a>
+        <a href="collaterals.html" class="btn-cyan">Collaterals ↗</a>
+        <a href="get-involved.html" class="btn-cyan">Outreach ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 Do Greater Charlotte. All rights reserved.</div>
+    <div>Project page: <code>do-greater-charlotte-org</code> · Target: <code>https://dogreater.org/</code></div>
+  </footer>
+</body>
+</html>

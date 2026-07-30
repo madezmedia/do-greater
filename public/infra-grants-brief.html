@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infra + Grants Brief — Do Greater Charlotte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0D131F;
+      --card-dark: #162032;
+      --accent-cyan: #00B9F1;
+      --accent-magenta: #E5007D;
+      --accent-yellow: #FCDC00;
+      --text-white: var(--text-white)FFF;
+      --text-muted: #A0AEC0;
+      --border: rgba(0, 185, 241, 0.2);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    .eco-bar {
+      background: color-mix(in srgb, var(--bg-dark) 82%, black);
+      padding: 12px 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; }
+    .eco-links a:hover { color: var(--text-white); }
+
+    .nav {
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container img { height: 44px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 18px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-white); text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
+    .btn-cyan {
+      background: var(--accent-cyan); color: var(--bg-dark); padding: 10px 20px; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 13px; box-shadow: 0 8px 24px rgba(0, 185, 241, 0.22); transition: all 0.2s ease;
+    }
+    .btn-cyan:hover { background: var(--accent-magenta); transform: translateY(-2px); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+
+    h1 { font-size: 46px; font-weight: 900; line-height: 1.1; margin: 0 0 16px; }
+    h1 span { background: linear-gradient(120deg, var(--accent-cyan), var(--accent-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: 30px; font-weight: 800; margin: 0 0 12px; }
+    h3 { font-size: 20px; font-weight: 700; margin: 0 0 8px; color: var(--text-white); }
+    p.lead { font-size: 18px; color: var(--text-muted); max-width: 820px; margin: 0 auto; line-height: 1.7; }
+
+    .hero { text-align: center; padding: 52px 0 20px; }
+    .section { padding: 32px 0; }
+    .section.alt { background: linear-gradient(180deg, rgba(0,185,241,0.05), transparent), var(--bg-dark); }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 185, 241, 0.15);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      border: 1px solid rgba(0, 185, 241, 0.35);
+    }
+    .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 26px; }
+    .card {
+      background: var(--card-dark); border-radius: 18px; padding: 24px; border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .card h3 { margin: 0; color: var(--text-white); font-size: 18px; }
+    .card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0; }
+    .card .fact { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-cyan); }
+
+    .checklist { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .check-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px; border-radius: 12px; background: var(--card-dark); border: 1px solid var(--border); }
+    .check-item strong { display: block; color: var(--text-white); font-size: 15px; }
+    .check-item span { color: var(--text-muted); font-size: 14px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--text-muted);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--text-white); }
+
+    @media (max-width: 860px) {
+      .nav { flex-wrap: wrap; gap: 12px; }
+      h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · INFRA + GRANTS BRIEF</div>
+    <div class="eco-links">
+      <a href="index.html">Launchpad</a>
+      <a href="proposals.html">Proposal desk</a>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="programs.html#briefs" class="active">Briefs</a>
+      <a href="get-involved.html">Outreach</a>
+      <a href="proposals.html">Proposals</a>
+      <a href="collaterals.html">Collaterals</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero section" data-od-id="section-1">
+      <span class="badge">Infrastructure + Grants</span>
+      <h1>Funds need a <span>real operating footprint</span></h1>
+      <p class="lead">This brief frames DO Greater as a stable, measured, and repeatable organization — facility-backed, curriculum-defined, and staffed. Use it whenever a grant asks for infrastructure proof or operating assurance.</p>
+      <div class="actions">
+        <a href="contact.html" class="btn-cyan">Request the Brief ↗</a>
+        <a href="collaterals.html" class="btn-cyan">Financial One-Pager ↗</a>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-2">
+      <h2>Operating foundation</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Facility</h3>
+          <p>3,000+ sq ft at Sparkhouse Charlotte with Apple Mac workstations, recording booths, collaborative studios, and 3D printing capacity.</p>
+          <div class="fact">Physical proof point</div>
+        </div>
+        <div class="card">
+          <h3>Programs</h3>
+          <p>Music production, podcasting, digital design, 3D printing, entrepreneurship, and design-thinking curriculum running in repeatable cohorts.</p>
+          <div class="fact">Curriculum stack</div>
+        </div>
+        <div class="card">
+          <h3>Staffing</h3>
+          <p>Dedicated program coordination, facility management, mentor bench, and formal partnerships with Charlotte-area institutions.</p>
+          <div class="fact">Human infrastructure</div>
+        </div>
+        <div class="card">
+          <h3>Governance</h3>
+          <p>Board reporting, measurable outcomes, cohort reviews, and annual program evaluation from Designathon and workshop evaluations.</p>
+          <div class="fact">Accountability</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-3">
+      <h2>Grants narrative</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Access</h3>
+          <p>Remove financial, geographic, and transport barriers for underserved youth through free cohort admission and equipment access.</p>
+          <div class="fact">Equity framing</div>
+        </div>
+        <div class="card">
+          <h3>Retention + pipeline</h3>
+          <p>Programs produce creative-tech career awareness and direct business exposure, not one-time inspiration.</p>
+          <div class="fact">Long-term ROI</div>
+        </div>
+        <div class="card">
+          <h3>Community leverage</h3>
+          <p>Local sponsors, parent networks, and Charlotte-area employers give students direct network access before graduation.</p>
+          <div class="fact">Multiplier effect</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-4">
+      <h2>Next actions</h2>
+      <div class="checklist">
+        <div class="check-item">
+          <div>
+            <strong>One-pager review</strong>
+            <span>Use the financial/operational one-pager as the grant intro document; tailor impact stats by award category.</span>
+          </div>
+        </div>
+        <div class="check-item">
+          <div>
+            <strong>Impact metrics</strong>
+            <span>Confirm cohort size, demographics, student-projects shipped, and employer handoffs per year.</span>
+          </div>
+        </div>
+        <div class="check-item">
+          <div>
+            <strong>Sponsor orchestration</strong>
+            <span>Route each named funder through proposals with specific ask, naming rights, or facility provision.</span>
+          </div>
+        </div>
+        <div class="check-item">
+          <div>
+            <strong>Tech layer</strong>
+            <span>Pair this brief with the Tech / AEO brief for technology-forward funders or city innovation programs.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <a href="tech-audit.html" class="btn-cyan">Tech / AEO Brief ↗</a>
+        <a href="proposals.html" class="btn-cyan">Proposal Templates ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Do Greater Charlotte · Internal infra/grants brief</div>
+    <div class="eco-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="workshop-program.html">Workshops</a>
+      <a href="proposals.html">Proposals</a>
+      <a href="collaterals.html">Collaterals</a>
+    </div>
+  </footer>
+</body>
+</html>

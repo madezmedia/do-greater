@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Founder Brief — Coach Mac · Do Greater Charlotte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0D131F;
+      --card-dark: #162032;
+      --accent-cyan: #00B9F1;
+      --accent-magenta: #E5007D;
+      --accent-yellow: #FCDC00;
+      --text-white: var(--text-white)FFF;
+      --text-muted: #A0AEC0;
+      --border: rgba(0, 185, 241, 0.2);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg-dark);
+      font-family: 'Poppins', sans-serif;
+      color: var(--text-white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+    .eco-bar {
+      background: color-mix(in srgb, var(--bg-dark) 82%, black);
+      padding: 12px 32px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-cyan);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .eco-links { display: flex; gap: 16px; }
+    .eco-links a { color: var(--text-muted); text-decoration: none; }
+    .eco-links a:hover { color: var(--text-white); }
+
+    .nav {
+      background: rgba(13, 19, 31, 0.95);
+      backdrop-filter: blur(12px);
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo-container img { height: 44px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 18px; align-items: center; justify-content: flex-end; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-white); text-decoration: none; font-weight: 600; font-size: 14px;
+      transition: color 0.2s;
+    }
+    .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
+    .btn-cyan {
+      background: var(--accent-cyan); color: var(--bg-dark); padding: 10px 20px; border-radius: 8px;
+      text-decoration: none; font-weight: 700; font-size: 13px; box-shadow: 0 8px 24px rgba(0, 185, 241, 0.22); transition: all 0.2s ease;
+    }
+    .btn-cyan:hover { background: var(--accent-magenta); transform: translateY(-2px); }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 40px 24px; }
+
+    h1 { font-size: 46px; font-weight: 900; line-height: 1.1; margin: 0 0 16px; }
+    h1 span { background: linear-gradient(120deg, var(--accent-cyan), var(--accent-magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    h2 { font-size: 30px; font-weight: 800; margin: 0 0 12px; }
+    h3 { font-size: 20px; font-weight: 700; margin: 0 0 8px; color: var(--text-white); }
+    p.lead { font-size: 18px; color: var(--text-muted); max-width: 820px; margin: 0 auto; line-height: 1.7; }
+
+    .hero { text-align: center; padding: 52px 0 20px; }
+    .section { padding: 32px 0; }
+    .section.alt { background: linear-gradient(180deg, rgba(0,185,241,0.05), transparent), var(--bg-dark); }
+    .badge {
+      display: inline-block;
+      background: rgba(0, 185, 241, 0.15);
+      color: var(--accent-cyan);
+      padding: 8px 16px;
+      border-radius: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      border: 1px solid rgba(0, 185, 241, 0.35);
+    }
+    .actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 26px; }
+    .card {
+      background: var(--card-dark); border-radius: 18px; padding: 24px; border: 1px solid var(--border);
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .card h3 { margin: 0; color: var(--text-white); font-size: 18px; }
+    .card p { color: var(--text-muted); font-size: 14px; line-height: 1.6; margin: 0; }
+    .card .fact { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--accent-cyan); }
+
+    .checklist { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
+    .check-item { display: flex; gap: 14px; align-items: flex-start; padding: 14px; border-radius: 12px; background: var(--card-dark); border: 1px solid var(--border); }
+    .check-item strong { display: block; color: var(--text-white); font-size: 15px; }
+    .check-item span { color: var(--text-muted); font-size: 14px; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 13px; color: var(--text-muted);
+    }
+    footer a { color: var(--text-muted); text-decoration: none; }
+    footer a:hover { color: var(--text-white); }
+
+    @media (max-width: 860px) {
+      .nav { flex-wrap: wrap; gap: 12px; }
+      h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · FOUNDER BRIEF</div>
+    <div class="eco-links">
+      <a href="index.html">Launchpad</a>
+      <a href="proposals.html">Proposal desk</a>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Charlotte Logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="programs.html">Programs</a>
+      <a href="programs.html#briefs" class="active">Briefs</a>
+      <a href="get-involved.html">Outreach</a>
+      <a href="proposals.html">Proposals</a>
+      <a href="collaterals.html">Collaterals</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero section" data-od-id="section-1">
+      <span class="badge">Founder Brief — Coach Mac</span>
+      <h1>Coach Mac is time, <span>not billable hours.</span></h1>
+      <p class="lead">The founder relationship behind DO Greater: why Madez Media is in the room, what the formal workshop series is, and where the rest of the engagement actually lives — direct support for cohorts, the facility, and the work built for the kids.</p>
+      <div class="actions">
+        <a href="workshop-program.html" class="btn-cyan">Workshop Program ↗</a>
+        <a href="get-involved.html" class="btn-cyan">Sponsor This Work ↗</a>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-2">
+      <h2>Founder note</h2>
+      <div class="split prose" style="display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: center; margin-top: 26px;">
+        <div>
+          <p>I love what Do Greater is doing, and I want to help — not as a vendor, just because I believe in it. The workshop series above is the formal, billed part of this relationship. This part isn’t that.</p>
+          <p>I know systems and AI well enough to be useful beyond a workshop room. I would rather put that time directly into the programs built for the kids — Start Upward, Designathon, wherever there’s an actual gap.</p>
+          <p>This isn’t a pitch. It is an open hand: if there’s a cohort that could use an extra mentor, or just time on the Sparkhouse floor, I’d rather be there than adjacent to it.</p>
+        </div>
+        <div style="background: var(--card-dark); border-radius: 18px; border: 1px solid var(--border); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 14px;">Founder photo / headshot</div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-3">
+      <h2>Programs I’d want in on</h2>
+      <div class="checklist">
+        <div class="check-item">
+          <div>
+            <strong>Start Upward</strong>
+            <span>Workforce pathway for creative-tech access, execution practice, and professional exposure.</span>
+          </div>
+        </div>
+        <div class="check-item">
+          <div>
+            <strong>Designathon: Code the City</strong>
+            <span>AI + design-thinking sprint aligned to measurable outcomes, not attendance alone.</span>
+          </div>
+        </div>
+        <div class="check-item">
+          <div>
+            <strong>Studio cohorts / mentorship time</strong>
+            <span>On-floor availability, equipment access, or real project pairing inside the Lab.</span>
+          </div>
+        </div>
+        <div class="check-item">
+          <div>
+            <strong>Operational support</strong>
+            <span>Systems, CRM hygiene, documentation, and anything that lowers admin drag for the team.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-4">
+      <h2>How to read this brief</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Formal</h3>
+          <p>Program fees, workshops, and sponsor deliverables flow through normal proposal channels.</p>
+          <div class="fact">Public-facing motion</div>
+        </div>
+        <div class="card">
+          <h3>Direct</h3>
+          <p>Time in the room, mentoring, or facility support is separate from billed work.</p>
+          <div class="fact">Unbilled relationship</div>
+        </div>
+        <div class="card">
+          <h3>Partner</h3>
+          <p>If you are reading this as a sponsor or partner, this is the layer behind the public narrative — direct accountability to outcomes, not optics.</p>
+          <div class="fact">Trust-first posture</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-5">
+      <div class="actions">
+        <a href="about.html" class="btn-cyan">Org Mission ↗</a>
+        <a href="contact.html" class="btn-cyan">Reach Coach Mac ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Do Greater Charlotte · Internal founder brief</div>
+    <div class="eco-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="workshop-program.html">Workshops</a>
+      <a href="proposals.html">Proposals</a>
+      <a href="collaterals.html">Collaterals</a>
+    </div>
+  </footer>
+</body>
+</html>
