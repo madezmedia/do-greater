@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Get Involved & Donate — Do Greater Charlotte</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0D131F;
+      --card-dark: #162032;
+      --accent-cyan: #00B9F1;
+      --accent-magenta: #E5007D;
+      --accent-yellow: #FCDC00;
+      --text-white: #FFFFFF;
+      --text-muted: #A0AEC0;
+      --border: rgba(255, 255, 255, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg-dark); font-family: 'Poppins', sans-serif; color: var(--text-white); }
+    .top-bar { background: #070B12; padding: 10px 32px; font-size: 12px; color: var(--text-muted); display: flex; justify-content: space-between; border-bottom: 1px solid var(--border); }
+    .nav { background: var(--bg-dark); padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--border); }
+    .logo-container img { height: 44px; width: auto; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a { color: #FFF; text-decoration: none; font-weight: 600; font-size: 14px; }
+    .nav-links a.active { color: var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); padding-bottom: 4px; }
+    .btn-donate { background: var(--accent-cyan); color: #FFF; padding: 10px 22px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 14px; }
+
+    .header-hero { max-width: 1200px; margin: 40px auto; padding: 0 32px; text-align: center; }
+    h1 { font-size: 44px; font-weight: 900; margin-bottom: 16px; }
+
+    .pricing-grid { max-width: 1200px; margin: 0 auto 60px; padding: 0 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .tier-card { background: var(--card-dark); border-radius: 16px; padding: 32px; border: 1px solid var(--border); text-align: center; }
+    .tier-card.featured { border: 2px solid var(--accent-cyan); position: relative; }
+    .price-tag { font-size: 38px; font-weight: 800; color: var(--accent-cyan); margin: 16px 0; }
+
+    footer { max-width: 1200px; margin: 40px auto; padding: 32px; display: flex; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div>DO GREATER CHARLOTTE — GET INVOLVED</div>
+    <div>SPONSOR A CREATIVE STUDENT IN CHARLOTTE</div>
+  </div>
+
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://dogreater.org/wp-content/uploads/2026/07/DoGreater_Sparkhouse2_white-scaled.png" alt="Do Greater Logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="programs.html">Programs</a>
+      <a href="get-involved.html" class="active">Get Involved</a>
+      <a href="contact.html">Contact</a>
+      <a href="get-involved.html" class="btn-donate">Donate ↗</a>
+    </div>
+  </div>
+
+  <div class="header-hero">
+    <span style="color: var(--accent-cyan); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">Invest In Potential</span>
+    <h1>Sponsor a <span>Creative Tech Student</span></h1>
+    <p style="color: var(--text-muted); font-size: 17px; max-width: 750px; margin: 0 auto 40px;">100% of your gift directly funds hardware, software licenses, and mentorship for Charlotte youth.</p>
+  </div>
+
+  <div class="pricing-grid">
+    <div class="tier-card">
+      <h3 style="margin: 0; font-size: 22px;">Supporter Tier</h3>
+      <div class="price-tag">$25<span style="font-size: 14px; color: var(--text-muted);">/mo</span></div>
+      <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Provides software licenses (Adobe Creative Cloud & Logic Pro) for 1 student.</p>
+      <a href="https://dogreater.org/" target="_blank" class="btn-donate" style="display: block; margin-top: 24px; text-decoration: none;">Donate $25/mo ↗</a>
+    </div>
+
+    <div class="tier-card featured">
+      <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent-cyan); color: #000; padding: 4px 14px; border-radius: 20px; font-size: 11px; font-weight: 800;">MOST POPULAR</div>
+      <h3 style="margin: 0; font-size: 22px;">Student Champion</h3>
+      <div class="price-tag" style="color: var(--accent-yellow);">$100<span style="font-size: 14px; color: var(--text-muted);">/mo</span></div>
+      <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Full 1-on-1 mentorship, workstation access, & workshop materials for 1 student cohort.</p>
+      <a href="https://dogreater.org/" target="_blank" class="btn-donate" style="display: block; margin-top: 24px; text-decoration: none; background: var(--accent-yellow); color: #000;">Donate $100/mo ↗</a>
+    </div>
+
+    <div class="tier-card">
+      <h3 style="margin: 0; font-size: 22px;">Corporate Sponsor</h3>
+      <div class="price-tag" style="color: var(--accent-magenta);">$500<span style="font-size: 14px; color: var(--text-muted);">/yr</span></div>
+      <p style="color: var(--text-muted); font-size: 14px; line-height: 1.6;">Sponsors an annual Designathon team hackathon challenge + logo placement.</p>
+      <a href="https://dogreater.org/" target="_blank" class="btn-donate" style="display: block; margin-top: 24px; text-decoration: none; background: var(--accent-magenta);">Sponsor Designathon ↗</a>
+    </div>
+  </div>
+
+  <footer>
+    <div>© 2026 Do Greater Charlotte. All rights reserved.</div>
+    <div>Scraped & Ecosystem Linked from <code>https://dogreater.org/</code></div>
+  </footer>
+</body>
+</html>
