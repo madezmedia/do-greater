@@ -882,6 +882,113 @@ p.lead {
   padding: clamp(22px, 3vw, 34px);
 }
 
+.grant-ring {
+  background:
+    radial-gradient(circle at center, var(--dg-paper) 0 58%, transparent 59%),
+    conic-gradient(var(--dg-teal) calc(var(--score) * 1%), var(--dg-soft-line) 0);
+}
+
+.grant-source p {
+  margin-top: 6px;
+  color: var(--dg-muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.source-links a {
+  color: var(--dg-ink);
+}
+
+.grant-table [role="row"] {
+  grid-template-columns: minmax(190px, 0.68fr) minmax(130px, 0.5fr) minmax(180px, 0.78fr) minmax(260px, 1fr);
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.filter-chip {
+  min-height: 42px;
+  border: 1px solid var(--dg-line);
+  border-radius: 999px;
+  padding: 10px 15px;
+  color: var(--dg-ink);
+  background: var(--dg-paper);
+  cursor: pointer;
+  font: 800 13px/1 "Open Sans", Arial, sans-serif;
+  transition: background-color 160ms cubic-bezier(0.23, 1, 0.32, 1), border-color 160ms cubic-bezier(0.23, 1, 0.32, 1), color 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.filter-chip:hover,
+.filter-chip.active {
+  color: var(--dg-paper);
+  background: var(--dg-ink);
+  border-color: var(--dg-ink);
+}
+
+.opportunity-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.opportunity-card {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  min-height: 260px;
+  padding: 22px;
+  background: var(--dg-paper);
+  border: 1px solid var(--dg-line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+}
+
+.opportunity-card[hidden] {
+  display: none;
+}
+
+.opportunity-card > span,
+.opportunity-card dt {
+  color: var(--dg-muted);
+  font-family: "Abel", "Open Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.opportunity-card h3 {
+  margin-top: 2px;
+}
+
+.opportunity-card p,
+.opportunity-card dd {
+  color: var(--dg-muted);
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.opportunity-card dl {
+  margin: 4px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--dg-soft-line);
+}
+
+.opportunity-card dd {
+  margin: 6px 0 0;
+  color: var(--dg-ink);
+  font-weight: 800;
+}
+
+.grant-findings article {
+  grid-template-columns: 76px minmax(220px, 0.48fr) minmax(240px, 1fr);
+}
+
 @media (max-width: 1040px) {
   .audit-hero,
   .dashboard-grid,
@@ -890,7 +997,8 @@ p.lead {
   }
 
   .evidence-grid,
-  .roadmap {
+  .roadmap,
+  .opportunity-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -899,6 +1007,7 @@ p.lead {
   .audit-metrics,
   .evidence-grid,
   .roadmap,
+  .opportunity-grid,
   .findings-list article,
   .crawler-table [role="row"] {
     grid-template-columns: 1fr;
