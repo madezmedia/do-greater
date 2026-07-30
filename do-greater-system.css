@@ -13,7 +13,7 @@
   --dg-orange: #f05523;
   --dg-orange-dark: #cf4520;
   --dg-teal: #008996;
-  --dg-teal-dark: #3a8890;
+  --dg-teal-dark: #006f79;
   --dg-gold: #c5932c;
   --dg-focus: #0b66c3;
   --shadow-sm: 0 8px 22px rgba(12, 35, 64, 0.08);
@@ -132,7 +132,7 @@ textarea:focus-visible {
 }
 
 .nav-links a.active {
-  background: var(--dg-orange);
+  background: var(--dg-orange-dark);
   color: #fff;
 }
 
@@ -286,7 +286,7 @@ p.lead {
   border: 0;
   border-radius: 999px;
   padding: 12px 20px;
-  background: var(--dg-orange);
+  background: var(--dg-orange-dark);
   color: #fff;
   box-shadow: none;
   cursor: pointer;
@@ -297,7 +297,7 @@ p.lead {
 
 .btn-cyan:hover,
 .submit:hover {
-  background: var(--dg-orange-dark);
+  background: var(--dg-ink);
   color: #fff;
   transform: translateY(-1px);
 }
@@ -406,7 +406,7 @@ p.lead {
 
 .pill-primary,
 .tag-cyan {
-  color: var(--dg-teal);
+  color: var(--dg-teal-dark);
   background: color-mix(in srgb, var(--dg-teal) 10%, white);
   border-color: color-mix(in srgb, var(--dg-teal) 36%, white);
 }
@@ -562,7 +562,7 @@ p.lead {
 }
 
 .team-role {
-  color: var(--dg-teal);
+  color: var(--dg-teal-dark);
   font-weight: 800;
 }
 
