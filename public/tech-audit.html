@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech / AEO / GEO / Sentiment Audit — Do Greater Charlotte</title>
+  <link rel="stylesheet" href="do-greater-system.css">
+</head>
+<body>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · STAFF-FACING BRIEFING</div>
+    <div class="eco-links">
+      <a href="sparkhouse-charlotte.html">SparkHouse</a>
+      <a href="coach-mac-founder-brief.html">Coach Mac</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2026/05/DoGreater_Sparkhouse_blue-scaled.png?resize=1080%2C347&ssl=1" alt="Do Greater Charlotte and SparkHouse logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="sparkhouse-charlotte.html">SparkHouse</a>
+      <a href="programs.html">Programs</a>
+      <a href="workshop-program.html">Workshop</a>
+      <a href="coach-mac-founder-brief.html">Coach Mac</a>
+      <a href="infra-grants-brief.html">Grants</a>
+      <a href="tech-audit.html" class="active">AEO/GEO</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <main class="container audit-page">
+    <section class="hero section audit-hero" data-od-id="section-1">
+      <div>
+        <span class="badge">Useful observation · not a sales audit</span>
+        <h1>Fix the story AI tells about <span>DO Greater.</span></h1>
+        <p class="lead">Read this as “I noticed a few things I would want someone to tell me if it were mine.” The Trakkr grader found that AI systems are not reliably seeing the real youth-creativity nonprofit, its SparkHouse platform, or its Uptown lab plan.</p>
+        <div class="actions">
+          <a href="#fix-plan" class="btn-cyan">View 30/60/90 Help Plan</a>
+          <a href="coach-mac-founder-brief.html" class="btn-cyan">Founder Frame ↗</a>
+        </div>
+      </div>
+
+      <aside class="audit-scorecard" aria-label="AI site grade summary">
+        <div class="score-ring" style="--score: 18;">
+          <strong>18</strong>
+          <span>Visibility readiness</span>
+        </div>
+        <dl class="audit-metrics">
+          <div><dt>Findings</dt><dd>10</dd></div>
+          <div><dt>Evidence checks</dt><dd>40</dd></div>
+          <div><dt>Snapshot</dt><dd>Jul 30, 2026</dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <section class="section alt" data-od-id="section-2">
+      <div class="section-head">
+        <span class="badge">What the grader found</span>
+        <h2>The site is accessible, but not legible to AI.</h2>
+        <p class="lead">Crawler access is not the blocker. The blocker is missing entity structure, fragmented naming, thin rendered content, and no authoritative answer package for search or AI systems to quote.</p>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="chart-card chart-card-hot">
+          <div class="chart-topline">
+            <span>Risk stack</span>
+            <strong>Critical</strong>
+          </div>
+          <div class="bar-row"><span>No indexed brand presence</span><i style="--w: 100%"></i><b>High</b></div>
+          <div class="bar-row"><span>No JSON-LD schema</span><i style="--w: 100%"></i><b>High</b></div>
+          <div class="bar-row"><span>LLM knows wrong entity</span><i style="--w: 100%"></i><b>High</b></div>
+          <div class="bar-row"><span>Thin crawler-visible pages</span><i style="--w: 92%"></i><b>High</b></div>
+          <div class="bar-row muted"><span>Brand naming conflict</span><i style="--w: 62%"></i><b>Med</b></div>
+        </article>
+
+        <article class="chart-card">
+          <div class="chart-topline">
+            <span>Answer engine posture</span>
+            <strong>4 gaps / 3 assets</strong>
+          </div>
+          <div class="donut-wrap">
+            <div class="mini-donut" style="--p: 30;"><strong>30%</strong><span>crawl foundation</span></div>
+            <ul class="signal-list">
+              <li><b class="ok"></b> Major AI crawlers return 200</li>
+              <li><b class="ok"></b> Sitemap exists with 16 URLs</li>
+              <li><b class="ok"></b> Fast nginx response baseline</li>
+              <li><b class="bad"></b> No llms.txt guidance file</li>
+              <li><b class="bad"></b> No Organization / Nonprofit schema</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-3">
+      <div class="section-head">
+        <span class="badge">Evidence map</span>
+        <h2>Where the current web presence breaks down.</h2>
+      </div>
+
+      <div class="evidence-grid">
+        <article class="evidence-card high">
+          <span>01 · High</span>
+          <h3>AI cold knowledge points to the wrong organization.</h3>
+          <p>When queried cold, the model described a regional data-collaboration nonprofit tied to Quality of Life Explorer work, not DO Greater's youth creativity, design, entrepreneurship, and technology mission.</p>
+        </article>
+        <article class="evidence-card high">
+          <span>02 · High</span>
+          <h3>Structured data is effectively zero.</h3>
+          <p>Homepage, About, Programs, News, Summer Camps, and Designathon pages showed no JSON-LD for Organization, Nonprofit, Event, Course, FAQ, or LocalBusiness context.</p>
+        </article>
+        <article class="evidence-card high">
+          <span>03 · High</span>
+          <h3>Some pages are invisible to plain crawlers.</h3>
+          <p>Reported examples include near-zero visible text on pages such as /fall-programs/ and /give/, which makes the content fragile for search snippets and AI retrieval.</p>
+        </article>
+        <article class="evidence-card medium">
+          <span>04 · Medium</span>
+          <h3>The flagship space has naming drift.</h3>
+          <p>Creative Lab Uptown, Sparkhouse Charlotte Uptown, Sparkhouse Charlotte by DO Greater, and Sparkhouse Coffee need one entity hierarchy and one canonical description.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="section-4">
+      <div class="section-head">
+        <span class="badge">Crawler matrix</span>
+        <h2>Access is open. Guidance is missing.</h2>
+      </div>
+
+      <div class="crawler-table" role="table" aria-label="AI crawler access matrix">
+        <div role="row" class="table-head">
+          <span role="columnheader">Crawler / signal</span>
+          <span role="columnheader">Response</span>
+          <span role="columnheader">Meaning</span>
+        </div>
+        <div role="row">
+          <span role="cell">GPTBot, ClaudeBot, PerplexityBot, Google-Extended</span>
+          <strong role="cell" class="status-good">200 / full content</strong>
+          <span role="cell">The door is open; now give crawlers clean facts to ingest.</span>
+        </div>
+        <div role="row">
+          <span role="cell">OAI-SearchBot, ChatGPT-User, Applebot-Extended</span>
+          <strong role="cell" class="status-good">200 / full content</strong>
+          <span role="cell">Good technical access for AI search and assistant retrieval.</span>
+        </div>
+        <div role="row">
+          <span role="cell">Bytespider</span>
+          <strong role="cell" class="status-warn">406</strong>
+          <span role="cell">Likely server or bot-filter misconfiguration; lower priority.</span>
+        </div>
+        <div role="row">
+          <span role="cell">robots.txt</span>
+          <strong role="cell" class="status-warn">WordPress default</strong>
+          <span role="cell">Allows access, but does not intentionally guide AI crawlers.</span>
+        </div>
+        <div role="row">
+          <span role="cell">/llms.txt</span>
+          <strong role="cell" class="status-bad">404</strong>
+          <span role="cell">Missing curated AI-readable source map for mission, programs, and proof.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-5">
+      <div class="section-head">
+        <span class="badge">Priority findings</span>
+        <h2>Ranked by what blocks funders, sponsors, and AI answers.</h2>
+      </div>
+
+      <div class="findings-list">
+        <article>
+          <b>High</b>
+          <h3>Publish an authoritative entity page.</h3>
+          <p>Create one crawlable page that defines DO Greater Charlotte, Sparkhouse Charlotte, Coach Mac, Creative Lab Uptown, mission, location, programs, and partner pathways in consistent terms.</p>
+        </article>
+        <article>
+          <b>High</b>
+          <h3>Add schema across the core site.</h3>
+          <p>Ship Organization + Nonprofit schema on the homepage, EducationalProgram / Event schema on program pages, Article schema for briefs, and FAQ schema for partner-facing answers.</p>
+        </article>
+        <article>
+          <b>High</b>
+          <h3>Replace thin rendered pages with server-visible content.</h3>
+          <p>Each fundraising, program, and facility page needs indexable HTML copy, one H1, descriptive H2s, and meaningful link text before design enhancements load.</p>
+        </article>
+        <article>
+          <b>Medium</b>
+          <h3>Standardize the Sparkhouse architecture.</h3>
+          <p>Lock naming as DO Greater as parent, Sparkhouse Charlotte as platform, Creative Lab Uptown as facility, and Sparkhouse Coffee / studios as programs or spaces.</p>
+        </article>
+        <article>
+          <b>Medium</b>
+          <h3>Create /llms.txt and a crawler source pack.</h3>
+          <p>Point AI systems to About, Programs, Spring 2026, New Creative Lab, Founder Brief, Infra + Grants, and Contact with one-sentence descriptions for each.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" id="fix-plan" data-od-id="section-6">
+      <div class="section-head">
+        <span class="badge">Clean sweep plan</span>
+        <h2>30 / 60 / 90 days to become quotable.</h2>
+      </div>
+
+      <div class="roadmap">
+        <article>
+          <span>30 days</span>
+          <h3>Make the truth crawlable.</h3>
+          <ul>
+            <li>One canonical DO Greater entity page</li>
+            <li>One Sparkhouse / Creative Lab naming map</li>
+            <li>Homepage, About, Programs schema launch</li>
+            <li>Remove Hello World and empty sitemap clutter</li>
+          </ul>
+        </article>
+        <article>
+          <span>60 days</span>
+          <h3>Build answer assets.</h3>
+          <ul>
+            <li>/llms.txt with priority pages and summaries</li>
+            <li>FAQ blocks for donors, partners, families, and students</li>
+            <li>Program pages with dates, eligibility, outcomes, and forms</li>
+            <li>Founder and facility briefs rewritten as indexable articles</li>
+          </ul>
+        </article>
+        <article>
+          <span>90 days</span>
+          <h3>Prove and monitor.</h3>
+          <ul>
+            <li>Monthly AI answer checks in ChatGPT, Claude, Gemini, Perplexity</li>
+            <li>Partner quote and press backlink campaign</li>
+            <li>Sentiment notes for sponsors and grant reviewers</li>
+            <li>Dashboard for indexed pages, schema coverage, and AI citations</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="section-7">
+      <div class="source-strip">
+        <div>
+          <span class="badge">Source</span>
+          <h2>Data from Trakkr's AI Site Grader snapshot.</h2>
+          <p class="lead">Use this page as a helpful-observation view. If it becomes formal, the implementation proposal should turn each red finding into a concrete sprint, not a vague SEO retainer.</p>
+        </div>
+        <a href="https://trakkr.ai/free-tools/ai-site-grader/dogreater.org" class="btn-cyan">Open Source Report ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Do Greater Charlotte · Staff-facing AEO/GEO observations</div>
+    <div class="eco-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="workshop-program.html">Workshops</a>
+      <a href="contact.html">Contact</a>
+      <a href="programs.html">Programs</a>
+    </div>
+  </footer>
+</body>
+</html>

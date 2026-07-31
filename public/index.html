@@ -3,177 +3,161 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Do Greater × Madez Media</title>
-  <style>
-    :root {
-      --ink: #111827;
-      --muted: #4b5563;
-      --line: #d1d5db;
-      --bg: #f9fafb;
-      --accent: #2563eb;
-      --accent-light: #eff6ff;
-      --surface: #ffffff;
-      --warm: #b45309;
-      --warm-light: #fffbeb;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
-        --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
-        --warm: #f0b862; --warm-light: #241d0f;
-      }
-    }
-    :root[data-theme="dark"] {
-      --ink: #e5e7eb; --muted: #9ca3af; --line: #2d333d; --bg: #0f1216;
-      --accent: #5b9dff; --accent-light: #17233a; --surface: #161b22;
-      --warm: #f0b862; --warm-light: #241d0f;
-    }
-    :root[data-theme="light"] {
-      --ink: #111827; --muted: #4b5563; --line: #d1d5db; --bg: #f9fafb;
-      --accent: #2563eb; --accent-light: #eff6ff; --surface: #ffffff;
-      --warm: #b45309; --warm-light: #fffbeb;
-    }
-    * { box-sizing: border-box; }
-    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--ink); margin: 0; padding: 0; line-height: 1.55; }
-    a { color: var(--accent); }
-    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-    .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-    header { background: linear-gradient(180deg, rgba(37,99,235,0.08), transparent); padding: 56px 24px 48px; }
-    h1 { font-size: clamp(28px, 4vw, 42px); margin: 0 0 14px; line-height: 1.1; letter-spacing: -0.4px; }
-    .lead { font-size: 18px; color: var(--muted); max-width: 680px; }
-
-    section.track { padding: 44px 0; border-top: 1px solid var(--line); }
-    .track-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
-    .track-head h2 { margin: 0; font-size: 24px; letter-spacing: -0.2px; }
-    .track-eyebrow { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 700; }
-    .track-eyebrow.formal { color: var(--accent); }
-    .track-eyebrow.personal { color: var(--warm); }
-    .track-body { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; align-items: start; }
-    @media (max-width: 760px) { .track-body { grid-template-columns: 1fr; } }
-    .track-body p { color: var(--muted); font-size: 15px; margin: 0 0 14px; }
-    .track-body p:last-of-type { margin-bottom: 0; }
-
-    .side-card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; }
-    .side-card.warm { background: var(--warm-light); border-color: color-mix(in srgb, var(--warm) 30%, var(--line)); }
-    .side-card h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); }
-    .side-card ul { margin: 0; padding-left: 18px; font-size: 14px; }
-    .side-card li { margin-bottom: 6px; }
-    .side-card li:last-child { margin-bottom: 0; }
-
-    .btn { display: inline-block; background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 14px; }
-    .btn.warm { background: var(--warm); }
-    .btn.secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
-    .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
-
-    .quote-line {
-      font-size: 15px; font-style: italic; color: var(--ink);
-      border-left: 3px solid var(--warm); padding-left: 14px; margin: 16px 0;
-    }
-
-    footer { margin-top: 20px; padding: 24px; color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); }
-    .internal-links { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 10px; }
-    .internal-links a { color: var(--muted); text-decoration: none; }
-    .internal-links a:hover { color: var(--accent); text-decoration: underline; }
-    .internal-links .sep { color: var(--line); }
-  </style>
+  <title>DO Greater Charlotte — Relationship-First Briefing</title>
+  <meta name="description" content="A staff-facing DO Greater briefing that separates public collaboration pages from internal Madez operating pages.">
+  <link rel="stylesheet" href="do-greater-system.css">
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Do Greater × Madez Media</h1>
-      <p class="lead">
-        Two ways we show up at Sparkhouse Charlotte — a workshop series for
-        small business owners, and time given directly to the young people
-        Do Greater actually exists for.
-      </p>
+  <div class="eco-bar">
+    <div>DO GREATER CHARLOTTE · STAFF-FACING BRIEFING</div>
+    <div class="eco-links">
+      <a href="sparkhouse-charlotte.html">SparkHouse</a>
+      <a href="coach-mac-founder-brief.html">Coach Mac</a>
+      <a href="contact.html">Contact</a>
     </div>
-  </header>
-
-  <div class="container">
-
-    <section class="track">
-      <div class="track-head">
-        <span class="track-eyebrow formal">The Workshop Series</span>
-        <h2>Getting Started with AI for Small Business</h2>
-      </div>
-      <div class="track-body">
-        <div>
-          <p>
-            An 80-minute, hands-on session for Charlotte small-business
-            owners — the MAD, EASY, ACMI, and AI Integration framework,
-            five practical AI tasks done live, and a dated 30-day roadmap
-            everyone leaves with. Hosted at Sparkhouse Charlotte, run by
-            Madez Media, coordinated with Amanda.
-          </p>
-          <p>
-            Workshop 01 is the front door to an ongoing series — each
-            session builds on the last cohort's roadmap.
-          </p>
-          <div class="btn-row">
-            <a class="btn" href="/workshops">View the full workshop program</a>
-            <a class="btn secondary" href="mailto:suesellscarolinas@gmail.com">Contact organizer</a>
-          </div>
-        </div>
-        <div class="side-card">
-          <h3>Program facts</h3>
-          <ul>
-            <li>Track: <code>small-business-ai-acmi</code></li>
-            <li>Venue: Sparkhouse Charlotte</li>
-            <li>Cohort: 12 min · 18 optimal · 25 cap</li>
-            <li>ACMI v1.5 · madez namespace</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="track">
-      <div class="track-head">
-        <span class="track-eyebrow personal">Working with the Youth</span>
-        <h2>Time given directly, not billed</h2>
-      </div>
-      <div class="track-body">
-        <div>
-          <p>
-            I love what Do Greater is doing, and I want to help — not as a
-            vendor, just because I believe in it. The workshop series
-            above is the formal, billed part of this relationship. This
-            part isn't that. I know systems and AI well enough to be
-            useful beyond a workshop room, and I'd rather put that time
-            directly into the programs built for the kids — Start Upward,
-            Designathon, wherever there's an actual gap.
-          </p>
-          <p>
-            This isn't a pitch. It's an open hand: if there's a cohort
-            that could use an extra mentor, or just time on the Sparkhouse
-            floor, I'd rather be there than adjacent to it.
-          </p>
-        </div>
-        <div class="side-card warm">
-          <h3>Programs I'd want in on</h3>
-          <ul>
-            <li>Start Upward — 10-week entrepreneurship program</li>
-            <li>Designathon: Code the City — AI + design-thinking</li>
-            <li>Design to Dollars Art Camp</li>
-            <li>Mobile CRTVLab — westside Charlotte</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
   </div>
 
-  <footer>
-    <div class="container">
-      <div class="internal-links">
-        <a href="/workshops">Workshop program</a>
-        <span class="sep">·</span>
-        <a href="/coach-mac">Coach Mac founder brief</a>
-        <span class="sep">·</span>
-        <a href="/tech-audit">Tech / AEO / GEO / sentiment audit</a>
-        <span class="sep">·</span>
-        <a href="/infra-grants">Infra + grants brief</a>
+  <div class="nav">
+    <div class="logo-container">
+      <a href="index.html"><img src="https://i0.wp.com/dogreater.org/wp-content/uploads/2026/05/DoGreater_Sparkhouse_blue-scaled.png?resize=1080%2C347&ssl=1" alt="Do Greater Charlotte and SparkHouse logo"></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="sparkhouse-charlotte.html">SparkHouse</a>
+      <a href="programs.html">Programs</a>
+      <a href="workshop-program.html">Workshop</a>
+      <a href="coach-mac-founder-brief.html">Coach Mac</a>
+      <a href="infra-grants-brief.html">Grants</a>
+      <a href="tech-audit.html">AEO/GEO</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+
+  <main class="container">
+    <section class="hero section audience-public" data-od-id="public-entrance">
+      <span class="badge">Connection first · transaction second</span>
+      <h1>What we're learning about Do Greater.</h1>
+      <p class="lead">This entrance is for William, Coach Mac, Amanda, and DO Greater staff to review the thinking clearly: what is already strong, what questions are worth asking, and where small, practical help could support the mission.</p>
+      <div class="actions">
+        <a href="coach-mac-founder-brief.html#interview-flow" class="btn-cyan">Start with the Questions</a>
+        <a href="sparkhouse-charlotte.html" class="btn-cyan">Understand SparkHouse</a>
+        <a href="workshop-program.html#adult-social-story" class="btn-cyan">See the Workshop Frame</a>
       </div>
-      <div>Do Greater × Madez Media · Sparkhouse Charlotte · acmi:madez:work:sparkhouse-do-greater-workshops-20260720</div>
+    </section>
+
+    <section class="section alt" data-od-id="architecture-split">
+      <h2>Two audiences, two entrances</h2>
+      <p class="lead">The site is now split so staff-facing review pages stay separate from the private operating system used to manage follow-through.</p>
+      <div class="audience-grid">
+        <article class="audience-card public-card">
+          <span class="kicker">External / staff-facing</span>
+          <h3>Review the mission fit</h3>
+          <p>These pages are safe for DO Greater staff and partners: SparkHouse facts, program framing, interview questions, workshop concepts, grants opportunities, and AEO/GEO observations written as helpful notes.</p>
+          <div class="mini-links">
+            <a href="sparkhouse-information.html">SparkHouse facts</a>
+            <a href="coach-mac-founder-brief.html">Coach Mac questions</a>
+            <a href="infra-grants-brief.html">Grants opportunities</a>
+          </div>
+        </article>
+        <article class="audience-card internal-card">
+          <span class="kicker">Internal / Madez workspace</span>
+          <h3>Operate the follow-through</h3>
+          <p>The private workspace holds proposal assembly, collateral tracking, follow-up notes, delivery checklists, and relationship systems. It is not the first page to share in the relationship.</p>
+          <div class="mini-links">
+            <a href="contact.html">Route a next conversation</a>
+            <a href="coach-mac-founder-brief.html">Use the interview guide</a>
+            <a href="infra-grants-brief.html">Review useful opportunities</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="public-path">
+      <h2>The right order</h2>
+      <div class="route-steps">
+        <article>
+          <span class="phase">1</span>
+          <h3>Let him show off first</h3>
+          <p>Start with SparkHouse itself: what is surprising, what is working, what is still hard, and what Coach Mac wants the space to become.</p>
+          <a href="coach-mac-founder-brief.html#interview-flow">Open interview flow</a>
+        </article>
+        <article>
+          <span class="phase">2</span>
+          <h3>Reflect the mission back</h3>
+          <p>Use the adult workshop idea to connect adults emotionally: what would they have built if SparkHouse existed when they were fifteen?</p>
+          <a href="workshop-program.html#adult-social-story">Open workshop frame</a>
+        </article>
+        <article>
+          <span class="phase">3</span>
+          <h3>Name useful gaps carefully</h3>
+          <p>Google Ad Grants, search visibility, AI-answer readiness, and foot-traffic follow-up are observations to offer, not problems to weaponize.</p>
+          <a href="tech-audit.html">Open AEO/GEO observations</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt" data-od-id="public-brief-library">
+      <h2>Review pages</h2>
+      <div class="hub-grid">
+        <div class="hub">
+          <div class="hub-title">SparkHouse Charlotte</div>
+          <div class="hub-copy">Web-native overview of the hub, locations, amenities, programs, and common questions.</div>
+          <a href="sparkhouse-charlotte.html" class="btn-cyan">Open SparkHouse</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">SparkHouse Information</div>
+          <div class="hub-copy">Canonical facts for staff, partners, funders, search engines, and AI answer engines.</div>
+          <a href="sparkhouse-information.html" class="btn-cyan">Open Facts</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">Programs</div>
+          <div class="hub-copy">Program lanes and existing mission context before any new support idea is formalized.</div>
+          <a href="programs.html" class="btn-cyan">Open Programs</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">Coach Mac Brief</div>
+          <div class="hub-copy">A question-led meeting guide: warm-up, vision, future trends, and a no-pressure hook.</div>
+          <a href="coach-mac-founder-brief.html" class="btn-cyan">Open Questions</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">Grants + Infrastructure</div>
+          <div class="hub-copy">Low-hanging opportunities around Google Ad Grants, platform credits, sponsor packaging, and readiness.</div>
+          <a href="infra-grants-brief.html" class="btn-cyan">Open Grants</a>
+        </div>
+        <div class="hub">
+          <div class="hub-title">AEO/GEO Observations</div>
+          <div class="hub-copy">Readable notes on discoverability, answer engines, entity confusion, and practical cleanup.</div>
+          <a href="tech-audit.html" class="btn-cyan">Open Observations</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" data-od-id="language-guardrails">
+      <h2>Language guardrails</h2>
+      <div class="principle-grid">
+        <article>
+          <b>Say “I noticed a few things.”</b>
+          <span>Not “audit,” not “retainer,” not “we found problems.”</span>
+        </article>
+        <article>
+          <b>Say “no ask attached.”</b>
+          <span>Let the relationship reveal whether there is a formal lane later.</span>
+        </article>
+        <article>
+          <b>Say “what would help?”</b>
+          <span>The useful product is listening well enough to leave with the real wishlist.</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2026 Do Greater Charlotte. Staff-facing briefing entrance.</div>
+    <div class="eco-links">
+      <a href="index.html">External briefing</a>
+      <a href="contact.html">Contact</a>
+      <a href="contact.html">Contact</a>
     </div>
   </footer>
 </body>
