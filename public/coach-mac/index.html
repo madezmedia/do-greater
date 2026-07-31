@@ -355,6 +355,14 @@
   @media (prefers-reduced-motion: reduce) {
     .slide { transition: opacity 0.2s linear, transform 0.2s linear; }
   }
+
+  @media print {
+    .topbar, .tabs, .pdf-link, .watch { display: none !important; }
+    body { background: #fff; }
+    main.read { max-width: 100%; padding: 0 0.3in; }
+    .stat-block, .quickstart { break-inside: avoid; }
+    .finding { break-inside: avoid; }
+  }
 </style>
 </head>
 <body>
@@ -372,29 +380,29 @@
 
 <main class="read" id="panel-read" role="tabpanel" aria-labelledby="tab-read">
   <span class="folder-tab">For Coach Mac</span>
-  <h1 class="title display">I love what you're building — and I think I can help.</h1>
+  <h1 class="title display">Really glad we got to talk.</h1>
   <p class="eyebrow dateline">Charlotte, NC · Sparkhouse Uptown · Fri, Jul 31</p>
   <p class="lede">
-    I run a small AI/systems shop here in Charlotte, and I didn't want to
-    just show up Friday and introduce myself empty-handed. A few things
-    below are just things I noticed and couldn't not mention — not a pitch,
-    not an audit, just what I'd want someone to tell me if it were mine.
-    <em>No ask attached — just notes.</em>
+    What you've built at Sparkhouse is the real thing — I could feel it
+    walking in. I run a small AI/systems shop here in Charlotte, and after
+    we talked I couldn't stop thinking about a few things I'd noticed
+    poking around beforehand. Figured I'd write them down in case they're
+    useful to you.
   </p>
 
   <div class="stat-block">
-    <p class="eyebrow">Designathon teaches kids to build with AI. Meanwhile —</p>
+    <p class="eyebrow">Speaking of things Code the City teaches kids to spot —</p>
     <p class="stat-number display">$120,000<span style="font-size:0.4em;">/yr</span></p>
     <p>
-      Google's Ad Grant gives registered 501(c)(3)s $10k a month in free
-      search ads. Do Greater qualifies and hasn't applied — the same tech
-      instinct that runs Code the City hasn't been turned on the
-      organization itself yet.
+      That's what Do Greater is leaving on the table with Google's Ad
+      Grant — free search ads for registered 501(c)(3)s. You already
+      qualify. Kind of funny that a program built to teach that exact
+      instinct hasn't turned it on itself yet.
     </p>
   </div>
 
   <div class="quickstart">
-    <p class="eyebrow">Already started for you</p>
+    <p class="eyebrow">If it's ever useful</p>
     <h3>The Ad Grant, in three real steps</h3>
     <ol>
       <li>Sign up for Google for Nonprofits, verify through TechSoup, then apply for the Ad Grant inside that portal.</li>
@@ -407,29 +415,29 @@
     <div class="finding">
       <span class="tag">Reach</span>
       <div>
-        <h3>The site works against the mission it's promoting</h3>
+        <h3>The site's slower than the mission deserves</h3>
         <p>dogreater.org runs on WordPress + Divi, shared Bluehost hosting — C- on load performance. Every extra second is a parent or a kid bouncing before they see Start Upward or Designathon registration.</p>
       </div>
     </div>
     <div class="finding">
       <span class="tag">Discovery</span>
       <div>
-        <h3>Harder to find on Google than it should be</h3>
-        <p>Search Console was never set up and the Google Business Profile is unclaimed. Someone searching "free entrepreneurship program for teens Charlotte" right now might not find Do Greater at all.</p>
+        <h3>Harder to find on Google than you should be</h3>
+        <p>Search Console was never set up and the Google Business Profile is unclaimed. Someone searching "free entrepreneurship program for teens Charlotte" right now might not find you at all.</p>
       </div>
     </div>
     <div class="finding">
       <span class="tag">Audience</span>
       <div>
-        <h3>The 16-24 crowd isn't on the channels you're posting to</h3>
-        <p>YouTube's sitting at ~4 subscribers. No TikTok — where that exact audience already lives. No LinkedIn, where the corporate-sponsor conversations happen.</p>
+        <h3>Your kids are on different apps than your posts are</h3>
+        <p>YouTube's sitting at ~4 subscribers. No TikTok — where that exact 16-24 crowd already lives. No LinkedIn, where the corporate-sponsor conversations happen.</p>
       </div>
     </div>
     <div class="finding">
       <span class="tag">Pipeline</span>
       <div>
-        <h3>Real foot traffic, no way to follow it</h3>
-        <p>20,000 square feet, Sparkhouse Coffee, the showroom floor — people move through that building every day. No signup funnel, no QR, no post-visit email turns a coffee customer into a Start Upward applicant, or a grad into a returning mentor.</p>
+        <h3>All that foot traffic, and no way to stay in touch</h3>
+        <p>20,000 square feet, Sparkhouse Coffee, the showroom floor — people move through that building every day. No signup funnel, no QR, no follow-up email turns a coffee customer into a Start Upward applicant, or a grad into a returning mentor.</p>
       </div>
     </div>
   </div>
@@ -437,10 +445,10 @@
   <div class="close">
     <p>
       None of this needs a grant or a new hire — some of it's a form and an
-      afternoon, some of it's a Tuesday with someone who's done it before.
-      I just didn't want you finding these gaps the hard way. I love what
-      you've built, and if there's ever a way I can actually help — not
-      bill, just help — I'd genuinely like to.
+      afternoon, some of it's a Tuesday with someone who's done this before.
+      Mostly I just wanted to write it down while it was fresh, in case any
+      of it's useful. I love what you're building, and if there's ever a
+      way I can actually help — not bill, just help — I'd genuinely like to.
     </p>
     <p class="sign">
       — Mikey
@@ -453,42 +461,42 @@
 <div class="watch" id="panel-watch" role="tabpanel" aria-labelledby="tab-watch">
   <div class="slide current" data-slide="0">
     <p class="eyebrow">For Coach Mac</p>
-    <p class="big display">I love what you're building — and I think I can help.</p>
-    <p class="caption">Charlotte, Fri Jul 31 — no pitch, just notes</p>
+    <p class="big display">Really glad we got to talk.</p>
+    <p class="caption">Charlotte, Fri Jul 31 — a few things I noticed, in case they help</p>
   </div>
   <div class="slide" data-slide="1">
-    <p class="eyebrow">Designathon teaches kids to build with AI. Meanwhile —</p>
+    <p class="eyebrow">Speaking of things Code the City teaches kids to spot —</p>
     <p class="big display accent-color">$120,000/yr</p>
-    <p class="caption">Google's Ad Grant — free search ads for 501(c)(3)s. Do Greater qualifies. That instinct hasn't been turned on the org itself yet.</p>
+    <p class="caption">Google's Ad Grant — free search ads for 501(c)(3)s. You already qualify. Kind of funny it hasn't been turned on Do Greater itself yet.</p>
   </div>
   <div class="slide" data-slide="2">
-    <p class="eyebrow">Already started for you</p>
+    <p class="eyebrow">If it's ever useful</p>
     <p class="big display">The Ad Grant, in three steps.</p>
     <p class="caption">Google for Nonprofits → TechSoup verify → apply. GA4 tracking first. Campaigns per program, not a broad "donate" ad.</p>
   </div>
   <div class="slide" data-slide="3">
     <p class="eyebrow">Reach</p>
-    <p class="big display">The site works against the mission.</p>
+    <p class="big display">The site's slower than the mission deserves.</p>
     <p class="caption">dogreater.org grades C- on performance. Every extra second is a parent bouncing before they see Start Upward.</p>
   </div>
   <div class="slide" data-slide="4">
     <p class="eyebrow">Discovery</p>
-    <p class="big display">Harder to find on Google than it should be.</p>
+    <p class="big display">Harder to find on Google than you should be.</p>
     <p class="caption">Search Console never set up. Business Profile unclaimed.</p>
   </div>
   <div class="slide" data-slide="5">
     <p class="eyebrow">Audience</p>
-    <p class="big display">The 16-24 crowd isn't where you're posting.</p>
+    <p class="big display">Your kids are on different apps than your posts are.</p>
     <p class="caption">~4 YouTube subscribers. No TikTok, where they already are. No LinkedIn, where the sponsors are.</p>
   </div>
   <div class="slide" data-slide="6">
     <p class="eyebrow">Pipeline</p>
-    <p class="big display">Real foot traffic, no way to follow it.</p>
+    <p class="big display">All that foot traffic, no way to stay in touch.</p>
     <p class="caption">20,000 sq ft, Sparkhouse Coffee, the showroom floor. No signup funnel turns a visitor into an applicant.</p>
   </div>
   <div class="slide" data-slide="7">
-    <p class="eyebrow">No pitch here</p>
-    <p class="big display">I love what you've built. Happy to help, no strings.</p>
+    <p class="eyebrow">Bottom line</p>
+    <p class="big display">I love what you're building. Happy to help, no strings.</p>
     <p class="caption">— Mikey, Madez Media</p>
   </div>
 
